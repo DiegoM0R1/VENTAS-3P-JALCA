@@ -2590,21 +2590,25 @@ handleOpenBulkUnit(product, smallUnit, qtyNeeded) {
     return false;
 }
     handleStock(product, unit, qty) {
-        // Check stock
-        const unitInfo = product.units[unit];
-// Verificamos si esta unidad tiene definida una unidad a granel para reponerse
-if (unitInfo.opensUnit && product.units[unitInfo.opensUnit.name]?.stock > 0) {
-    // Llamamos a la nueva función inteligente
-    return this.handleOpenBulkUnit(product, unit, qty);
-} else {
-    this.showToast(`Stock insuficiente! Solo hay ${product.units[unit]?.stock || 0} ${this.getUnitLabel(unit)}`, 'error');
-    return false;
-}
-        
-        // Update stock
-        product.units[unit].stock -= qty;
+    // Verificar stock
+    const unitInfo = product.units[unit];
+    
+    // Verificar si hay suficiente stock
+    if (unitInfo.stock >= qty) {
+        // Hay suficiente stock, actualizar y permitir la venta
+        unitInfo.stock -= qty;
         return true;
     }
+    
+    // Si no hay suficiente stock, verificar si se puede abrir un bulk unit
+    if (unitInfo.opensUnit && product.units[unit]?.stock < qty) {
+        return this.handleOpenBulkUnit(product, unit, qty);
+    }
+
+    // No hay stock suficiente y no se puede abrir más unidades
+    this.showToast(`Stock insuficiente! Solo hay ${unitInfo.stock} ${this.getUnitLabel(unit)}`, 'error');
+    return false;
+}
 
     handleOpenBulkUnit(product, smallUnit, qtyNeeded) {
     const bulkInfo = product.units[smallUnit].opensUnit;
