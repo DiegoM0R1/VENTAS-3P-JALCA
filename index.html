@@ -2589,27 +2589,25 @@ handleOpenBulkUnit(product, smallUnit, qtyNeeded) {
     }
     return false;
 }
-    handleStock(product, unit, qty) {
-    // Verificar stock
-    const unitInfo = product.units[unit];
-    
-    // Verificar si hay suficiente stock
-    if (unitInfo.stock >= qty) {
-        // Hay suficiente stock, actualizar y permitir la venta
-        unitInfo.stock -= qty;
-        return true;
-    }
-    
-    // Si no hay suficiente stock, verificar si se puede abrir un bulk unit
-    if (unitInfo.opensUnit && product.units[unit]?.stock < qty) {
-        return this.handleOpenBulkUnit(product, unit, qty);
+ handleStock(product, unit, qty) {
+    // Caso 1: Hay stock suficiente.
+    if (product.units[unit] && product.units[unit].stock >= qty) {
+        product.units[unit].stock -= qty;
+        return true; // La venta puede continuar inmediatamente.
     }
 
-    // No hay stock suficiente y no se puede abrir más unidades
-    this.showToast(`Stock insuficiente! Solo hay ${unitInfo.stock} ${this.getUnitLabel(unit)}`, 'error');
+    // Caso 2: No hay stock, pero se puede abrir una unidad a granel.
+    const unitInfo = product.units[unit];
+    if (unitInfo.opensUnit && this.products[unitInfo.opensUnit.productId]?.units[unitInfo.opensUnit.unitName]?.stock > 0) {
+        // En lugar de un confirm(), llamamos a la función que crea nuestro modal.
+        this.showOpenSackModal(product, unit, qty);
+        return false; // Pausamos la venta hasta que el usuario responda en el modal.
+    }
+
+    // Caso 3: No hay stock y no se puede hacer nada.
+    this.showToast(`Stock insuficiente! Solo hay ${product.units[unit]?.stock || 0} ${this.getUnitLabel(unit)}`, 'error');
     return false;
 }
-
     handleOpenBulkUnit(product, smallUnit, qtyNeeded) {
     const bulkInfo = product.units[smallUnit].opensUnit;
     const bulkUnitName = bulkInfo.name;
@@ -4777,7 +4775,74 @@ generateMovementSummary(period) {
         };
         return labels[unit] || unit;
     }
+showOpenSackModal(product, unit, qty) {
+    // Guardamos temporalmente los datos de la venta que está en pausa.
+    this.pausedSale = { product, unit, qty };
 
+    const bulkInfo = product.units[unit].opensUnit;
+    const bulkProduct = this.products[bulkInfo.productId];
+
+    // Crear el HTML del modal dinámicamente
+    const modal = document.createElement('div');
+    modal.id = 'openSackModal';
+    modal.className = 'modal active';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header" style="color: var(--warning);">⚠️ Stock Insuficiente</div>
+            <div style="padding: 15px 0; font-size: 1rem; line-height: 1.5;">
+                <p>No tienes suficientes <strong>${this.getUnitLabel(unit)}</strong> para esta venta (${qty} ${unit}).</p>
+                <p style="margin-top: 10px;">
+                    ¿Deseas abrir <strong>1 ${this.getUnitLabel(bulkInfo.unitName)}</strong> de 
+                    <strong>${bulkProduct.name}</strong> para añadir 
+                    <strong>${bulkInfo.quantity} ${this.getUnitLabel(unit)}</strong> al stock?
+                </p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-danger" onclick="app.cancelOpenSack()">No, Cancelar Venta</button>
+                <button type="button" class="btn btn-success" onclick="app.confirmOpenSack()">Sí, Abrir y Vender</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+/**
+ * Se ejecuta si el usuario confirma que quiere abrir el saco.
+ */
+confirmOpenSack() {
+    const { product, unit, qty } = this.pausedSale;
+
+    const bulkInfo = product.units[unit].opensUnit;
+    const bulkProduct = this.products[bulkInfo.productId];
+
+    // 1. Abrimos el saco: Restamos 1 del stock del saco y sumamos la conversión al stock suelto.
+    bulkProduct.units[bulkInfo.unitName].stock -= 1;
+    product.units[unit].stock += bulkInfo.quantity;
+    this.showToast(`Se abrió 1 ${bulkInfo.unitName}. Nuevo stock: ${product.units[unit].stock} ${unit}`, 'success');
+
+    // 2. Ahora que hay stock, descontamos la cantidad de la venta actual.
+    product.units[unit].stock -= qty;
+
+    // 3. Reanudamos la venta: Buscamos los datos del formulario y registramos la venta.
+    const price = parseFloat(document.getElementById('salePrice').value);
+    const total = qty * price;
+    const customer = document.getElementById('saleCustomer').value || 'Cliente General';
+    
+    this.registerSale(product.id, product, qty, unit, price, total, customer);
+    
+    // 4. Limpiamos y cerramos.
+    this.pausedSale = null;
+    document.getElementById('openSackModal')?.remove();
+}
+
+/**
+ * Se ejecuta si el usuario cancela la operación.
+ */
+cancelOpenSack() {
+    this.pausedSale = null; // Limpiamos la venta pausada.
+    document.getElementById('openSackModal')?.remove(); // Eliminamos el modal.
+    this.showToast('Venta cancelada por falta de stock', 'info');
+}
     closeModal() {
         document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
         document.getElementById('productForm').reset();
