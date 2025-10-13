@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#ca0f0f">
+    <meta name="theme-color" content="#2E7D32">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link rel="manifest" href="manifest.json">
+    <!-- Agregar antes del script principal, después de Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Después de los otros meta tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
     <title>TRES PECES - Gestión Móvil</title>
     
     <style>
@@ -211,55 +215,54 @@
             width: auto;
         }
 
-        /* Quick Actions Grid */
-        .quick-actions {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
+        /* Actualizar los estilos existentes */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
 
-        .quick-action {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
+.quick-action {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
 
-        .quick-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+.quick-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-        .quick-action .product-name {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
+.quick-action .product-name {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
 
-        .quick-action .product-code {
-            font-size: 0.8rem;
-            color: #666;
-        }
+.quick-action .product-code {
+    font-size: 0.8rem;
+    color: #666;
+}
 
-        .quick-action .product-price {
-            font-weight: 600;
-            color: var(--secondary);
-            margin-top: 5px;
-        }
+.quick-action .product-price {
+    font-weight: 600;
+    color: var(--secondary);
+    margin-top: 5px;
+}
 
-        .quick-action .product-stock {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
+.quick-action .product-stock {
+    font-size: 0.85rem;
+    color: #666;
+}
         .quick-action:active {
             background: var(--primary);
             color: white;
@@ -454,129 +457,331 @@
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
-        
+
+        #saleProduct {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
         select {
             appearance: auto;
             -webkit-appearance: menulist;
             -moz-appearance: menulist;
         }
-        
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            align-items: center;
-        }
+        /* Agregar dentro del bloque <style> existente */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+}
 
-        .pagination button {
-            padding: 8px 16px;
-            border: 1px solid var(--border);
-            background: white;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+.pagination button {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
-        .pagination button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
-        .pagination-info {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* Quick Search */
-        #quickSearchProduct {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
+.pagination-info {
+    font-size: 0.9rem;
+    color: #666;
+}
+/* Agregar dentro del bloque <style> existente */
+#quickSearchProduct {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
 
-        #quickSearchProduct:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+#quickSearchProduct:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-        #quickSearchProduct::placeholder {
-            color: #999;
-        }
+#quickSearchProduct::placeholder {
+    color: #999;
+}
 
-        .quick-actions p {
-            padding: 10px;
-            margin: 0;
-            background: #f5f5f5;
-            border-radius: 8px;
-        }
-        
-        /* Payment Method Selector */
-        .payment-method-selector {
-            display: flex;
-            gap: 10px;
-            margin-top: 5px;
-        }
-        .payment-method-selector label {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 10px 15px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            cursor: pointer;
-            flex: 1;
-            justify-content: center;
-        }
-        .payment-method-selector input[type="radio"] {
-            display: none; /* Hide original radio button */
-        }
-        .payment-method-selector input[type="radio"]:checked + label {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            font-weight: 600;
-        }
-        
-        /* Sale Actions Buttons */
-        .sale-actions {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-left: 10px;
-        }
+.quick-actions p {
+    padding: 10px;
+    margin: 0;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
 
-        .btn-icon {
-            background: #f0f0f0;
-            color: #555;
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 0.9rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.movement-entry {
+    border-left-color: var(--secondary) !important;
+}
 
-        .btn-icon:hover {
-            background: #e0e0e0;
-        }
+.movement-exit {
+    border-left-color: var(--warning) !important;
+}
 
-        .btn-icon-danger {
-            background: #FFEBEE;
-            color: var(--danger);
-        }
-        .btn-icon-danger:hover {
-            background: #ffcdd2;
-        }
+.movement-item {
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--info);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
 
+.movement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.movement-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.movement-quantity {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.movement-quantity.positive {
+    color: var(--secondary);
+}
+
+.movement-quantity.negative {
+    color: var(--warning);
+}
+
+/* Indicador de stock en movimientos */
+.stock-indicator {
+    font-size: 0.8rem;
+    color: #888;
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Estilos mejorados para pestañas */
+.inventory-tabs {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.inventory-tab {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background: #f5f5f5;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #666;
+}
+
+.inventory-tab.active {
+    background: var(--primary);
+    color: white;
+}
+
+.inventory-tab:hover:not(.active) {
+    background: #e0e0e0;
+}
+
+/* Estilos para formulario de movimientos */
+.movement-form-group {
+    position: relative;
+}
+
+.movement-form-group label {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.movement-reason-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.reason-venta {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.reason-compra {
+    background: #e8f5e9;
+    color: #388e3c;
+}
+
+.reason-merma {
+    background: #ffebee;
+    color: #d32f2f;
+}
+
+.reason-ajuste {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+/* Animaciones para los movimientos */
+@keyframes slideInMovement {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.movement-item {
+    animation: slideInMovement 0.3s ease;
+}
+
+/* Resumen de movimientos */
+.movements-summary {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.summary-item {
+    text-align: center;
+}
+
+.summary-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.summary-label {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Estados de stock en movimientos */
+.stock-change {
+    font-family: monospace;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: #f8f9fa;
+}
+
+.stock-increase {
+    color: var(--secondary);
+}
+
+.stock-decrease {
+    color: var(--warning);
+}
+
+/* Responsive para movimientos */
+@media (max-width: 768px) {
+    .movement-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .movements-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .inventory-tab {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+.sale-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.btn-icon {
+    background: #f0f0f0;
+    color: #555;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon:hover {
+    background: #e0e0e0;
+}
+
+.btn-icon-danger {
+    background: #FFEBEE;
+    color: var(--danger);
+}
+.btn-icon-danger:hover {
+    background: #ffcdd2;
+}
+
+/* Agrega esto al final de tu CSS */
+.payment-method-selector {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+.payment-method-selector label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1;
+    justify-content: center;
+}
+.payment-method-selector input[type="radio"] {
+    display: none; /* Ocultamos el radio button original */
+}
+.payment-method-selector input[type="radio"]:checked + label {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    font-weight: 600;
+}
     </style>
 </head>
 <body>
@@ -591,97 +796,110 @@
         </div>
 
         <div class="content">
+            <!-- Sales View -->
             <div id="salesView" class="view active">
-                
+                 
                 <div class="card">
-                    <div class="card-header">
-                        <span>Nueva Venta</span>
-                        <button type="button" class="btn btn-small btn-info" onclick="app.clearSaleForm()">Limpiar</button>
-                    </div>
-                    
-                    <form id="saleForm" onsubmit="app.processSale(event)">
-                        
-                        <div class="form-group">
-                            <label>Método de Pago</label>
-                            <div class="payment-method-selector">
-                                <input type="radio" id="payEfectivo" name="paymentMethod" value="Efectivo" checked>
-                                <label for="payEfectivo">💵 Efectivo </label>
-                                
-                                <input type="radio" id="payYape" name="paymentMethod" value="Yape">
-                                <label for="payYape"><i class="fas fa-mobile-alt"></i>Yape</label>
-                            </div>
-                        </div>
+    <div class="card-header">
+        <span>Nueva Venta</span>
+        <button type="button" class="btn btn-small btn-info" onclick="app.clearSaleForm()">Limpiar</button>
+    </div>
 
-                        <div class="form-group">
-                            <label for="saleCustomer">Cliente (Opcional)</label>
-                            <input type="text" id="saleCustomer" placeholder="Nombre del cliente">
-                        </div>
+    <form id="saleForm" onsubmit="app.processSale(event)">
 
-                        <div class="form-group" style="margin-bottom: 15px;">
-                            <input type="text" id="quickSearchProduct" placeholder="🔍 Buscar producto por nombre o código..." class="form-control" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border);">
-                        </div>
+        <div class="form-group">
+            <label for="saleCustomer">Cliente (Opcional)</label>
+            <input type="text" id="saleCustomer" placeholder="Nombre del cliente">
+        </div>
+        <div class="form-group">
+            <label>Método de Pago</label>
+            <div class="payment-method-selector">
+                <input type="radio" id="payEfectivo" name="paymentMethod" value="Efectivo" checked>
+                <label for="payEfectivo">💵 Efectivo</label>
+                
+                <input type="radio" id="payYape" name="paymentMethod" value="Yape">
+                <label for="payYape"><i class="fas fa-mobile-alt"></i> Yape</label>
+            </div>
+        </div>
 
-                        <div id="allProductsContainer" class="quick-actions" style="max-height: 300px; overflow-y: auto;">
-                            </div>
+        <div class="form-group">
+            <label for="quickSearchProduct">Buscar Producto</label>
+            <input type="text" id="quickSearchProduct" placeholder="🔍 Buscar por nombre o código..." class="form-control">
+        </div>
 
-                        <input type="hidden" id="selectedProductId" required>
-                        <div id="selectedProductInfo" style="display: none; background: #e8f5e9; padding: 10px; border-radius: 8px; margin: 10px 0;">
-                            <strong>Producto seleccionado:</strong> <span id="selectedProductName"></span>
-                        </div>
-                        
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="saleQty">Cantidad</label>
-                                <input type="number" id="saleQty" step="0.01" required oninput="app.calcTotal()">
-                            </div>
-                            <div class="form-group">
-                                <label for="saleUnit">Unidad</label>
-                                <select id="saleUnit" onchange="app.updatePrice()">
-                                    <option value="">Seleccionar unidad...</option>
-                                </select>
-                            </div>
-                        </div>
+        <div id="allProductsContainer" class="quick-actions" style="max-height: 300px; overflow-y: auto;">
+            </div>
 
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="salePrice">Precio</label>
-                                <input type="number" id="salePrice" step="0.01" required oninput="app.calcTotal()">
-                            </div>
-                            <div class="form-group">
-                                <label for="saleTotal">Total</label>
-                                <input type="number" id="saleTotal" step="0.01" oninput="app.calcQtyFromTotal()" style="font-weight: bold; color: var(--secondary);">
-                            </div>
-                        </div>
+        <input type="hidden" id="selectedProductId" required>
+        <div id="selectedProductInfo" style="display: none; background: #e8f5e9; padding: 10px; border-radius: 8px; margin: 10px 0;">
+            <strong>Producto seleccionado:</strong> <span id="selectedProductName"></span>
+        </div>
 
-                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
-                            <i class="fas fa-cash-register"></i> Registrar Venta
-                        </button>
-                    </form>
-                    </div>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="saleQty">Cantidad</label>
+                <input type="number" id="saleQty" step="0.01" required oninput="app.calcTotal()">
+            </div>
+            <div class="form-group">
+                <label for="saleUnit">Unidad</label>
+                <select id="saleUnit" onchange="app.updatePrice()">
+                    <option value="">Seleccionar unidad...</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="salePrice">Precio</label>
+                <input type="number" id="salePrice" step="0.01" required oninput="app.calcTotal()">
+            </div>
+            <div class="form-group">
+                <label for="saleTotal">Total</label>
+                <input type="number" id="saleTotal" step="0.01" oninput="app.calcQtyFromTotal()" style="font-weight: bold; color: var(--secondary);">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+            <i class="fas fa-cash-register"></i> Registrar Venta
+        </button>
+
+    </form>
+</div>
 
                 <div class="card">
                     <div class="card-header">
                         <span>Ventas de Hoy</span>
-                        <button type="button" class="btn btn-small btn-success" onclick="app.exportSales()">📥 CSV</button>
+                        <button class="btn btn-small btn-success" onclick="app.exportSales()">📥 CSV</button>
                     </div>
                     <div id="salesList"></div>
                 </div>
             </div>
 
+            <!-- Inventory View -->
             <div id="inventoryView" class="view">
                 <div class="card">
                     <div class="card-header">
                         <span>Inventario</span>
                         <div style="display: flex; gap: 10px; align-items: center;">
-                            <input type="text" id="searchInventory" placeholder="🔍 Buscar producto..." style="padding: 8px; border-radius: 20px; border: 1px solid var(--border); width: 200px;">
-                            <button type="button" class="btn btn-small btn-primary" onclick="app.showAddProduct()">➕ Producto</button>
-                        </div>
+    <input type="text" 
+           id="searchInventory" 
+           placeholder="🔍 Buscar producto..." 
+           style="padding: 8px; border-radius: 20px; border: 1px solid var(--border); width: 200px;">
+    
+    <!-- BOTONES NUEVOS -->
+    
+    <button class="btn btn-small btn-primary" onclick="app.showAddProduct()">
+        ➕ Producto
+    </button>
+</div>
+                     
                     </div>
                     <div id="alertsContainer"></div>
                     <div id="productsList"></div>
                 </div>
             </div>
 
+            <!-- Finance View -->
             <div id="financeView" class="view">
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -700,23 +918,27 @@
                         <div class="stat-label">Neto</div>
                         <div class="stat-value">S/<span id="netProfit">0</span></div>
                     </div>
+                    <div class="card">
+    <div class="card-header">Resumen por Método de Pago (Hoy)</div>
+    <div id="payment-summary">
+        </div>
+</div>
                 </div>
-                <div class="card">
-                    <div class="card-header">Resumen por Método de Pago (Hoy)</div>
-                    <div id="payment-summary"></div>
-                </div>
+
                 <div class="card">
                     <div class="card-header">Registrar Gasto</div>
                     <form id="expenseForm" onsubmit="app.addExpense(event)">
                         <div class="form-group">
                             <label for="expenseDesc">Descripción</label>
-                            <input type="text" id="expenseDesc" required placeholder="Descripción del gasto...">
+                            <input type="text" id="expenseDesc" required placeholder="Descripción del gasto, motivo del gasto realizado">
                         </div>
                         <div class="form-group">
                             <label for="expenseAmount">Monto S/</label>
-                            <input type="number" id="expenseAmount" step="0.01" required placeholder="0.00">
+                            <input type="number" id="expenseAmount" step="0.01" required placeholder="0.00, coloque la cantidad gastada">
                         </div>
-                        <button type="submit" class="btn btn-danger">💸 Registrar Gasto</button>
+                        <button type="submit" class="btn btn-danger">
+                            💸 Registrar Gasto
+                        </button>
                     </form>
                 </div>
 
@@ -726,19 +948,185 @@
                 </div>
             </div>
 
-            <div id="reportsView" class="view">
-                <div class="card">
-                    <div class="card-header"><span>📊 Centro de Reportes</span></div>
-                    <div style="margin-top:15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <button type="button" class="btn btn-info" onclick="app.quickShareReport('whatsapp')">
-                            <i class="fab fa-whatsapp"></i> Compartir Resumen
-                        </button>
-                        <button type="button" class="btn btn-success" onclick="app.quickWhatsAppReport('inventory')">
-                            <i class="fas fa-boxes"></i> Enviar Inventario
-                        </button>
+           
+           <!-- Reports View -->
+<div id="reportsView" class="view">
+    <div class="card">
+        <div class="card-header">
+            <span>📊 Centro de Reportes</span>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Ventas del Mes</div>
+                <div class="stat-value" id="monthSalesTotal">S/ 0</div>
+                <div class="stat-label" style="margin-top: 5px;">
+                    <span id="monthSalesCount">0</span> transacciones
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Ganancia del Mes</div>
+                <div class="stat-value" style="color: var(--secondary);" id="monthProfit">S/ 0</div>
+                <div class="stat-label" style="margin-top: 5px;">
+                    Margen: <span id="profitMargin">0%</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Productos Activos</div>
+                <div class="stat-value" id="totalProducts">0</div>
+                <div class="stat-label" style="margin-top: 5px;">
+                    Alertas: <span id="lowStockCount">0</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Cliente Frecuente</div>
+                <div class="stat-value" style="font-size: 1rem;" id="topCustomer">-</div>
+                <div class="stat-label" style="margin-top: 5px;">
+                    <span id="topCustomerSales">0</span> compras
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 20px 0;">
+            <h4 style="color: var(--primary); margin-bottom: 15px;">📈 Top 5 Productos Más Vendidos</h4>
+            <div id="topProducts"></div>
+        </div>
+
+        <div style="margin: 20px 0;">
+            <h4 style="color: var(--primary); margin-bottom: 15px;">📉 Productos con Stock Bajo</h4>
+            <div id="lowStockProducts"></div>
+        </div>
+
+        <div class="card" style="background: #f0f0f0; border: 2px dashed var(--primary);">
+            <div class="card-header">
+                <span>📥 Generar Reportes</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+    <button class="btn btn-info" onclick="app.quickShareReport('whatsapp')" type="button">
+        <i class="fas fa-share"></i> Compartir WhatsApp
+    </button>
+    <button class="btn btn-warning" onclick="app.quickShareReport('email')" type="button">
+        <i class="fas fa-envelope"></i> Enviar por Email
+    </button>
+</div>
+            <div class="form-group">
+                <label for="reportType">Tipo de Reporte</label>
+                <select id="reportType" onchange="app.updateReportOptions()">
+                    <option value="daily">Reporte Diario</option>
+                    <option value="weekly">Reporte Semanal</option>
+                    <option value="monthly">Reporte Mensual</option>
+                    <option value="custom">Rango Personalizado</option>
+                    <option value="inventory">Inventario Actual</option>
+                    <option value="complete">Reporte Completo</option>
+                </select>
+            </div>
+
+            <div id="dateRangeContainer" style="display: none;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="startDate">Fecha Inicio</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">Fecha Fin</label>
+                        <input type="date" id="endDate">
                     </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="reportFormat">Formato de Descarga</label>
+                <select id="reportFormat">
+                    <option value="csv">CSV (Excel)</option>
+                    <option value="pdf">PDF</option>
+                    <option value="json">JSON</option>
+                </select>
+            </div>
+
+            <button class="btn btn-success" onclick="app.generateReport()">
+                <i class="fas fa-download"></i> Generar y Descargar Reporte
+            </button>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #e0e0e0;">
+    <h5 style="color: var(--primary); margin-bottom: 10px;">📲 Envío Rápido por WhatsApp</h5>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <button class="btn btn-success" onclick="app.quickWhatsAppReport('today')" type="button">
+            <i class="fas fa-paper-plane"></i> Reporte de Hoy
+        </button>
+        <button class="btn btn-success" onclick="app.quickWhatsAppReport('week')" type="button">
+            <i class="fas fa-calendar-week"></i> Reporte Semanal
+        </button>
+        <button class="btn btn-success" onclick="app.quickWhatsAppReport('month')" type="button">
+            <i class="fas fa-calendar"></i> Reporte Mensual
+        </button>
+        <button class="btn btn-success" onclick="app.quickWhatsAppReport('inventory')" type="button">
+            <i class="fas fa-boxes"></i> Inventario Actual
+        </button>
+    </div>
+</div>
+        </div>
+
+
+<div class="card" style="background: #e8f5e9; border: 2px solid var(--secondary);">
+    <div class="card-header">
+        <span>📊 Reportes de Movimientos de Inventario</span>
+    </div>
+    <div style="margin: 15px 0;">
+        <p style="margin-bottom: 15px; color: #666;">
+            Genera reportes detallados de entradas y salidas de inventario
+        </p>
+        
+        <div class="form-group">
+            <label for="movementReportPeriod">Periodo</label>
+            <select id="movementReportPeriod">
+                <option value="today">Hoy</option>
+                <option value="week">Esta Semana</option>
+                <option value="month" selected>Este Mes</option>
+                <option value="custom">Personalizado</option>
+            </select>
+        </div>
+
+        <div id="movementDateRange" style="display: none;">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="movStartDate">Fecha Inicio</label>
+                    <input type="date" id="movStartDate">
+                </div>
+                <div class="form-group">
+                    <label for="movEndDate">Fecha Fin</label>
+                    <input type="date" id="movEndDate">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="movementReportFormat">Formato</label>
+            <select id="movementReportFormat">
+                <option value="csv">CSV (Excel)</option>
+                <option value="json">JSON</option>
+            </select>
+        </div>
+
+        <button class="btn btn-info" onclick="app.generateInventoryMovementsReport(document.getElementById('movementReportFormat').value, document.getElementById('movementReportPeriod').value)">
+            <i class="fas fa-download"></i> Generar Reporte de Movimientos
+        </button>
+        
+        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+            <h5 style="color: var(--secondary); margin-bottom: 10px;">📱 Envío Rápido</h5>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <button class="btn btn-success" onclick="app.quickMovementReport('today')" type="button">
+                    📊 Movimientos Hoy
+                </button>
+                <button class="btn btn-success" onclick="app.quickMovementReport('month')" type="button">
+                    📅 Movimientos del Mes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</div>
         </div>
 
         <nav class="bottom-nav">
@@ -761,123 +1149,258 @@
         </nav>
     </div>
 
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">➕ Nuevo Producto</div>
-            <form id="productForm" onsubmit="app.saveProduct(event)">
+    <!-- Product Modal -->
+   <div id="productModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">➕ Nuevo Producto</div>
+        <form id="productForm" onsubmit="app.saveProduct(event)">
+            <div class.form-group">
+                <label for="pName">Nombre del Producto (ej. Maíz por Kilo) *</label>
+                <input type="text" id="pName" required>
+            </div>
+            <div class="form-grid">
                 <div class="form-group">
-                    <label for="pName">Nombre del Producto (ej. Maíz por Kilo) *</label>
-                    <input type="text" id="pName" required>
+                    <label for="pCode">Código *</label>
+                    <input type="text" id="pCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="pCategory">Categoría</label>
+                    <input type="text" id="pCategory" value="General">
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="pPrice">Precio de Venta (por Kg/Unidad)</label>
+                    <input type="number" id="pPrice" step="0.01" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="pStock">Stock Inicial (Suelto)</label>
+                    <input type="number" id="pStock" step="0.01" value="0">
+                </div>
+            </div>
+
+            <hr style="margin: 20px 0; border-top: 1px solid #eee;">
+
+            <div class="form-group" style="background: #f0f0f0; padding: 15px; border-radius: 8px;">
+                <label style="font-weight: 600; margin-bottom: 10px;">Para reponer el stock de este producto:</label>
+                <div>
+                    <input type="radio" id="bulkActionNone" name="bulkAction" value="none" checked onchange="app.toggleBulkPanels()">
+                    <label for="bulkActionNone">No hacer nada (es un producto simple)</label>
+                </div>
+                <div style="margin-top: 5px;">
+                    <input type="radio" id="bulkActionCreate" name="bulkAction" value="create" onchange="app.toggleBulkPanels()">
+                    <label for="bulkActionCreate">➡️ **Crear** una nueva unidad a granel (ej. Saco)</label>
+                </div>
+                <div style="margin-top: 5px;">
+                    <input type="radio" id="bulkActionLink" name="bulkAction" value="link" onchange="app.toggleBulkPanels()">
+                    <label for="bulkActionLink">🔗 **Vincular** a un producto a granel ya existente</label>
+                </div>
+            </div>
+
+            <div id="bulkCreateFields" style="display: none; border-left: 3px solid var(--primary); padding-left: 15px; margin-top: 15px;">
+                 <p style="font-weight: 600; color: var(--primary); margin-bottom: 10px;">Detalles del Nuevo Saco/Caja a Crear</p>
+                 <div class="form-group">
+                    <label for="pBulkNewName">Nombre del Saco (ej. Saco de Maíz 40KG)</label>
+                    <input type="text" id="pBulkNewName" placeholder="Saco de Maíz Chancado Mediano 45KG">
                 </div>
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="pCode">Código *</label>
-                        <input type="text" id="pCode" required>
+                         <label for="pBulkUnitConversionCreate">¿Cuántos KG contiene?</label>
+                         <input type="number" id="pBulkUnitConversionCreate" step="0.01" placeholder="40">
                     </div>
                     <div class="form-group">
-                        <label for="pCategory">Categoría</label>
-                        <input type="text" id="pCategory" value="General">
+                        <label for="pBulkPrice">Precio de Venta (Saco)</label>
+                        <input type="number" id="pBulkPrice" step="0.01" placeholder="95.00">
                     </div>
                 </div>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="pPrice">Precio de Venta (por Kg/Unidad)</label>
-                        <input type="number" id="pPrice" step="0.01" value="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="pStock">Stock Inicial (Suelto)</label>
-                        <input type="number" id="pStock" step="0.01" value="0">
-                    </div>
+                <div class="form-group">
+                    <label for="pBulkStock">Stock Inicial (en Sacos)</label>
+                    <input type="number" id="pBulkStock" step="1" placeholder="10">
                 </div>
+            </div>
 
-                <hr style="margin: 20px 0; border-top: 1px solid #eee;">
-
-                <div class="form-group" style="background: #f0f0f0; padding: 15px; border-radius: 8px;">
-                    <label style="font-weight: 600; margin-bottom: 10px;">Para reponer el stock de este producto:</label>
-                    <div>
-                        <input type="radio" id="bulkActionNone" name="bulkAction" value="none" checked onchange="app.toggleBulkPanels()">
-                        <label for="bulkActionNone">No hacer nada (es un producto simple)</label>
-                    </div>
-                    <div style="margin-top: 5px;">
-                        <input type="radio" id="bulkActionCreate" name="bulkAction" value="create" onchange="app.toggleBulkPanels()">
-                        <label for="bulkActionCreate">➡️ **Crear** una nueva unidad a granel (ej. Saco)</label>
-                    </div>
-                    <div style="margin-top: 5px;">
-                        <input type="radio" id="bulkActionLink" name="bulkAction" value="link" onchange="app.toggleBulkPanels()">
-                        <label for="bulkActionLink">🔗 **Vincular** a un producto a granel ya existente</label>
-                    </div>
+            <div id="bulkLinkFields" style="display: none; border-left: 3px solid var(--secondary); padding-left: 15px; margin-top: 15px;">
+                <p style="font-weight: 600; color: var(--secondary); margin-bottom: 10px;">Buscar el Producto a Granel Existente</p>
+                <div class="form-group">
+                    <label for="bulkProductSearch">🔍 Buscar Saco, Caja, etc.</label>
+                    <input type="text" id="bulkProductSearch" onkeyup="app.filterBulkProducts(this.value)" placeholder="Escribe el nombre del saco...">
                 </div>
-
-                <div id="bulkCreateFields" style="display: none; border-left: 3px solid var(--primary); padding-left: 15px; margin-top: 15px;">
-                    <p style="font-weight: 600; color: var(--primary); margin-bottom: 10px;">Detalles del Nuevo Saco/Caja a Crear</p>
-                    <div class="form-group">
-                        <label for="pBulkNewName">Nombre del Saco (ej. Saco de Maíz 40KG)</label>
-                        <input type="text" id="pBulkNewName" placeholder="Saco de Maíz Chancado Mediano 45KG">
-                    </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="pBulkUnitConversionCreate">¿Cuántos KG contiene?</label>
-                            <input type="number" id="pBulkUnitConversionCreate" step="0.01" placeholder="40">
-                        </div>
-                        <div class="form-group">
-                            <label for="pBulkPrice">Precio de Venta (Saco)</label>
-                            <input type="number" id="pBulkPrice" step="0.01" placeholder="95.00">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pBulkStock">Stock Inicial (en Sacos)</label>
-                        <input type="number" id="pBulkStock" step="1" placeholder="10">
-                    </div>
+                <div class="form-group">
+                    <label for="linkedBulkProductId">Seleccionar Producto Vinculado</label>
+                    <select id="linkedBulkProductId">
+                        <option value="">-- Ninguno --</option>
+                    </select>
                 </div>
-
-                <div id="bulkLinkFields" style="display: none; border-left: 3px solid var(--secondary); padding-left: 15px; margin-top: 15px;">
-                    <p style="font-weight: 600; color: var(--secondary); margin-bottom: 10px;">Buscar el Producto a Granel Existente</p>
-                    <div class="form-group">
-                        <label for="bulkProductSearch">🔍 Buscar Saco, Caja, etc.</label>
-                        <input type="text" id="bulkProductSearch" onkeyup="app.filterBulkProducts(this.value)" placeholder="Escribe el nombre del saco...">
-                    </div>
-                    <div class="form-group">
-                        <label for="linkedBulkProductId">Seleccionar Producto Vinculado</label>
-                        <select id="linkedBulkProductId">
-                            <option value="">-- Ninguno --</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="pBulkUnitConversionLink">¿Cuántos KG salen de este saco?</label>
-                        <input type="number" id="pBulkUnitConversionLink" step="0.01" placeholder="40">
-                    </div>
+                <div class="form-group">
+                    <label for="pBulkUnitConversionLink">¿Cuántos KG salen de este saco?</label>
+                    <input type="number" id="pBulkUnitConversionLink" step="0.01" placeholder="40">
                 </div>
+            </div>
 
+            <div class="modal-actions">
+                <button type="button" class="btn btn-danger" onclick="app.closeModal()">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar Producto</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!-- Stock Modal -->
+    <div id="stockModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">📦 Actualizar Stock</div>
+            <form id="stockForm" onsubmit="app.updateStock(event)">
+                <input type="hidden" id="stockProductId">
+                <div id="stockUnitsContainer">
+                    <!-- Se genera dinámicamente según las unidades del producto -->
+                </div>
                 <div class="modal-actions">
                     <button type="button" class="btn btn-danger" onclick="app.closeModal()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
                 </div>
             </form>
         </div>
     </div>
-    
+
     <div class="toast" id="toast"></div>
 
     <script>
-    class TresPecesApp {
+       class TresPecesApp {
     constructor() {
-        this.pausedSale = null; // Para manejar ventas que requieren abrir sacos
-        this.editingSale = null; // Para manejar la edición de ventas
+        this.workingDirectory = null; // Directorio que funciona en el dispositivo
         this.initData();
         this.initUI();
         this.initEventListeners();
+        this.initializeStorage(); // Inicializar almacenamiento para móvil
+        
+        // Añadir acceso a debug en móvil después de que se cargue la UI
+        setTimeout(() => {
+            this.initDebugAccess();
+        }, 1000);
+    }
+
+    async initializeStorage() {
+        // Verificar si estamos en un entorno móvil
+        if (this.isMobile()) {
+            try {
+                console.log('Inicializando almacenamiento móvil...');
+                await this.requestPermissions();
+                await this.createAppDirectories();
+                console.log('Almacenamiento inicializado correctamente');
+            } catch (error) {
+                console.error('Error inicializando almacenamiento:', error);
+                this.showToast('⚠️ Problema con almacenamiento', 'warning');
+            }
+        } else {
+            console.log('Ejecutándose en navegador web');
+        }
+    }
+
+    closeDebugMenu() {
+        if (this.debugModal) {
+            this.debugModal.remove();
+            this.debugModal = null;
+        }
+    }
+
+    async checkPermissions() {
+        console.log('🔍 Verificando permisos...');
+        
+        if (!window.Capacitor || !window.Capacitor.Plugins) {
+            this.showToast('⚠️ Solo para dispositivos móviles', 'warning');
+            return false;
+        }
+
+        try {
+            this.showToast('🔍 Verificando permisos...', 'info');
+            
+            const hasPermissions = await this.requestPermissions();
+            
+            if (hasPermissions) {
+                this.showToast('✅ Permisos OK', 'success');
+                console.log('✅ Permisos de almacenamiento otorgados');
+            } else {
+                this.showToast('❌ Faltan permisos de almacenamiento', 'error');
+                console.log('❌ Permisos de almacenamiento denegados');
+            }
+            
+            return hasPermissions;
+            
+        } catch (error) {
+            console.error('Error verificando permisos:', error);
+            this.showToast('❌ Error verificando permisos', 'error');
+            return false;
+        }
+    }
+
+    // Función para mostrar información detallada de errores
+    logDetailedError(operation, error) {
+        const errorInfo = {
+            operation: operation,
+            message: error.message,
+            stack: error.stack,
+            capacitor: !!window.Capacitor,
+            plugins: window.Capacitor ? Object.keys(window.Capacitor.Plugins) : [],
+            platform: window.Capacitor?.getPlatform?.() || 'unknown',
+            workingDirectory: this.workingDirectory,
+            timestamp: new Date().toISOString()
+        };
+        
+        console.error('🚨 Error detallado:', errorInfo);
+        return errorInfo;
+    }
+
+    async manualDirectorySetup() {
+        console.log('🔄 Configuración manual de directorios...');
+        
+        if (!window.Capacitor || !window.Capacitor.Plugins) {
+            this.showToast('⚠️ Solo para dispositivos móviles', 'warning');
+            return false;
+        }
+
+        this.showToast('🔄 Configurando carpetas...', 'info');
+        
+        try {
+            // Resetear directorio de trabajo
+            this.workingDirectory = null;
+            
+            const success = await this.createAppDirectories();
+            
+            if (success) {
+                this.showToast('✅ Carpetas configuradas correctamente', 'success');
+                console.log('✅ Directorios configurados manualmente');
+            } else {
+                this.showToast('❌ Error configurando carpetas', 'error');
+                console.log('❌ Error en configuración manual');
+            }
+            
+            return success;
+            
+        } catch (error) {
+            console.error('Error configurando directorios:', error);
+            this.showToast('❌ Error configurando carpetas', 'error');
+            return false;
+        }
     }
 
     // ================================
-    // INICIALIZACIÓN Y DATOS
+    // INICIALIZACIÓN
     // ================================
     
     initData() {
+        // Clear any corrupted data and force fresh start
+        if (localStorage.getItem('forceReset') !== 'done') {
+            localStorage.clear();
+            localStorage.setItem('forceReset', 'done');
+        }
+        
+        // Load data from localStorage
         this.products = JSON.parse(localStorage.getItem('products') || '{}');
         this.sales = JSON.parse(localStorage.getItem('sales') || '[]');
         this.expenses = JSON.parse(localStorage.getItem('expenses') || '[]');
-        this.inventoryMovements = JSON.parse(localStorage.getItem('inventoryMovements') || '[]');
+            this.inventoryMovements = JSON.parse(localStorage.getItem('inventoryMovements') || '[]');
 
+        // Initialize default products if empty
         if (Object.keys(this.products).length === 0) {
             this.loadDefaultProducts();
         }
@@ -885,7 +1408,8 @@
 
     loadDefaultProducts() {
         this.products = {
-            p1_saco: {
+           
+  p1_saco: {
         id: 'p1_saco', name: 'Pollo Crecimiento Harina 3P (SACO 40KG)', code: 'AVE-004-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
         units: { saco: { price: 95.00, stock: 1, min: 1 } }
     },
@@ -1156,16 +1680,28 @@
     }
 
     initEventListeners() {
-        const quickSearchProduct = document.getElementById('quickSearchProduct');
-        if (quickSearchProduct) {
-            quickSearchProduct.addEventListener('input', (e) => this.filterAllProducts(e.target.value));
-        }
-
+        // Añadir el nuevo listener para el buscador rápido
+    const quickSearchProduct = document.getElementById('quickSearchProduct');
+    if (quickSearchProduct) {
+        quickSearchProduct.addEventListener('input', (e) => {
+            this.filterAllProducts(e.target.value);
+            // Mostrar el contenedor de productos si estaba oculto
+            document.getElementById('allProductsContainer').style.display = 'grid';
+        });
+    }
+        // Búsqueda en inventario
         const searchInventory = document.getElementById('searchInventory');
         if (searchInventory) {
             searchInventory.onkeyup = () => this.updateInventory(1);
         }
-        
+
+        // Búsqueda en ventas
+        const searchAllProducts = document.getElementById('searchAllProducts');
+        if (searchAllProducts) {
+            searchAllProducts.onkeyup = (e) => this.filterAllProducts(e.target.value);
+        }
+
+        // Modal click outside to close
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal')) {
                 this.closeModal();
@@ -1177,7 +1713,8 @@
         localStorage.setItem('products', JSON.stringify(this.products));
         localStorage.setItem('sales', JSON.stringify(this.sales));
         localStorage.setItem('expenses', JSON.stringify(this.expenses));
-        localStorage.setItem('inventoryMovements', JSON.stringify(this.inventoryMovements));
+            localStorage.setItem('inventoryMovements', JSON.stringify(this.inventoryMovements)); // AGREGAR
+
     }
 
     // ================================
@@ -1192,13 +1729,20 @@
         btn.classList.add('active');
         
         switch(viewId) {
-            case 'inventoryView': this.updateInventory(1); break;
-            case 'financeView': this.updateFinance(); break;
+            case 'inventoryView':
+                this.updateInventory(1);
+                break;
+            case 'financeView':
+                this.updateFinance();
+                break;
+            case 'reportsView':
+                this.updateReports();
+                break;
         }
     }
 
     // ================================
-    // VENTAS
+    // FUNCIONES DE VENTAS
     // ================================
 
     loadAllProductsForSale() {
@@ -1210,28 +1754,40 @@
         const searchTerm = search.toLowerCase();
         const itemsPerPage = 6;
         
-        const filteredProducts = Object.values(this.products).filter(p => 
-            p.name.toLowerCase().includes(searchTerm) ||
-            p.code.toLowerCase().includes(searchTerm)
-        );
+        const allProducts = Object.values(this.products);
+        
+        const filteredProducts = allProducts.filter(p => 
+        p.name.toLowerCase().includes(searchTerm) ||
+        p.code.toLowerCase().includes(searchTerm) ||
+        p.category.toLowerCase().includes(searchTerm) ||
+        Object.entries(p.units).some(([unit, data]) => 
+            this.getUnitLabel(unit).toLowerCase().includes(searchTerm) ||
+            data.price.toString().includes(searchTerm)
+        )
+    );
         
         const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-        const productsToShow = filteredProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const productsToShow = filteredProducts.slice(startIndex, endIndex);
         
-        if (productsToShow.length === 0) {
+        if (filteredProducts.length === 0) {
             container.innerHTML = '<p style="text-align:center; color:#666; grid-column: 1/-1;">No se encontraron productos</p>';
             return;
         }
         
         let html = productsToShow.map(p => {
             const mainUnit = Object.entries(p.units)[0];
-            const stockStatus = mainUnit[1].stock <= (mainUnit[1].min || 0) ? 'stock-low' : 'stock-ok';
+            const stockStatus = mainUnit[1].stock <= mainUnit[1].min ? 'stock-low' : 'stock-ok';
+            
             return `
-                <button type="button" class="quick-action" onclick="app.selectProductForSale('${p.id}')">
+                <button class="quick-action" onclick="app.selectProductForSale('${p.id}')" type="button">
                     <div class="product-name">${p.name}</div>
                     <div class="product-code">${p.code}</div>
                     <div class="product-price">S/ ${mainUnit[1].price} x ${this.getUnitLabel(mainUnit[0])}</div>
-                    <div class="product-stock ${stockStatus}">Stock: ${mainUnit[1].stock} ${this.getUnitLabel(mainUnit[0])}</div>
+                    <div class="product-stock ${stockStatus}">
+                        Stock: ${mainUnit[1].stock} ${this.getUnitLabel(mainUnit[0])}
+                    </div>
                 </button>
             `;
         }).join('');
@@ -1245,25 +1801,40 @@
 
     createPaginationControls(search, currentPage, totalPages) {
         return `
-            <div class="pagination" style="grid-column: 1/-1;">
-                <button type="button" onclick="app.filterAllProducts('${search}', ${currentPage - 1})" ${currentPage <= 1 ? 'disabled' : ''}>← Anterior</button>
-                <span>Página ${currentPage} de ${totalPages}</span>
-                <button type="button" onclick="app.filterAllProducts('${search}', ${currentPage + 1})" ${currentPage >= totalPages ? 'disabled' : ''}>Siguiente →</button>
-            </div>`;
+            <div style="grid-column: 1/-1; display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+                <button class="btn btn-small" type="button"
+                        onclick="app.filterAllProducts('${search}', ${currentPage - 1})"
+                        ${currentPage <= 1 ? 'disabled' : ''}>
+                    ← Anterior
+                </button>
+                <span style="color:#666; align-self: center;">
+                    Página ${currentPage} de ${totalPages}
+                </span>
+                <button class="btn btn-small" type="button"
+                        onclick="app.filterAllProducts('${search}', ${currentPage + 1})"
+                        ${currentPage >= totalPages ? 'disabled' : ''}>
+                    Siguiente →
+                </button>
+            </div>
+        `;
     }
 
     selectProductForSale(productId) {
         const product = this.products[productId];
         if (!product) return;
         
+        // Guardar el producto seleccionado
         document.getElementById('selectedProductId').value = productId;
         document.getElementById('selectedProductName').textContent = product.name;
         document.getElementById('selectedProductInfo').style.display = 'block';
         
+        // Actualizar unidades y precios
         this.updateUnitsAndPriceFromSelected();
         
+        // Ocultar la lista de productos para ahorrar espacio
         document.getElementById('allProductsContainer').style.display = 'none';
         
+        // Agregar botón para cambiar producto
         this.addChangeProductButton();
     }
 
@@ -1273,7 +1844,7 @@
             changeBtn = document.createElement('button');
             changeBtn.id = 'changeProductBtn';
             changeBtn.type = 'button';
-            changeBtn.className = 'btn btn-small btn-warning';
+            changeBtn.className = 'btn btn-small btn-info';
             changeBtn.textContent = 'Cambiar Producto';
             changeBtn.onclick = () => {
                 document.getElementById('allProductsContainer').style.display = 'grid';
@@ -1289,12 +1860,22 @@
         const productId = document.getElementById('selectedProductId').value;
         const unitSelect = document.getElementById('saleUnit');
         
-        if (productId && this.products[productId]?.units) {
+        if (productId && this.products[productId] && this.products[productId].units) {
             const product = this.products[productId];
-            unitSelect.innerHTML = Object.keys(product.units).map(unit => 
-                `<option value="${unit}">${this.getUnitLabel(unit)}</option>`
-            ).join('');
-            this.updatePrice();
+            
+            unitSelect.innerHTML = '';
+            Object.keys(product.units).forEach(unit => {
+                const option = document.createElement('option');
+                option.value = unit;
+                option.textContent = this.getUnitLabel(unit);
+                unitSelect.appendChild(option);
+            });
+            
+            const firstUnit = Object.keys(product.units)[0];
+            if (firstUnit) {
+                unitSelect.value = firstUnit;
+                this.updatePrice();
+            }
         } else {
             unitSelect.innerHTML = '<option value="">Seleccionar unidad...</option>';
         }
@@ -1303,8 +1884,10 @@
     updatePrice() {
         const productId = document.getElementById('selectedProductId').value;
         const unit = document.getElementById('saleUnit').value;
-        if (productId && this.products[productId]?.units[unit]) {
-            document.getElementById('salePrice').value = this.products[productId].units[unit].price;
+        
+        if (productId && this.products[productId] && this.products[productId].units[unit]) {
+            const price = this.products[productId].units[unit].price;
+            document.getElementById('salePrice').value = price;
             this.calcTotal();
         }
     }
@@ -1314,13 +1897,19 @@
         const price = parseFloat(document.getElementById('salePrice').value) || 0;
         document.getElementById('saleTotal').value = (qty * price).toFixed(2);
     }
-
-    calcQtyFromTotal() {
+ 
+calcQtyFromTotal() {
+        // Obtenemos el total y el precio de los inputs
         const total = parseFloat(document.getElementById('saleTotal').value) || 0;
         const price = parseFloat(document.getElementById('salePrice').value) || 0;
+        
+        // Solo calculamos si el precio es mayor a cero para evitar errores
         if (price > 0) {
-            document.getElementById('saleQty').value = (total / price).toFixed(3);
+            const qty = total / price;
+            // Actualizamos el campo de cantidad con 3 decimales para mayor precisión (ej. para Kilos)
+            document.getElementById('saleQty').value = qty.toFixed(3);
         } else {
+            // Si no hay precio, dejamos la cantidad en blanco
             document.getElementById('saleQty').value = '';
         }
     }
@@ -1335,15 +1924,22 @@
         const price = parseFloat(document.getElementById('salePrice').value);
         const total = parseFloat(document.getElementById('saleTotal').value);
         const customer = document.getElementById('saleCustomer').value || 'Cliente General';
-        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value; // <-- AÑADE ESTA LÍNEA
+
         
-        if (!this.validateSale(productId, product, qty, unit)) return;
-        
-        if (this.handleStock(product, unit, qty)) {
-            // Si handleStock devuelve true, el stock es suficiente y ya se descontó.
-            this.registerSale(productId, product, qty, unit, price, total, customer, paymentMethod);
+        // Validaciones
+        if (!this.validateSale(productId, product, qty, unit)) {
+            return;
         }
-        // Si handleStock devuelve false, es porque no hay stock y se mostró un modal o un error. La venta se pausa.
+        
+        // Verificar y manejar stock
+        if (!this.handleStock(product, unit, qty)) {
+            return;
+        }
+        
+        // Registrar venta
+        this.registerSale(productId, product, qty, unit, price, total, customer, paymentMethod); 
+
     }
 
     validateSale(productId, product, qty, unit) {
@@ -1351,116 +1947,159 @@
             this.showToast('Debe seleccionar un producto', 'error');
             return false;
         }
+        
         if (!unit) {
             this.showToast('Debe seleccionar una unidad', 'error');
             return false;
         }
+        
         if (qty <= 0) {
             this.showToast('La cantidad debe ser mayor a 0', 'error');
             return false;
         }
+        
         return true;
     }
 
-    handleStock(product, unit, qty) {
-        if (product.units[unit] && product.units[unit].stock >= qty) {
-            product.units[unit].stock -= qty;
-            return true; // Venta puede continuar.
-        }
+    toggleBulkPanels() {
+    const action = document.querySelector('input[name="bulkAction"]:checked').value;
+    const createPanel = document.getElementById('bulkCreateFields');
+    const linkPanel = document.getElementById('bulkLinkFields');
 
-        const unitInfo = product.units[unit];
-        const bulkInfo = unitInfo.opensUnit;
-        if (bulkInfo && this.products[bulkInfo.productId]?.units[bulkInfo.unitName]?.stock > 0) {
-            this.showOpenSackModal(product, unit, qty);
-            return false; // Pausar venta hasta que el usuario decida.
-        }
+    createPanel.style.display = (action === 'create') ? 'block' : 'none';
+    linkPanel.style.display = (action === 'link') ? 'block' : 'none';
+}
 
-        this.showToast(`Stock insuficiente! Solo hay ${product.units[unit]?.stock || 0} ${this.getUnitLabel(unit)}`, 'error');
+handleOpenBulkUnit(product, smallUnit, qtyNeeded) {
+    const bulkInfo = product.units[smallUnit].opensUnit;
+    
+    // Buscamos el producto a granel usando el ID guardado
+    const bulkProduct = this.products[bulkInfo.productId];
+    if (!bulkProduct) {
+        this.showToast('Error: El producto a granel vinculado no fue encontrado.', 'error');
         return false;
     }
 
-    showOpenSackModal(product, unit, qty) {
-        this.pausedSale = { product, unit, qty };
-        const bulkInfo = product.units[unit].opensUnit;
-        const bulkProduct = this.products[bulkInfo.productId];
-
-        const modal = document.createElement('div');
-        modal.id = 'openSackModal';
-        modal.className = 'modal active';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-header" style="color: var(--warning);">⚠️ Stock Insuficiente</div>
-                <div style="padding: 15px 0; font-size: 1rem; line-height: 1.5;">
-                    <p>No tienes suficientes <strong>${this.getUnitLabel(unit)}</strong> para vender ${qty}.</p>
-                    <p style="margin-top: 10px;">
-                        ¿Deseas abrir <strong>1 ${this.getUnitLabel(bulkInfo.unitName)}</strong> de <strong>${bulkProduct.name}</strong> para añadir <strong>${bulkInfo.quantity} ${this.getUnitLabel(unit)}</strong> al stock?
-                    </p>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn btn-danger" onclick="app.cancelOpenSack()">No, Cancelar Venta</button>
-                    <button type="button" class="btn btn-success" onclick="app.confirmOpenSack()">Sí, Abrir y Vender</button>
-                </div>
-            </div>`;
-        document.body.appendChild(modal);
+    const bulkUnitName = bulkInfo.unitName;
+    const bulkUnitQty = bulkInfo.quantity;
+    
+    // Verificamos si hay stock del producto a granel
+    if (bulkProduct.units[bulkUnitName].stock < 1) {
+        this.showToast(`No hay stock de ${bulkProduct.name} para abrir.`, 'error');
+        return false;
     }
 
-    confirmOpenSack() {
-        const { product, unit, qty } = this.pausedSale;
-        const bulkInfo = product.units[unit].opensUnit;
-        const bulkProduct = this.products[bulkInfo.productId];
-
-        // 1. Abrir saco y reponer stock suelto
-        bulkProduct.units[bulkInfo.unitName].stock -= 1;
-        product.units[unit].stock += bulkInfo.quantity;
-        this.showToast(`Se abrió 1 ${bulkInfo.unitName}. Nuevo stock: ${product.units[unit].stock} ${unit}`, 'success');
-
-        // 2. Descontar la venta actual
-        product.units[unit].stock -= qty;
-
-        // 3. Reanudar y registrar la venta con los datos del formulario
-        const price = parseFloat(document.getElementById('salePrice').value);
-        const total = qty * price;
-        const customer = document.getElementById('saleCustomer').value || 'Cliente General';
-        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-        this.registerSale(product.id, product, qty, unit, price, total, customer, paymentMethod);
+    if (confirm(`No hay suficientes ${this.getUnitLabel(smallUnit)}.\n¿Desea abrir un/a ${bulkProduct.name} para obtener ${bulkUnitQty} ${this.getUnitLabel(smallUnit)}?`)) {
         
-        this.pausedSale = null;
-        document.getElementById('openSackModal')?.remove();
+        // Descontamos del producto a granel (el saco)
+        bulkProduct.units[bulkUnitName].stock -= 1;
+        // Añadimos al producto suelto (los kilos)
+        product.units[smallUnit].stock += bulkUnitQty;
+
+        this.showToast(`Se abrió 1 ${bulkUnitName}. Nuevo stock suelto: ${product.units[smallUnit].stock} ${smallUnit}`, 'success');
+
+        if (product.units[smallUnit].stock < qtyNeeded) {
+            this.showToast(`Stock insuficiente incluso después de abrir. Disponible: ${product.units[smallUnit].stock}`, 'error');
+            return false;
+        }
+        
+        product.units[smallUnit].stock -= qtyNeeded;
+        return true;
+    }
+    return false;
+}
+ handleStock(product, unit, qty) {
+    // Caso 1: Hay stock suficiente.
+    if (product.units[unit] && product.units[unit].stock >= qty) {
+        product.units[unit].stock -= qty;
+        return true; // La venta puede continuar inmediatamente.
     }
 
-    cancelOpenSack() {
-        this.pausedSale = null;
-        document.getElementById('openSackModal')?.remove();
-        this.showToast('Venta cancelada por falta de stock', 'info');
+    // Caso 2: No hay stock, pero se puede abrir una unidad a granel.
+    const unitInfo = product.units[unit];
+    if (unitInfo.opensUnit && this.products[unitInfo.opensUnit.productId]?.units[unitInfo.opensUnit.unitName]?.stock > 0) {
+        // En lugar de un confirm(), llamamos a la función que crea nuestro modal.
+        this.showOpenSackModal(product, unit, qty);
+        return false; // Pausamos la venta hasta que el usuario responda en el modal.
     }
+
+    // Caso 3: No hay stock y no se puede hacer nada.
+    this.showToast(`Stock insuficiente! Solo hay ${product.units[unit]?.stock || 0} ${this.getUnitLabel(unit)}`, 'error');
+    return false;
+}
+    handleOpenBulkUnit(product, smallUnit, qtyNeeded) {
+    const bulkInfo = product.units[smallUnit].opensUnit;
+    const bulkUnitName = bulkInfo.name;
+    const bulkUnitQty = bulkInfo.quantity;
+
+    if (confirm(`No hay suficientes ${this.getUnitLabel(smallUnit)}.\n¿Desea abrir un/a ${this.getUnitLabel(bulkUnitName)} de ${bulkUnitQty} ${this.getUnitLabel(smallUnit)} para completar la venta?`)) {
+        
+        // Actualizar stock
+        product.units[bulkUnitName].stock -= 1;
+        product.units[smallUnit].stock += bulkUnitQty;
+
+        this.showToast(`Se abrió 1 ${bulkUnitName}. Nuevo stock suelto: ${product.units[smallUnit].stock} ${smallUnit}`, 'success');
+
+        // Volver a verificar si el stock ahora es suficiente
+        if (product.units[smallUnit].stock < qtyNeeded) {
+            this.showToast(`Incluso después de abrir, el stock sigue siendo insuficiente. Disponible: ${product.units[smallUnit].stock}`, 'error');
+            return false; // La venta no puede proceder
+        }
+        
+        // Si ya es suficiente, descontar la venta actual
+        product.units[smallUnit].stock -= qtyNeeded;
+        return true; // La venta fue exitosa
+    }
+    return false; // El usuario canceló
+}
 
     registerSale(productId, product, qty, unit, price, total, customer, paymentMethod) {
-        const saleId = Date.now().toString();
-        this.sales.push({
-            id: saleId, productId, productName: product.name, qty, unit, price, total, customer, paymentMethod,
-            profit: (price - (product.cost || 0)) * qty,
-            timestamp: new Date().toISOString()
-        });
+    // Add sale
+     const saleId = Date.now().toString();
+    this.sales.push({
+        id: saleId,
+        productId,
+        productName: product.name,
+        qty,
+        unit,
+        price,
+        total,
+        customer,
+        paymentMethod, // Ahora la variable SÍ existe aquí
+        profit: (price - (product.cost || 0)) * qty,
+        timestamp: new Date().toISOString()
+    });
 
-        this.registerInventoryMovement(productId, unit, qty, 'salida', 'venta', saleId);
+    // AGREGAR: Registrar movimiento automático por venta
+    this.registerInventoryMovement(
+        productId, 
+        unit, 
+        qty, 
+        'salida', 
+        'venta',
+        saleId
+    );
 
-        this.saveData();
-        this.clearSaleForm();
-        this.updateSalesList();
-        this.updateHeader();
-        this.showToast(`Venta registrada: S/ ${total.toFixed(2)}`);
-    }
+    this.saveData();
+    this.clearSaleForm();
+    this.updateSalesList();
+    this.updateHeader();
+    this.showToast(`Venta registrada: S/ ${total.toFixed(2)}`);
+}
 
     clearSaleForm() {
         document.getElementById('saleForm').reset();
         document.getElementById('saleTotal').value = '';
         document.getElementById('saleUnit').innerHTML = '<option value="">Seleccionar unidad...</option>';
         
+        // Limpiar selección de producto
         document.getElementById('selectedProductId').value = '';
         document.getElementById('selectedProductInfo').style.display = 'none';
         document.getElementById('allProductsContainer').style.display = 'grid';
         
-        document.getElementById('changeProductBtn')?.remove();
+        // Remover botón de cambiar producto si existe
+        const changeBtn = document.getElementById('changeProductBtn');
+        if (changeBtn) changeBtn.remove();
     }
 
     updateSalesList() {
@@ -1473,225 +2112,486 @@
             return;
         }
         
-        container.innerHTML = todaySales.reverse().map(sale => `
-            <div class="sale-item">
-                <div style="flex:1;">
-                    <div style="font-weight:600;">${sale.productName}</div>
-                    <div style="font-size:0.85rem; color:#666;">
-                        ${sale.qty} ${this.getUnitLabel(sale.unit)} • ${sale.customer} • ${this.formatTime(sale.timestamp)} • ${sale.paymentMethod === 'Yape' ? '📱' : '💵'} ${sale.paymentMethod}
-                    </div>
-                </div>
-                <div class="sale-total">S/ ${sale.total.toFixed(2)}</div>
-                <div class="sale-actions">
-                    <button type="button" class="btn-icon" onclick="app.showEditSaleModal('${sale.id}')"><i class="fas fa-pencil-alt"></i></button>
-                    <button type="button" class="btn-icon btn-icon-danger" onclick="app.deleteSale('${sale.id}')"><i class="fas fa-trash-alt"></i></button>
-                </div>
+        container.innerHTML = todaySales.reverse().map(sale => {
+            const time = new Date(sale.timestamp).toLocaleTimeString('es-PE', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            return `
+    <div class="sale-item">
+        <div style="flex:1;">
+            <div style="font-weight:600;">${sale.productName}</div>
+            <div style="font-size:0.85rem; color:#666;">
+                ${sale.qty} ${this.getUnitLabel(sale.unit)} • ${sale.customer || 'Cliente General'} • ${time} • ${sale.paymentMethod === 'Yape' ? '📱' : '💵'} ${sale.paymentMethod}
+
             </div>
-        `).join('');
+        </div>
+        <div class="sale-total">S/ ${sale.total.toFixed(2)}</div>
+
+        <div class="sale-actions">
+            <button class="btn-icon" onclick="app.showEditSaleModal('${sale.id}')">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn-icon btn-icon-danger" onclick="app.deleteSale('${sale.id}')">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+`;
+        }).join('');
+    }
+deleteSale(saleId) {
+    if (!confirm('¿Estás seguro de que quieres eliminar esta venta? Esta acción no se puede deshacer.')) {
+        return;
     }
 
-    deleteSale(saleId) {
-        if (!confirm('¿Seguro que quieres eliminar esta venta? El stock se devolverá al inventario.')) return;
-
-        const saleIndex = this.sales.findIndex(s => s.id === saleId);
-        if (saleIndex === -1) return;
-
-        const saleToDelete = this.sales[saleIndex];
-        const product = this.products[saleToDelete.productId];
-
-        // Devolver stock
-        if (product && product.units[saleToDelete.unit]) {
-            product.units[saleToDelete.unit].stock += saleToDelete.qty;
-        }
-        
-        // Eliminar venta y movimiento asociado
-        this.sales.splice(saleIndex, 1);
-        const movementIndex = this.inventoryMovements.findIndex(m => m.reference === saleId);
-        if (movementIndex > -1) {
-            this.inventoryMovements.splice(movementIndex, 1);
-        }
-
-        this.saveData();
-        this.updateSalesList();
-        this.updateHeader();
-        this.showToast('Venta eliminada y stock restaurado');
+    const saleIndex = this.sales.findIndex(s => s.id === saleId);
+    if (saleIndex === -1) {
+        this.showToast('Error: Venta no encontrada', 'error');
+        return;
     }
 
-    showEditSaleModal(saleId) {
-        const sale = this.sales.find(s => s.id === saleId);
-        if (!sale) return;
-        this.editingSale = sale;
+    const saleToDelete = this.sales[saleIndex];
+    const product = this.products[saleToDelete.productId];
 
-        const modal = document.createElement('div');
-        modal.id = 'editSaleModal';
-        modal.className = 'modal active';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-header">✏️ Editar Venta</div>
-                <p>Editando: <strong>${sale.productName}</strong></p>
-                <div class="form-group">
-                    <label for="editSaleQty">Cantidad (${this.getUnitLabel(sale.unit)})</label>
-                    <input type="number" id="editSaleQty" step="0.01" value="${sale.qty}">
-                </div>
-                <div class="form-group">
-                    <label for="editSalePrice">Precio</label>
-                    <input type="number" id="editSalePrice" step="0.01" value="${sale.price}">
-                </div>
-                <div class="form-group">
-                    <label for="editSaleCustomer">Cliente</label>
-                    <input type="text" id="editSaleCustomer" value="${sale.customer}">
-                </div>
-                <div class="form-group">
-                    <label>Método de Pago</label>
-                    <div class="payment-method-selector">
-                        <input type="radio" id="editPayYape" name="editPaymentMethod" value="Yape" ${sale.paymentMethod === 'Yape' ? 'checked' : ''}>
-                        <label for="editPayYape"><i class="fas fa-mobile-alt"></i> Yape</label>
-                        <input type="radio" id="editPayEfectivo" name="editPaymentMethod" value="Efectivo" ${sale.paymentMethod === 'Efectivo' || !sale.paymentMethod ? 'checked' : ''}>
-                        <label for="editPayEfectivo">💵 Efectivo</label>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn btn-danger" onclick="app.closeModal()">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="app.saveSaleChanges()">Guardar</button>
-                </div>
-            </div>`;
-        document.body.appendChild(modal);
+    // --- ¡CRÍTICO! Devolver el stock al inventario ---
+    if (product && product.units[saleToDelete.unit]) {
+        product.units[saleToDelete.unit].stock += saleToDelete.qty;
     }
 
-    saveSaleChanges() {
-        const originalSale = this.editingSale;
-        if (!originalSale) return;
+    // Eliminar la venta del array
+    this.sales.splice(saleIndex, 1);
 
-        const newQty = parseFloat(document.getElementById('editSaleQty').value);
-        if (isNaN(newQty) || newQty <= 0) {
-            this.showToast('La cantidad debe ser mayor a cero', 'error');
-            return;
-        }
-
-        const newPrice = parseFloat(document.getElementById('editSalePrice').value);
-        const newCustomer = document.getElementById('editSaleCustomer').value;
-        const newPaymentMethod = document.querySelector('input[name="editPaymentMethod"]:checked').value;
-        
-        const product = this.products[originalSale.productId];
-        const stockDifference = originalSale.qty - newQty;
-        
-        if (stockDifference < 0 && product.units[originalSale.unit].stock < Math.abs(stockDifference)) {
-            this.showToast('No hay stock suficiente para este cambio.', 'error');
-            return;
-        }
-        
-        product.units[originalSale.unit].stock += stockDifference;
-
-        const saleToUpdate = this.sales.find(s => s.id === originalSale.id);
-        saleToUpdate.qty = newQty;
-        saleToUpdate.price = newPrice;
-        saleToUpdate.total = newQty * newPrice;
-        saleToUpdate.customer = newCustomer;
-        saleToUpdate.paymentMethod = newPaymentMethod;
-        saleToUpdate.profit = (newPrice - (product.cost || 0)) * newQty;
-
-        const movementToUpdate = this.inventoryMovements.find(m => m.reference === originalSale.id);
-        if (movementToUpdate) movementToUpdate.quantity = newQty;
-
-        this.saveData();
-        this.updateSalesList();
-        this.updateHeader();
-        this.editingSale = null;
-        this.closeModal();
-        this.showToast('Venta actualizada');
+    // Eliminar el movimiento de inventario asociado
+    const movementIndex = this.inventoryMovements.findIndex(m => m.reference === saleId);
+    if (movementIndex > -1) {
+        this.inventoryMovements.splice(movementIndex, 1);
     }
 
+    this.saveData();
+    this.updateSalesList();
+    this.updateHeader();
+    this.showToast('Venta eliminada y stock restaurado');
+}
+
+showEditSaleModal(saleId) {
+    const sale = this.sales.find(s => s.id === saleId);
+    if (!sale) return;
+
+    // Guardamos la venta que se está editando para referencia
+    this.editingSale = sale;
+
+    const modal = document.createElement('div');
+    modal.id = 'editSaleModal';
+    modal.className = 'modal active';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">✏️ Editar Venta</div>
+            <p style="margin-bottom:15px;">Estás editando la venta de: <strong>${sale.productName}</strong></p>
+            
+            <div class="form-group">
+                <label for="editSaleQty">Nueva Cantidad (${this.getUnitLabel(sale.unit)})</label>
+                <input type="number" id="editSaleQty" step="0.01" value="${sale.qty}">
+            </div>
+            <div class="form-group">
+                <label for="editSalePrice">Nuevo Precio</label>
+                <input type="number" id="editSalePrice" step="0.01" value="${sale.price}">
+            </div>
+             <div class="form-group">
+                <label for="editSaleCustomer">Cliente</label>
+                <input type="text" id="editSaleCustomer" value="${sale.customer}">
+            </div>
+<div class="form-group">
+    <label>Método de Pago</label>
+    <div class="payment-method-selector">
+        <input type="radio" id="editPayYape" name="editPaymentMethod" value="Yape" ${sale.paymentMethod === 'Yape' ? 'checked' : ''}>
+        <label for="editPayYape"><i class="fas fa-mobile-alt"></i> Yape</label>
+        
+        <input type="radio" id="editPayEfectivo" name="editPaymentMethod" value="Efectivo" ${sale.paymentMethod === 'Efectivo' ? 'checked' : ''}>
+        <label for="editPayEfectivo">💵 Efectivo</label>
+    </div>
+</div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-danger" onclick="app.closeModal()">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="app.saveSaleChanges()">Guardar Cambios</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+saveSaleChanges() {
+    const originalSale = this.editingSale;
+    if (!originalSale) return;
+
+    const newQty = parseFloat(document.getElementById('editSaleQty').value);
+    const newPrice = parseFloat(document.getElementById('editSalePrice').value);
+    const newCustomer = document.getElementById('editSaleCustomer').value;
+    const newPaymentMethod = document.querySelector('input[name="editPaymentMethod"]:checked').value; // <-- AÑADE ESTA LÍNEA
+
+
+    if (isNaN(newQty) || newQty <= 0) {
+        this.showToast('La cantidad debe ser un número mayor a cero', 'error');
+        return;
+    }
+
+    const product = this.products[originalSale.productId];
+    
+    // --- ¡CRÍTICO! Calcular la diferencia de stock ---
+    const stockDifference = originalSale.qty - newQty;
+    
+    // Si la nueva cantidad es mayor, verificar si hay stock suficiente
+    if (stockDifference < 0 && product.units[originalSale.unit].stock < Math.abs(stockDifference)) {
+        this.showToast('No hay stock suficiente para aumentar la cantidad de la venta.', 'error');
+        return;
+    }
+    
+    // Actualizar el stock
+    product.units[originalSale.unit].stock += stockDifference;
+
+    // Actualizar la venta en el array
+    const saleToUpdate = this.sales.find(s => s.id === originalSale.id);
+    saleToUpdate.qty = newQty;
+    saleToUpdate.price = newPrice;
+    saleToUpdate.total = newQty * newPrice;
+    saleToUpdate.customer = newCustomer;
+    saleToUpdate.paymentMethod = newPaymentMethod; // <-- AÑADE ESTA LÍNEA
+
+    // recalcular ganancia si es necesario
+    saleToUpdate.profit = (newPrice - product.cost) * newQty; 
+
+    // Actualizar el movimiento de inventario asociado
+    const movementToUpdate = this.inventoryMovements.find(m => m.reference === originalSale.id);
+    if (movementToUpdate) {
+        movementToUpdate.quantity = newQty;
+        // Los stocks anterior/nuevo del movimiento pueden quedar desactualizados, pero es aceptable
+    }
+
+    this.saveData();
+    this.updateSalesList();
+    this.updateHeader();
+    
+    this.editingSale = null; // Limpiar la venta en edición
+    this.closeModal(); // Cierra el modal de edición y cualquier otro
+    this.showToast('Venta actualizada correctamente');
+}
     // ================================
-    // INVENTARIO Y PRODUCTOS
+    // FUNCIONES DE INVENTARIO
     // ================================
 
     updateInventory(page = 1) {
-        const itemsPerPage = 10;
+        const itemsPerPage = 4;
         const searchTerm = document.getElementById('searchInventory')?.value.toLowerCase() || '';
         
-        const filtered = Object.values(this.products).filter(p => 
-            p.name.toLowerCase().includes(searchTerm) || p.code.toLowerCase().includes(searchTerm)
+        // Filtrar productos
+        const filteredProducts = Object.values(this.products).filter(product => 
+            product.name.toLowerCase().includes(searchTerm) || 
+            product.code.toLowerCase().includes(searchTerm) ||
+            product.category.toLowerCase().includes(searchTerm)
         );
         
-        const productsToShow = filtered.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+        // Calcular páginas
+        const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const productsToShow = filteredProducts.slice(startIndex, endIndex);
         
-        document.getElementById('productsList').innerHTML = productsToShow.map(p => {
-            const isLow = Object.values(p.units).some(u => u.stock < (u.min || 0));
+        const container = document.getElementById('productsList');
+        const alertsContainer = document.getElementById('alertsContainer');
+        
+        // Check low stock
+        this.updateStockAlerts(filteredProducts, alertsContainer);
+        
+        if (productsToShow.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color:#999;">No se encontraron productos</p>';
+            return;
+        }
+        
+        // Renderizar productos
+        container.innerHTML = this.renderProductsList(productsToShow) + 
+                             this.createInventoryPagination(page, totalPages);
+    }
+
+    updateStockAlerts(products, alertsContainer) {
+        const lowStock = products.filter(p => {
+            return p.units && Object.values(p.units).some(unit => unit.stock < unit.min);
+        });
+        
+        if (lowStock.length > 0) {
+            alertsContainer.innerHTML = `
+                <div class="alert alert-danger">
+                    ⚠️ ${lowStock.length} productos con stock bajo
+                </div>
+            `;
+        } else {
+            alertsContainer.innerHTML = '';
+        }
+    }
+
+    renderProductsList(products) {
+        return products.map(product => {
+            const isLowStock = product.units && Object.values(product.units).some(unit => unit.stock < unit.min);
+            
+            const unitsInfo = product.units ? Object.entries(product.units).map(([unit, data]) => 
+                `<div>Stock ${this.getUnitLabel(unit)}: ${data.stock} (Min: ${data.min}) - S/ ${data.price}</div>`
+            ).join('') : '<div>Sin unidades configuradas</div>';
+            
             return `
-            <div class="product-item">
-                <div class="product-header">
-                    <div class="product-name">${p.name}</div>
-                    <div class="stock-badge ${isLow ? 'stock-low' : 'stock-ok'}">${isLow ? 'BAJO' : 'OK'}</div>
+                <div class="product-item">
+                    <div class="product-header">
+                        <div class="product-name">${product.name}</div>
+                        <div class="stock-badge ${isLowStock ? 'stock-low' : 'stock-ok'}">
+                            ${isLowStock ? 'BAJO' : 'OK'}
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div>Código: ${product.code}</div>
+                        <div>Categoría: ${product.category}</div>
+                        ${unitsInfo}
+                    </div>
+                    <div class="product-actions">
+    <button class="btn btn-small btn-success" onclick="app.showMovementModal('entrada', '${product.id}')">
+        📥 Entrada
+    </button>
+    <button class="btn btn-small btn-warning" onclick="app.showMovementModal('salida', '${product.id}')">
+        📤 Salida
+    </button>
+</div>
                 </div>
-                <div class="product-info">
-                    <div>Código: ${p.code}</div>
-                    ${Object.entries(p.units).map(([unit, data]) => `<div>Stock ${this.getUnitLabel(unit)}: ${data.stock} (Min: ${data.min || 0})</div>`).join('')}
-                </div>
-                <div class="product-actions">
-                     <button type="button" class="btn btn-small btn-success" onclick="app.showMovementModal('entrada', '${p.id}')">📥 Entrada</button>
-                     <button type="button" class="btn btn-small btn-warning" onclick="app.showMovementModal('salida', '${p.id}')">📤 Salida</button>
-                </div>
-            </div>`;
+            `;
         }).join('');
     }
+
+    createInventoryPagination(page, totalPages) {
+        return `
+            <div class="pagination">
+                <button onclick="app.updateInventory(${page - 1})" 
+                        ${page === 1 ? 'disabled' : ''}>
+                    ← Anterior
+                </button>
+                <span class="pagination-info">
+                    Página ${page} de ${totalPages}
+                </span>
+                <button onclick="app.updateInventory(${page + 1})"
+                        ${page >= totalPages ? 'disabled' : ''}>
+                    Siguiente →
+                </button>
+            </div>
+        `;
+    }
+
+    showStockModal(productId) {
+        const product = this.products[productId];
+        if (!product || !product.units) {
+            this.showToast('Producto no encontrado o sin unidades configuradas', 'error');
+            return;
+        }
+        
+        document.getElementById('stockProductId').value = productId;
+        
+        // Create stock inputs for each unit
+        const container = document.getElementById('stockUnitsContainer');
+        container.innerHTML = Object.entries(product.units).map(([unit, data]) => `
+            <div class="form-group">
+                <label for="add${unit}">Agregar ${this.getUnitLabel(unit)} (Actual: ${data.stock})</label>
+                <input type="number" id="add${unit}" step="0.01" value="0" min="0">
+            </div>
+        `).join('');
+        
+        document.getElementById('stockModal').classList.add('active');
+    }
+
+    updateStock(e) {
+        e.preventDefault();
+        
+        const productId = document.getElementById('stockProductId').value;
+        const product = this.products[productId];
+        
+        if (product && product.units) {
+            Object.keys(product.units).forEach(unit => {
+                const addValue = parseFloat(document.getElementById(`add${unit}`).value) || 0;
+                product.units[unit].stock += addValue;
+            });
+            
+            this.saveData();
+            this.closeModal();
+            this.updateInventory();
+            this.updateHeader();
+            this.showToast('Stock actualizado');
+        } else {
+            this.showToast('Error al actualizar stock', 'error');
+        }
+    }
+
+    // ================================
+    // FUNCIONES DE PRODUCTOS
+    // ================================
 
     showAddProduct() {
         document.getElementById('productModal').classList.add('active');
         const bulkSelect = document.getElementById('linkedBulkProductId');
-        bulkSelect.innerHTML = '<option value="">-- Ninguno --</option>' + 
-            Object.values(this.products).filter(p => p.units.saco || p.units.caja || p.units.balde)
-            .map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+    bulkSelect.innerHTML = '<option value="">-- Ninguno --</option>'; // Limpiar
+    
+    Object.values(this.products).forEach(p => {
+        // Asumimos que los sacos/cajas tienen unidades como 'saco', 'caja', etc.
+        if (p.units.saco || p.units.caja || p.units.balde) {
+            const option = document.createElement('option');
+            option.value = p.id;
+            option.textContent = p.name;
+            bulkSelect.appendChild(option);
+        }
+        });
     }
+saveProduct(e) {
+    e.preventDefault();
+    
+    const action = document.querySelector('input[name="bulkAction"]:checked').value;
 
-    saveProduct(e) {
-        e.preventDefault();
-        
-        const action = document.querySelector('input[name="bulkAction"]:checked').value;
-        const primaryProductId = 'p' + Date.now();
-        const primaryProduct = {
-            id: primaryProductId,
-            name: document.getElementById('pName').value,
-            code: document.getElementById('pCode').value,
-            category: document.getElementById('pCategory').value,
-            units: {
-                kg: { // Asumimos 'kg' como unidad suelta
-                    price: parseFloat(document.getElementById('pPrice').value) || 0,
-                    stock: parseFloat(document.getElementById('pStock').value) || 0,
-                    min: 5
-                }
-            }
-        };
-
-        if (action === 'create') {
-            const bulkName = document.getElementById('pBulkNewName').value;
-            const conversion = parseFloat(document.getElementById('pBulkUnitConversionCreate').value);
-            if (bulkName && conversion > 0) {
-                const bulkProductId = 'p' + (Date.now() + 1);
-                this.products[bulkProductId] = {
-                    id: bulkProductId, name: bulkName, code: `SACO-${primaryProduct.code}`, category: primaryProduct.category,
-                    units: { saco: { price: parseFloat(document.getElementById('pBulkPrice').value) || 0, stock: parseFloat(document.getElementById('pBulkStock').value) || 0, min: 1 } }
-                };
-                primaryProduct.units.kg.opensUnit = { productId: bulkProductId, unitName: 'saco', quantity: conversion };
-            }
-        } else if (action === 'link') {
-            const linkedProductId = document.getElementById('linkedBulkProductId').value;
-            const conversion = parseFloat(document.getElementById('pBulkUnitConversionLink').value);
-            if (linkedProductId && conversion > 0) {
-                const bulkProduct = this.products[linkedProductId];
-                const bulkUnitName = Object.keys(bulkProduct.units)[0];
-                primaryProduct.units.kg.opensUnit = { productId: linkedProductId, unitName: bulkUnitName, quantity: conversion };
+    // --- 1. CREAR EL PRODUCTO PRINCIPAL (EL QUE SE VENDE SUELTO) ---
+    const primaryProductId = 'p' + Date.now();
+    const primaryProduct = {
+        id: primaryProductId,
+        name: document.getElementById('pName').value,
+        code: document.getElementById('pCode').value,
+        category: document.getElementById('pCategory').value,
+        units: {
+            kg: { // Asumimos 'kg' como unidad suelta principal, puedes cambiarlo si es necesario
+                price: parseFloat(document.getElementById('pPrice').value) || 0,
+                stock: parseFloat(document.getElementById('pStock').value) || 0,
+                min: 5
             }
         }
-        
-        this.products[primaryProductId] = primaryProduct;
-        this.saveData();
-        this.closeModal();
-        this.updateInventory();
-        this.showToast('Producto guardado');
-    }
+    };
 
+    // --- 2. MANEJAR LA ACCIÓN SELECCIONADA ---
+
+    // OPCIÓN: CREAR un nuevo producto a granel y vincularlo
+    if (action === 'create') {
+        const bulkName = document.getElementById('pBulkNewName').value;
+        const conversion = parseFloat(document.getElementById('pBulkUnitConversionCreate').value);
+
+        if (bulkName && conversion > 0) {
+            const bulkProductId = 'p' + (Date.now() + 1); // ID único para el saco
+            const newBulkProduct = {
+                id: bulkProductId,
+                name: bulkName,
+                code: `SACO-${primaryProduct.code}`, // Código autogenerado
+                category: primaryProduct.category,
+                units: {
+                    saco: { // Asumimos 'saco', se podría hacer dinámico
+                        price: parseFloat(document.getElementById('pBulkPrice').value) || 0,
+                        stock: parseFloat(document.getElementById('pBulkStock').value) || 0,
+                        min: 1
+                    }
+                }
+            };
+            // Añadimos el nuevo saco a la lista general de productos
+            this.products[bulkProductId] = newBulkProduct;
+            
+            // Creamos el vínculo en el producto principal
+            primaryProduct.units.kg.opensUnit = {
+                productId: bulkProductId,
+                unitName: 'saco',
+                quantity: conversion
+            };
+        }
+    }
+    // OPCIÓN: VINCULAR a un producto a granel existente
+    else if (action === 'link') {
+        const linkedProductId = document.getElementById('linkedBulkProductId').value;
+        const conversion = parseFloat(document.getElementById('pBulkUnitConversionLink').value);
+        
+        if (linkedProductId && conversion > 0) {
+            const bulkProduct = this.products[linkedProductId];
+            if (bulkProduct) {
+                const bulkUnitName = Object.keys(bulkProduct.units)[0]; // Tomamos la primera unidad del saco
+                 primaryProduct.units.kg.opensUnit = {
+                    productId: linkedProductId,
+                    unitName: bulkUnitName,
+                    quantity: conversion
+                };
+            }
+        }
+    }
+    // Si la acción es 'none', no se hace nada más.
+
+    // --- 3. GUARDAR TODO ---
+    this.products[primaryProductId] = primaryProduct;
+    this.saveData();
+    this.closeModal();
+    this.updateInventory();
+    this.showToast('Operación completada con éxito');
+}
+    veProduct(e) {
+    e.preventDefault();
+    
+    const pId = 'p' + Date.now();
+    
+    // Datos básicos del producto
+    const product = {
+        id: pId,
+        name: document.getElementById('pName').value,
+        code: document.getElementById('pCode').value,
+        category: document.getElementById('pCategory').value,
+        cost: parseFloat(document.getElementById('pCost').value) || 0,
+        units: {}
+    };
+
+    // --- Unidad Principal (ej. kg) ---
+    const primaryUnit = document.getElementById('pUnit').value;
+    product.units[primaryUnit] = {
+        price: parseFloat(document.getElementById('pPrice').value) || 0,
+        stock: parseFloat(document.getElementById('pStock').value) || 0,
+        min: 5 // Puedes poner una lógica más compleja si quieres
+    };
+
+    // --- Unidad a Granel (ej. saco), si está activada ---
+    const addBulkUnit = document.getElementById('addBulkUnitToggle').checked;
+    if (addBulkUnit) {
+        const bulkUnitName = document.getElementById('pBulkUnitName').value.toLowerCase() || 'saco';
+        const bulkConversion = parseFloat(document.getElementById('pBulkUnitConversion').value) || 0;
+
+        if (bulkUnitName && bulkConversion > 0) {
+            product.units[bulkUnitName] = {
+                price: parseFloat(document.getElementById('pBulkPrice').value) || 0,
+                stock: parseFloat(document.getElementById('pBulkStock').value) || 0,
+                min: 1
+            };
+            
+            // LA CLAVE: Guardamos la relación entre las unidades
+            product.units[primaryUnit].opensUnit = {
+                name: bulkUnitName,
+                quantity: bulkConversion
+            };
+        }
+    }
+    
+    this.products[product.id] = product;
+    this.saveData();
+    this.closeModal();
+    this.updateInventory();
+    this.showToast('Producto agregado correctamente');
+}
+
+filterBulkProducts(searchTerm) {
+    const search = searchTerm.toLowerCase();
+    const productSelect = document.getElementById('linkedBulkProductId');
+    const options = productSelect.getElementsByTagName('option');
+
+    for (let i = 0; i < options.length; i++) {
+        const option = options[i];
+        const optionText = option.textContent.toLowerCase();
+
+        if (option.value === "" || optionText.includes(search)) {
+            option.style.display = "";
+        } else {
+            option.style.display = "none";
+        }
+    }
+}
     // ================================
-    // FINANZAS
+    // FUNCIONES DE FINANZAS
     // ================================
 
     updateFinance() {
@@ -1702,137 +2602,1988 @@
         const totalSales = todaySales.reduce((sum, s) => sum + s.total, 0);
         const totalProfit = todaySales.reduce((sum, s) => sum + (s.profit || 0), 0);
         const totalExpenses = todayExpenses.reduce((sum, e) => sum + e.amount, 0);
-
+        const netProfit = totalProfit - totalExpenses;
+        
         document.getElementById('totalSales').textContent = totalSales.toFixed(2);
         document.getElementById('totalProfit').textContent = totalProfit.toFixed(2);
         document.getElementById('totalExpenses').textContent = totalExpenses.toFixed(2);
-        document.getElementById('netProfit').textContent = (totalProfit - totalExpenses).toFixed(2);
+        document.getElementById('netProfit').textContent = netProfit.toFixed(2);
         
-        // Resumen de pago
-        const totalYape = todaySales.filter(s => s.paymentMethod === 'Yape').reduce((sum, s) => sum + s.total, 0);
-        const totalEfectivo = todaySales.filter(s => s.paymentMethod === 'Efectivo').reduce((sum, s) => sum + s.total, 0);
-        document.getElementById('payment-summary').innerHTML = `
-            <div class="sale-item" style="border-left-color: #7b2cbf;"><i class="fas fa-mobile-alt"></i> Yape <div class="sale-total" style="color: #7b2cbf;">S/ ${totalYape.toFixed(2)}</div></div>
-            <div class="sale-item">💵 Efectivo <div class="sale-total">S/ ${totalEfectivo.toFixed(2)}</div></div>`;
+        this.updateExpensesList(todayExpenses);
+        const totalYape = todaySales
+    .filter(s => s.paymentMethod === 'Yape')
+    .reduce((sum, s) => sum + s.total, 0);
+const totalEfectivo = todaySales
+    .filter(s => s.paymentMethod === 'Efectivo')
+    .reduce((sum, s) => sum + s.total, 0);
+
+document.getElementById('payment-summary').innerHTML = `
+    <div class="sale-item" style="border-left-color: #7b2cbf;">
+        <div><i class="fas fa-mobile-alt"></i> Yape</div>
+        <div class="sale-total" style="color: #7b2cbf;">S/ ${totalYape.toFixed(2)}</div>
+    </div>
+     <div class="sale-item" style="border-left-color: var(--secondary);">
+        <div>💵 Efectivo</div>
+        <div class="sale-total">S/ ${totalEfectivo.toFixed(2)}</div>
+    </div>
+`;
+    }
+
+    updateExpensesList(todayExpenses) {
+        const container = document.getElementById('expensesList');
+        if (todayExpenses.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color:#999;">No hay gastos hoy</p>';
+        } else {
+            container.innerHTML = todayExpenses.reverse().map(expense => `
+                <div class="sale-item" style="border-left-color: var(--danger);">
+                    <div style="flex:1;">
+                        <div style="font-weight:600;">${expense.description}</div>
+                        <div style="font-size:0.85rem; color:#666;">
+                            ${new Date(expense.date).toLocaleTimeString('es-PE', {
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}
+                        </div>
+                    </div>
+                    <div style="font-size:1.1rem; font-weight:600; color:var(--danger);">
+                        S/ ${expense.amount.toFixed(2)}
+                    </div>
+                </div>
+            `).join('');
+        }
     }
 
     addExpense(e) {
         e.preventDefault();
-        this.expenses.push({
+        
+        const expense = {
             id: 'e' + Date.now(),
             description: document.getElementById('expenseDesc').value,
             amount: parseFloat(document.getElementById('expenseAmount').value),
             date: new Date().toISOString()
-        });
+        };
+        
+        this.expenses.push(expense);
         this.saveData();
         document.getElementById('expenseForm').reset();
         this.updateFinance();
         this.showToast('Gasto registrado');
     }
-    
-    // ================================
-    // MOVIMIENTOS Y REPORTES
-    // ================================
+// Registrar movimiento de inventario
+registerInventoryMovement(productId, unit, quantity, type, reason, reference = null) {
+    const product = this.products[productId];
+    if (!product) return false;
 
-    registerInventoryMovement(productId, unit, quantity, type, reason, reference = null) {
-        const product = this.products[productId];
-        if (!product) return;
-        const movement = {
-            productId, unit, quantity: Math.abs(quantity), type, reason, reference,
-            productName: product.name,
-            timestamp: new Date().toISOString()
-        };
-        this.inventoryMovements.push(movement);
-    }
+    const movement = {
+        id: 'mov_' + Date.now(),
+        productId,
+        productName: product.name,
+        productCode: product.code,
+        unit,
+        quantity: Math.abs(quantity),
+        type, // 'entrada' o 'salida'
+        reason, // 'venta', 'compra', 'ajuste', 'devolución', 'merma', 'transferencia'
+        reference, // ID de venta si aplica
+        previousStock: product.units[unit]?.stock || 0,
+        newStock: (product.units[unit]?.stock || 0) + (type === 'entrada' ? quantity : -quantity),
+        timestamp: new Date().toISOString(),
+        user: 'Sistema' // Se puede expandir para múltiples usuarios
+    };
+
+    this.inventoryMovements.push(movement);
+    this.saveData();
     
-    exportSales() {
-        const today = new Date().toISOString().split('T')[0];
-        const sales = this.sales.filter(s => s.timestamp.startsWith(today));
-        let csv = 'Fecha,Hora,Producto,Cantidad,Unidad,Precio,Total,Cliente,Metodo,Ganancia\n';
-        sales.forEach(s => {
-            csv += `${this.formatDate(s.timestamp)},${this.formatTime(s.timestamp)},"${s.productName}",${s.qty},${s.unit},${s.price},${s.total},"${s.customer}",${s.paymentMethod},${s.profit || 0}\n`;
+    return movement;
+}
+
+// Mostrar modal de movimiento
+showMovementModal(type = 'salida', productId = null) {
+
+    // Crear modal dinámico
+    const existingModal = document.getElementById('movementModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    const modal = document.createElement('div');
+    modal.id = 'movementModal';
+    modal.className = 'modal active';
+    
+    const title = type === 'entrada' ? '📥 Registrar Entrada' : '📤 Registrar Salida';
+    const buttonText = type === 'entrada' ? 'Registrar Entrada' : 'Registrar Salida';
+    const buttonClass = type === 'entrada' ? 'btn-success' : 'btn-warning';
+
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">${title}</div>
+            <form id="movementForm" onsubmit="app.processMovement(event, '${type}')">
+                <div class="form-group">
+                    <label>Producto</label>
+                    <select id="movementProduct" required onchange="app.updateMovementUnits()">
+    <option value="">Seleccionar producto...</option>
+    ${Object.values(this.products).map(p => {
+        const isSelected = p.id === productId ? 'selected' : '';
+        return `<option value="${p.id}" ${isSelected}>${p.name} (${p.code})</option>`
+    }).join('')}
+</select>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Cantidad</label>
+                        <input type="number" id="movementQty" step="0.01" required min="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Unidad</label>
+                        <select id="movementUnit" required>
+                            <option value="">Seleccionar unidad...</option>
+                        </select>
+                    </div>
+                </div>
+
+                ${type === 'entrada' ? `
+                <div class="form-group">
+                    <label>Costo Unitario (Opcional)</label>
+                    <input type="number" id="movementCost" step="0.01" min="0" placeholder="0.00">
+                </div>
+                ` : ''}
+
+                <div class="form-group">
+                    <label>Motivo</label>
+                    <select id="movementReason" required>
+                        ${type === 'entrada' ? `
+                            <option value="compra">Compra/Reposición</option>
+                            <option value="devolucion">Devolución</option>
+                            <option value="ajuste_positivo">Ajuste Positivo</option>
+                            <option value="transferencia_entrada">Transferencia (Entrada)</option>
+                            <option value="otros">Otros</option>
+                        ` : `
+                            <option value="merma">Merma/Pérdida</option>
+                            <option value="devolucion">Devolución a Proveedor</option>
+                            <option value="ajuste_negativo">Ajuste Negativo</option>
+                            <option value="transferencia_salida">Transferencia (Salida)</option>
+                            <option value="consumo_interno">Consumo Interno</option>
+                            <option value="otros">Otros</option>
+                        `}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Notas (Opcional)</label>
+                    <textarea id="movementNotes" rows="3" placeholder="Descripción adicional..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-danger" onclick="app.closeMovementModal()">Cancelar</button>
+                    <button type="submit" class="btn ${buttonClass}">${buttonText}</button>
+                </div>
+            </form>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+     if (productId) {
+        this.updateMovementUnits();
+    }
+}
+
+updateMovementUnits() {
+    const productId = document.getElementById('movementProduct').value;
+    const unitSelect = document.getElementById('movementUnit');
+    
+    unitSelect.innerHTML = '<option value="">Seleccionar unidad...</option>';
+    
+    if (productId && this.products[productId]?.units) {
+        Object.keys(this.products[productId].units).forEach(unit => {
+            const option = document.createElement('option');
+            option.value = unit;
+            option.textContent = `${this.getUnitLabel(unit)} (Stock: ${this.products[productId].units[unit].stock})`;
+            unitSelect.appendChild(option);
         });
-        this.downloadFile(csv, `ventas_${today}.csv`, 'text/csv');
+    }
+}
+
+processMovement(e, type) {
+    e.preventDefault();
+    
+    const productId = document.getElementById('movementProduct').value;
+    const quantity = parseFloat(document.getElementById('movementQty').value);
+    const unit = document.getElementById('movementUnit').value;
+    const reason = document.getElementById('movementReason').value;
+    const notes = document.getElementById('movementNotes').value;
+    const cost = type === 'entrada' ? parseFloat(document.getElementById('movementCost')?.value || 0) : 0;
+
+    let success = false;
+    
+    if (type === 'entrada') {
+        success = this.registerManualEntry(productId, unit, quantity, reason, cost, notes);
+    } else {
+        success = this.registerManualExit(productId, unit, quantity, reason, notes);
     }
 
-    quickShareReport(method) {
+    if (success) {
+        this.closeMovementModal();
+        this.updateInventory();
+        this.updateHeader();
+    }
+}
+
+closeMovementModal() {
+    const modal = document.getElementById('movementModal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+// Registrar salida manual de inventario
+registerManualExit(productId, unit, quantity, reason, notes = '') {
+    const product = this.products[productId];
+    if (!product || !product.units[unit]) {
+        this.showToast('Producto o unidad no encontrada', 'error');
+        return false;
+    }
+
+    if (product.units[unit].stock < quantity) {
+        this.showToast('Stock insuficiente para la salida', 'error');
+        return false;
+    }
+
+    // Registrar movimiento
+    const movement = this.registerInventoryMovement(
+        productId, unit, quantity, 'salida', reason
+    );
+
+    // Actualizar stock
+    product.units[unit].stock -= quantity;
+
+    // Agregar notas al movimiento si existen
+    if (notes) {
+        movement.notes = notes;
+    }
+
+    this.saveData();
+    this.showToast(`Salida registrada: ${quantity} ${this.getUnitLabel(unit)}`, 'success');
+    return true;
+}
+
+// Registrar entrada manual de inventario
+registerManualEntry(productId, unit, quantity, reason, cost = 0, notes = '') {
+    const product = this.products[productId];
+    if (!product || !product.units[unit]) {
+        this.showToast('Producto o unidad no encontrada', 'error');
+        return false;
+    }
+
+    // Registrar movimiento
+    const movement = this.registerInventoryMovement(
+        productId, unit, quantity, 'entrada', reason
+    );
+
+    // Actualizar stock
+    product.units[unit].stock += quantity;
+
+    // Agregar información adicional al movimiento
+    if (cost > 0) {
+        movement.cost = cost;
+        movement.totalCost = cost * quantity;
+    }
+    if (notes) {
+        movement.notes = notes;
+    }
+
+    this.saveData();
+    this.showToast(`Entrada registrada: ${quantity} ${this.getUnitLabel(unit)}`, 'success');
+    return true;
+}
+    // ================================
+    // FUNCIONES DE REPORTES
+    // ================================
+
+    updateReports() {
+        const currentMonth = new Date().toISOString().slice(0, 7);
+        const monthSales = this.sales.filter(s => s.timestamp.startsWith(currentMonth));
+        const products = Object.values(this.products);
+        
+        this.updateReportStats(monthSales, products);
+        this.updateTopProducts();
+        this.updateLowStockReport();
+    }
+
+    updateReportStats(monthSales, products) {
+        const totalSales = monthSales.reduce((sum, s) => sum + s.total, 0);
+        const totalProfit = monthSales.reduce((sum, s) => sum + (s.profit || 0), 0);
+        const profitMargin = totalSales > 0 ? (totalProfit / totalSales * 100) : 0;
+        
+        const lowStockProducts = products.filter(p => 
+            p.units && Object.values(p.units).some(unit => unit.stock < unit.min)
+        );
+        
+        const customerStats = this.calculateCustomerStats(monthSales);
+        const topCustomerData = Object.entries(customerStats)
+            .sort((a, b) => b[1].count - a[1].count)[0];
+        
+        // Actualizar estadísticas
+        document.getElementById('monthSalesTotal').textContent = this.formatCurrency(totalSales);
+        document.getElementById('monthSalesCount').textContent = monthSales.length;
+        document.getElementById('monthProfit').textContent = this.formatCurrency(totalProfit);
+        document.getElementById('profitMargin').textContent = profitMargin.toFixed(1) + '%';
+        document.getElementById('totalProducts').textContent = products.length;
+        document.getElementById('lowStockCount').textContent = lowStockProducts.length;
+        
+        if (topCustomerData) {
+            document.getElementById('topCustomer').textContent = topCustomerData[0];
+            document.getElementById('topCustomerSales').textContent = topCustomerData[1].count;
+        }
+    }
+
+    calculateCustomerStats(sales) {
+        const customerStats = {};
+        sales.forEach(sale => {
+            const customer = sale.customer || 'Cliente General';
+            if (!customerStats[customer]) {
+                customerStats[customer] = { count: 0, total: 0 };
+            }
+            customerStats[customer].count++;
+            customerStats[customer].total += sale.total;
+        });
+        return customerStats;
+    }
+
+    updateTopProducts() {
+        const productStats = {};
+        this.sales.forEach(sale => {
+            if (!productStats[sale.productName]) {
+                productStats[sale.productName] = { 
+                    qty: 0, 
+                    total: 0, 
+                    profit: 0,
+                    transactions: 0 
+                };
+            }
+            productStats[sale.productName].qty += sale.qty;
+            productStats[sale.productName].total += sale.total;
+            productStats[sale.productName].profit += (sale.profit || 0);
+            productStats[sale.productName].transactions++;
+        });
+        
+        const topProducts = Object.entries(productStats)
+            .sort((a, b) => b[1].total - a[1].total)
+            .slice(0, 5);
+        
+        this.renderTopProducts(topProducts);
+    }
+
+    renderTopProducts(topProducts) {
+        const topContainer = document.getElementById('topProducts');
+        if (topProducts.length === 0) {
+            topContainer.innerHTML = '<p style="color:#999; text-align:center;">No hay datos de ventas</p>';
+        } else {
+            topContainer.innerHTML = topProducts.map(([name, stats], index) => {
+                const maxTotal = topProducts[0][1].total;
+                const percentage = (stats.total / maxTotal * 100).toFixed(0);
+                
+                return `
+                    <div style="padding:12px; background:white; border-radius:8px; margin-bottom:10px; border-left: 4px solid var(--primary);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="flex: 1;">
+                                <div style="font-weight:600; color: var(--dark);">
+                                    #${index + 1} ${name}
+                                </div>
+                                <div style="font-size:0.85rem; color:#666; margin-top: 5px;">
+                                    ${stats.qty.toFixed(1)} unidades vendidas • ${stats.transactions} ventas
+                                </div>
+                                <div style="margin-top: 5px;">
+                                    <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
+                                        <div style="background: var(--primary); height: 100%; width: ${percentage}%; transition: width 0.3s;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: right; margin-left: 15px;">
+                                <div style="font-size: 1.1rem; font-weight: bold; color: var(--primary);">
+                                    ${this.formatCurrency(stats.total)}
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--secondary);">
+                                    Ganancia: ${this.formatCurrency(stats.profit)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    }
+
+    updateLowStockReport() {
+        const lowStockProducts = Object.values(this.products).filter(p => 
+            p.units && Object.values(p.units).some(unit => unit.stock < unit.min)
+        );
+
+        const lowStockContainer = document.getElementById('lowStockProducts');
+        if (lowStockProducts.length === 0) {
+            lowStockContainer.innerHTML = '<p style="color:#999; text-align:center;">Todos los productos tienen stock adecuado</p>';
+        } else {
+            lowStockContainer.innerHTML = lowStockProducts.slice(0, 5).map(product => {
+                const criticalUnits = Object.entries(product.units)
+                    .filter(([unit, data]) => data.stock < data.min)
+                    .map(([unit, data]) => `${this.getUnitLabel(unit)}: ${data.stock}/${data.min}`);
+                
+                return `
+                    <div style="padding:10px; background:#fff3e0; border-radius:8px; margin-bottom:8px; border-left: 4px solid var(--warning);">
+                        <div style="font-weight:600; color: var(--dark);">${product.name}</div>
+                        <div style="font-size:0.85rem; color:#666; margin-top: 3px;">
+                            ${product.code} • ${criticalUnits.join(' | ')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    }
+
+    // ================================
+    // SISTEMA DE ARCHIVOS MEJORADO PARA ANDROID
+    // ================================
+
+    async initializeStorage() {
+        // Verificar si estamos en un entorno móvil
+        if (this.isMobile()) {
+            await this.requestPermissions();
+            await this.createAppDirectories();
+        }
+    }
+
+    isMobile() {
+        return window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+    }
+
+    async requestPermissions() {
+        if (!this.isMobile()) return true;
+
+        try {
+            // Para Capacitor moderno, verificar permisos
+            if (window.Capacitor.Plugins.Permissions) {
+                const { Permissions } = window.Capacitor.Plugins;
+                
+                const permission = await Permissions.query({ name: 'storage' });
+                
+                if (permission.state !== 'granted') {
+                    const result = await Permissions.request({ name: 'storage' });
+                    return result.state === 'granted';
+                }
+                return true;
+            }
+            
+            // Para versiones más antiguas o si no hay Permissions plugin
+            return true;
+            
+        } catch (error) {
+            console.log('Permisos no disponibles o ya otorgados:', error);
+            return true; // Continuar de todas formas
+        }
+    }
+
+    async createAppDirectories() {
+        if (!window.Capacitor || !window.Capacitor.Plugins || !window.Capacitor.Plugins.Filesystem) {
+            console.log('🌐 Filesystem no disponible - modo web');
+            return;
+        }
+
+        try {
+            const { Filesystem, Directory } = window.Capacitor.Plugins;
+            
+            console.log('📂 Creando directorios de la app...');
+            
+            // Lista de directorios a probar (orden de preferencia)
+            const directoriesToTry = [
+                { dir: Directory.ExternalStorage, name: 'Almacenamiento Externo' },
+                { dir: Directory.Documents, name: 'Documentos' },
+                { dir: Directory.Data, name: 'Datos de App' },
+                { dir: Directory.Cache, name: 'Cache' }
+            ];
+
+            let workingDirectory = null;
+            
+            // Buscar un directorio que funcione
+            for (const dirInfo of directoriesToTry) {
+                try {
+                    console.log(`🔍 Probando: ${dirInfo.name}`);
+                    
+                    // Crear directorio principal
+                    await Filesystem.mkdir({
+                        path: 'TresPeces',
+                        directory: dirInfo.dir,
+                        recursive: true
+                    });
+                    
+                    // Probar escribir un archivo de prueba
+                    await Filesystem.writeFile({
+                        path: 'TresPeces/test.txt',
+                        data: 'test',
+                        directory: dirInfo.dir,
+                        encoding: 'utf8'
+                    });
+                    
+                    // Si llegamos aquí, el directorio funciona
+                    workingDirectory = dirInfo.dir;
+                    console.log(`✅ Directorio funcional: ${dirInfo.name}`);
+                    
+                    // Limpiar archivo de prueba
+                    try {
+                        await Filesystem.deleteFile({
+                            path: 'TresPeces/test.txt',
+                            directory: dirInfo.dir
+                        });
+                    } catch (e) {
+                        // No importa si no se puede eliminar
+                    }
+                    
+                    break;
+                    
+                } catch (dirError) {
+                    console.log(`❌ ${dirInfo.name} no disponible:`, dirError.message);
+                    continue;
+                }
+            }
+
+            if (workingDirectory) {
+                this.workingDirectory = workingDirectory;
+                console.log(`📁 Directorio configurado: ${workingDirectory}`);
+                
+                // Crear subdirectorios
+                const subfolders = ['Reportes', 'Ventas', 'Inventario'];
+                for (const folder of subfolders) {
+                    try {
+                        await Filesystem.mkdir({
+                            path: `TresPeces/${folder}`,
+                            directory: workingDirectory,
+                            recursive: true
+                        });
+                        console.log(`📂 Creado: ${folder}`);
+                    } catch (e) {
+                        console.log(`⚠️ No se pudo crear ${folder}:`, e.message);
+                    }
+                }
+                
+                return true;
+            } else {
+                console.error('❌ No se encontró directorio funcional');
+                this.workingDirectory = Directory.Cache; // Fallback
+                return false;
+            }
+            
+        } catch (error) {
+            console.error('❌ Error general creando directorios:', error);
+            this.workingDirectory = Directory.Cache; // Fallback
+            return false;
+        }
+    }
+
+    async saveFileToApp(content, filename, mimeType, category = 'Reportes') {
+    try {
+        // Para dispositivos móviles
+        if (this.isMobile() && window.Capacitor.Plugins.Filesystem) {
+            const { Filesystem } = window.Capacitor.Plugins;
+            const { Directory } = window.Capacitor.Plugins.Filesystem;
+            
+            // Intentar guardar en Downloads primero
+            try {
+                const result = await Filesystem.writeFile({
+                    path: filename,
+                    data: content,
+                    directory: Directory.External,
+                    recursive: true
+                });
+                
+                this.showToast('✅ Archivo guardado en Descargas', 'success');
+                return result.uri;
+            } catch (error) {
+                console.error('Error guardando archivo:', error);
+                this.showToast('❌ No se pudo guardar el archivo', 'error');
+                
+                // Mostrar instrucciones al usuario
+                alert('Para acceder a los archivos:\n' +
+                      '1. Abre el administrador de archivos\n' +
+                      '2. Ve a la carpeta Descargas\n' +
+                      '3. Busca el archivo: ' + filename);
+            }
+        } else {
+            // Para navegador web
+            this.downloadWebFallback(content, filename, mimeType);
+        }
+    } catch (error) {
+        console.error('Error en saveFileToApp:', error);
+        this.showToast('❌ Error guardando archivo', 'error');
+    }
+}
+
+    async saveToMobile(content, filename, mimeType, category) {
+        console.log('📱 Guardando en móvil:', filename);
+        console.log('📁 Directorio actual:', this.workingDirectory);
+        
+        try {
+            // Asegurar que tenemos un directorio de trabajo
+            if (!this.workingDirectory) {
+                console.log('📂 Creando directorios...');
+                await this.createAppDirectories();
+            }
+
+            const { Filesystem, Encoding } = window.Capacitor.Plugins;
+            
+            // Preparar datos del archivo
+            let fileData = content;
+            let encoding = Encoding.UTF8;
+            
+            // Solo usar base64 para PDFs
+            if (mimeType === 'application/pdf') {
+                encoding = Encoding.Base64;
+                console.log('📄 Usando Base64 para PDF');
+            } else {
+                console.log('📝 Usando UTF8 para texto');
+            }
+            
+            // Lista de rutas a intentar (de más específica a más general)
+            const pathsToTry = [
+                { path: `TresPeces/${category}/${filename}`, description: `carpeta ${category}` },
+                { path: `TresPeces/${filename}`, description: 'carpeta principal' },
+                { path: filename, description: 'directorio raíz' }
+            ];
+            
+            let savedUri = null;
+            let successfulPath = null;
+            
+            // Probar cada ruta hasta que una funcione
+            for (const pathInfo of pathsToTry) {
+                try {
+                    console.log(`📁 Intentando guardar en: ${pathInfo.description}`);
+                    console.log(`📍 Ruta completa: ${pathInfo.path}`);
+                    
+                    const result = await Filesystem.writeFile({
+                        path: pathInfo.path,
+                        data: fileData,
+                        directory: this.workingDirectory,
+                        encoding: encoding
+                    });
+                    
+                    console.log(`✅ Guardado exitoso. URI: ${result.uri}`);
+                    
+                    // VERIFICAR QUE EL ARCHIVO REALMENTE EXISTE
+                    const verification = await this.verifyFileExists(pathInfo.path, this.workingDirectory);
+                    
+                    if (verification.exists) {
+                        console.log(`✅ Archivo verificado: ${verification.size} bytes`);
+                        this.showToast(`✅ Archivo guardado y verificado: ${pathInfo.description}`, 'success');
+                        savedUri = result.uri;
+                        successfulPath = pathInfo.path;
+                        break;
+                    } else {
+                        console.log(`❌ Archivo no verificado en ${pathInfo.description}`);
+                        continue;
+                    }
+                    
+                } catch (pathError) {
+                    console.log(`❌ Falló ${pathInfo.description}:`, pathError.message);
+                    continue;
+                }
+            }
+            
+            if (!savedUri) {
+                throw new Error('No se pudo guardar en ninguna ubicación válida');
+            }
+            
+            // Intentar obtener la ruta real del archivo para mostrar al usuario
+            try {
+                const realPath = await this.getReadablePath(successfulPath, this.workingDirectory);
+                if (realPath) {
+                    this.showToast(`📁 Archivo en: ${realPath}`, 'info');
+                }
+            } catch (pathError) {
+                console.log('No se pudo obtener la ruta legible:', pathError.message);
+            }
+            
+            return savedUri;
+            
+        } catch (error) {
+            console.error('❌ Error completo guardando móvil:', error);
+            this.logDetailedError('saveToMobile', error);
+            
+            // Forzar descarga web si falla completamente
+            console.log('🔄 Forzando descarga web...');
+            this.showToast('❌ No se pudo guardar. Descargando...', 'warning');
+            return await this.saveToWeb(content, filename, mimeType);
+        }
+    }
+
+    async verifyFileExists(path, directory) {
+        try {
+            const { Filesystem } = window.Capacitor.Plugins;
+            
+            const stat = await Filesystem.stat({
+                path: path,
+                directory: directory
+            });
+            
+            console.log('📊 Estadísticas del archivo:', stat);
+            
+            return {
+                exists: true,
+                size: stat.size,
+                uri: stat.uri,
+                modifiedTime: stat.mtime
+            };
+            
+        } catch (error) {
+            console.log('❌ Archivo no existe o no accesible:', error.message);
+            return { exists: false };
+        }
+    }
+
+    async getReadablePath(path, directory) {
+        try {
+            const { Filesystem } = window.Capacitor.Plugins;
+            
+            const uri = await Filesystem.getUri({
+                path: path,
+                directory: directory
+            });
+            
+            // Intentar convertir URI a ruta legible
+            if (uri.uri) {
+                const readablePath = uri.uri
+                    .replace('file://', '')
+                    .replace('/android_asset/', '')
+                    .replace('/storage/emulated/0/', '/Almacenamiento interno/');
+                    
+                return readablePath;
+            }
+            
+            return null;
+            
+        } catch (error) {
+            console.log('No se pudo obtener URI:', error.message);
+            return null;
+        }
+    }
+
+    async listTresPecesFiles() {
+        if (!window.Capacitor || !window.Capacitor.Plugins || !window.Capacitor.Plugins.Filesystem) {
+            this.showToast('❌ Sistema de archivos no disponible', 'error');
+            return [];
+        }
+
+        try {
+            const { Filesystem } = window.Capacitor.Plugins;
+            const foundFiles = [];
+            
+            console.log('🔍 Buscando archivos de TRES PECES...');
+            
+            // Buscar en diferentes ubicaciones
+            const searchPaths = [
+                'TresPeces',
+                'TresPeces/Reportes',
+                'TresPeces/Ventas',
+                'TresPeces/Inventario'
+            ];
+            
+            for (const searchPath of searchPaths) {
+                try {
+                    const dirContents = await Filesystem.readdir({
+                        path: searchPath,
+                        directory: this.workingDirectory
+                    });
+                    
+                    console.log(`📂 En ${searchPath}:`, dirContents.files);
+                    
+                    for (const file of dirContents.files) {
+                        if (file.name && (file.name.includes('.csv') || file.name.includes('.pdf') || file.name.includes('.json'))) {
+                            foundFiles.push({
+                                name: file.name,
+                                path: `${searchPath}/${file.name}`,
+                                location: searchPath
+                            });
+                        }
+                    }
+                    
+                } catch (dirError) {
+                    console.log(`❌ No se pudo leer ${searchPath}:`, dirError.message);
+                }
+            }
+            
+            return foundFiles;
+            
+        } catch (error) {
+            console.error('Error listando archivos:', error);
+            return [];
+        }
+    }
+
+    downloadWebFallback(content, filename, mimeType) {
+        try {
+            // Crear descarga del lado del cliente
+            const element = document.createElement('a');
+            const file = new Blob([content], { type: mimeType });
+            element.href = URL.createObjectURL(file);
+            element.download = filename;
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            
+            this.showToast('📥 Archivo descargado al navegador', 'info');
+        } catch (e) {
+            this.showToast('❌ Error crítico guardando archivo', 'error');
+        }
+    }
+
+    async saveToWeb(content, filename, mimeType) {
+        try {
+            let blob;
+            
+            if (mimeType === 'application/pdf') {
+                // Para PDF, convertir base64 a blob
+                const byteCharacters = atob(content);
+                const byteNumbers = new Array(byteCharacters.length);
+                for (let i = 0; i < byteCharacters.length; i++) {
+                    byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                const byteArray = new Uint8Array(byteNumbers);
+                blob = new Blob([byteArray], { type: mimeType });
+            } else {
+                // Para otros formatos
+                blob = new Blob(['\ufeff' + content], { type: mimeType + ';charset=utf-8;' });
+            }
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(link.href);
+            
+            this.showToast(`📁 Archivo descargado: ${filename}`, 'success');
+            return URL.createObjectURL(blob);
+            
+        } catch (error) {
+            console.error('Error guardando archivo web:', error);
+            this.showToast('❌ Error descargando archivo', 'error');
+            return null;
+        }
+    }
+
+    // ================================
+    // GENERACIÓN DE REPORTES
+    // ================================
+
+    updateReportOptions() {
+        const reportType = document.getElementById('reportType').value;
+        const dateContainer = document.getElementById('dateRangeContainer');
+        
+        if (reportType === 'custom') {
+            dateContainer.style.display = 'block';
+        } else {
+            dateContainer.style.display = 'none';
+        }
+        
+        // Establecer fechas por defecto
         const today = new Date().toISOString().split('T')[0];
-        const sales = this.sales.filter(s => s.timestamp.startsWith(today));
-        const expenses = this.expenses.filter(e => e.date.startsWith(today));
-        const totalSales = sales.reduce((sum, s) => sum + s.total, 0);
-        const totalProfit = sales.reduce((sum, s) => sum + (s.profit || 0), 0);
-        const totalExpenses = expenses.reduce((sum, e) => sum + e.amount, 0);
+        document.getElementById('startDate').value = today;
+        document.getElementById('endDate').value = today;
+    }
+
+    async generateReport() {
+        const reportType = document.getElementById('reportType').value;
+        const reportFormat = document.getElementById('reportFormat').value;
+        
+        this.showToast('⏳ Generando reporte...', 'info');
+        
+        let startDate, endDate;
+        const today = new Date();
+        
+        // Calcular fechas según tipo de reporte
+        switch(reportType) {
+            case 'daily':
+                startDate = endDate = today.toISOString().split('T')[0];
+                break;
+            case 'weekly':
+                endDate = today.toISOString().split('T')[0];
+                startDate = new Date(today.setDate(today.getDate() - 7)).toISOString().split('T')[0];
+                break;
+            case 'monthly':
+                startDate = new Date(today.getFullYear(), today.getMonth(), 1).toISOString().split('T')[0];
+                endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0).toISOString().split('T')[0];
+                break;
+            case 'custom':
+                startDate = document.getElementById('startDate').value;
+                endDate = document.getElementById('endDate').value;
+                if (!startDate || !endDate) {
+                    this.showToast('Debe seleccionar fechas válidas', 'error');
+                    return;
+                }
+                break;
+            case 'inventory':
+                await this.generateInventoryReport(reportFormat);
+                return;
+            case 'complete':
+                startDate = '2020-01-01';
+                endDate = today.toISOString().split('T')[0];
+                break;
+        }
+        
+        const reportData = this.compileReportData(startDate, endDate);
+        const fileName = `reporte_${reportType}_${startDate}_${endDate}`;
+        
+        try {
+            let fileUri;
+            if (reportFormat === 'pdf') {
+                fileUri = await this.generatePDFReport(reportData, startDate, endDate, fileName);
+            } else if (reportFormat === 'json') {
+                const jsonContent = JSON.stringify(reportData, null, 2);
+                fileUri = await this.saveFileToApp(jsonContent, `${fileName}.json`, 'application/json');
+            } else {
+                const csvContent = this.generateEnhancedCSV(reportData);
+                fileUri = await this.saveFileToApp(csvContent, `${fileName}.csv`, 'text/csv');
+            }
+            
+            // Preguntar si quiere compartir
+            if (fileUri) {
+                setTimeout(() => this.askShareOptions(fileUri, fileName, reportFormat), 1000);
+            }
+            
+        } catch (error) {
+            console.error('Error generando reporte:', error);
+            this.showToast('❌ Error generando reporte', 'error');
+        }
+    }
+
+    async askShareOptions(fileUri, fileName, format) {
+        const share = confirm('📱 ¿Desea compartir este reporte por WhatsApp?');
+        if (share) {
+            await this.shareViaWhatsApp(fileUri, fileName, format);
+        }
+    }
+
+    compileReportData(startDate, endDate) {
+        const filteredSales = this.sales.filter(s => {
+            const saleDate = s.timestamp.split('T')[0];
+            return saleDate >= startDate && saleDate <= endDate;
+        });
+        
+        const filteredExpenses = this.expenses.filter(e => {
+            const expenseDate = e.date.split('T')[0];
+            return expenseDate >= startDate && expenseDate <= endDate;
+        });
+        
+        return {
+            period: { start: startDate, end: endDate },
+            sales: filteredSales,
+            expenses: filteredExpenses,
+            inventory: Object.values(this.products),
+            summary: {
+                totalSales: filteredSales.reduce((sum, s) => sum + s.total, 0),
+                totalProfit: filteredSales.reduce((sum, s) => sum + (s.profit || 0), 0),
+                totalExpenses: filteredExpenses.reduce((sum, e) => sum + e.amount, 0),
+                transactionCount: filteredSales.length,
+                uniqueProducts: new Set(filteredSales.map(s => s.productId)).size,
+                uniqueCustomers: new Set(filteredSales.map(s => s.customer || 'General')).size
+            }
+        };
+    }
+
+    generateEnhancedCSV(data) {
+        let csv = 'REPORTE TRES PECES\n';
+        csv += `Periodo: ${this.formatDate(data.period.start)} - ${this.formatDate(data.period.end)}\n`;
+        csv += `Generado: ${new Date().toLocaleString('es-PE')}\n\n`;
+        
+        // Resumen
+        csv += 'RESUMEN EJECUTIVO\n';
+        csv += `Total Ventas,${data.summary.totalSales.toFixed(2)}\n`;
+        csv += `Total Ganancia,${data.summary.totalProfit.toFixed(2)}\n`;
+        csv += `Total Gastos,${data.summary.totalExpenses.toFixed(2)}\n`;
+        csv += `Ganancia Neta,${(data.summary.totalProfit - data.summary.totalExpenses).toFixed(2)}\n`;
+        csv += `Número de Transacciones,${data.summary.transactionCount}\n`;
+        csv += `Productos Vendidos,${data.summary.uniqueProducts}\n`;
+        csv += `Clientes Atendidos,${data.summary.uniqueCustomers}\n\n`;
+        
+        // Ventas detalladas
+        csv += 'DETALLE DE VENTAS\n';
+        csv += 'Fecha,Hora,Código,Producto,Cantidad,Unidad,Precio Unit.,Total,Cliente,Ganancia,Metodo de Pago\n';
+
+        
+        data.sales.forEach(s => {
+            const product = this.products[s.productId];
+            csv += `${this.formatDate(s.timestamp)},${this.formatTime(s.timestamp)},`;
+            csv += `${product?.code || ''},${s.productName},${s.qty},${s.unit},`;
+                csv += `${s.price},${s.total},"${s.customer || 'General'}",${s.profit || 0},${s.paymentMethod || ''}\n`;
+
+        });
+        
+        // Gastos
+        if (data.expenses.length > 0) {
+            csv += '\nDETALLE DE GASTOS\n';
+            csv += 'Fecha,Hora,Descripción,Monto\n';
+            
+            data.expenses.forEach(e => {
+                csv += `${this.formatDate(e.date)},${this.formatTime(e.date)},`;
+                csv += `"${e.description}",${e.amount}\n`;
+            });
+        }
+        
+        return csv;
+    }
+
+    async generateInventoryReport(format) {
+        const inventoryData = {
+            generatedAt: new Date().toISOString(),
+            products: Object.values(this.products).map(p => ({
+                ...p,
+                totalValue: Object.entries(p.units).reduce((sum, [unit, data]) => 
+                    sum + (data.stock * data.price), 0
+                ),
+                status: Object.values(p.units).some(u => u.stock < u.min) ? 'Stock Bajo' : 'OK'
+            })),
+            summary: {
+                totalProducts: Object.keys(this.products).length,
+                lowStockCount: Object.values(this.products).filter(p => 
+                    p.units && Object.values(p.units).some(u => u.stock < u.min)
+                ).length,
+                totalInventoryValue: 0
+            }
+        };
+        
+        inventoryData.summary.totalInventoryValue = inventoryData.products.reduce(
+            (sum, p) => sum + p.totalValue, 0
+        );
+        
+        const fileName = `inventario_${new Date().toISOString().split('T')[0]}`;
+        
+        if (format === 'json') {
+            const jsonContent = JSON.stringify(inventoryData, null, 2);
+            await this.saveFileToApp(jsonContent, `${fileName}.json`, 'application/json', 'Inventario');
+        } else if (format === 'pdf') {
+            await this.generateInventoryPDF(inventoryData, fileName);
+        } else {
+            const csvContent = this.generateInventoryCSV(inventoryData);
+            await this.saveFileToApp(csvContent, `${fileName}.csv`, 'text/csv', 'Inventario');
+        }
+    }
+
+    generateInventoryCSV(data) {
+        let csv = 'REPORTE DE INVENTARIO - TRES PECES\n';
+        csv += `Fecha: ${new Date().toLocaleString('es-PE')}\n`;
+        csv += `Total Productos: ${data.summary.totalProducts}\n`;
+        csv += `Productos con Stock Bajo: ${data.summary.lowStockCount}\n`;
+        csv += `Valor Total del Inventario: S/ ${data.summary.totalInventoryValue.toFixed(2)}\n\n`;
+        
+        csv += 'Código,Nombre,Categoría,Unidad,Stock,Stock Mínimo,Precio,Valor,Estado\n';
+        
+        data.products.forEach(p => {
+            Object.entries(p.units).forEach(([unit, unitData]) => {
+                const status = unitData.stock < unitData.min ? 'STOCK BAJO' : 'OK';
+                const value = unitData.stock * unitData.price;
+                
+                csv += `${p.code},"${p.name}","${p.category}",`;
+                csv += `${this.getUnitLabel(unit)},${unitData.stock},${unitData.min},`;
+                csv += `${unitData.price},${value.toFixed(2)},${status}\n`;
+            });
+        });
+        
+        return csv;
+    }
+
+    // ================================
+    // WHATSAPP Y COMPARTIR MEJORADO PARA ANDROID
+    // ================================
+
+    async shareViaWhatsApp(fileUri, fileName, format) {
+    try {
+        // Crear mensaje con resumen
+        const message = `📊 *REPORTE TRES PECES*\n` +
+                       `📅 ${new Date().toLocaleString('es-PE')}\n\n` +
+                       `💰 *Resumen del día:*\n` +
+                       this.generateWhatsAppSummary();
+
+        // Para dispositivos móviles
+        if (this.isMobile() && window.Capacitor.Plugins.Share) {
+            const { Share } = window.Capacitor.Plugins;
+            
+            try {
+                await Share.share({
+                    text: message,
+                    title: 'Reporte TRES PECES',
+                    dialogTitle: 'Compartir por WhatsApp'
+                });
+            } catch (shareError) {
+                console.error('Error compartiendo:', shareError);
+                // Fallback a URL de WhatsApp
+                this.openWhatsAppURL(message);
+            }
+        } else {
+            // Para navegador web
+            this.openWhatsAppURL(message);
+        }
+        
+    } catch (error) {
+        console.error('Error en shareViaWhatsApp:', error);
+        this.showToast('❌ Error al compartir', 'error');
+    }
+}
+// Nueva función para generar el resumen
+generateWhatsAppSummary() {
+    const today = new Date().toISOString().split('T')[0];
+    const todaySales = this.sales.filter(s => s.timestamp.startsWith(today));
+    
+    const totalSales = todaySales.reduce((sum, s) => sum + s.total, 0);
+    const totalProfit = todaySales.reduce((sum, p) => sum + (p.profit || 0), 0);
+    const totalExpenses = this.expenses
+        .filter(e => e.date.startsWith(today))
+        .reduce((sum, e) => sum + e.amount, 0);
+    
+    return `Total Ventas: S/ ${totalSales.toFixed(2)}\n` +
+           `Ganancia: S/ ${totalProfit.toFixed(2)}\n` +
+           `Gastos: S/ ${totalExpenses.toFixed(2)}\n` +
+           `Neto: S/ ${(totalProfit - totalExpenses).toFixed(2)}\n\n` +
+           `Transacciones: ${todaySales.length}\n` +
+           `_Enviado desde TRES PECES App_`;
+}
+
+// Nueva función para abrir URL de WhatsApp
+openWhatsAppURL(message) {
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    
+    if (this.isMobile()) {
+        // Usar Capacitor Browser si está disponible
+        if (window.Capacitor.Plugins.Browser) {
+            window.Capacitor.Plugins.Browser.open({ url: whatsappUrl });
+        } else {
+            // Fallback para abrir en el navegador del dispositivo
+            window.open(whatsappUrl, '_system');
+        }
+    } else {
+        // Abrir en nueva pestaña en navegador web
+        window.open(whatsappUrl, '_blank');
+    }
+}
+
+    async fallbackWhatsAppShare(fileName, format) {
+        try {
+            const message = `📊 Reporte TRES PECES\n📄 ${fileName}.${format}\n📅 ${new Date().toLocaleString('es-PE')}\n\n⚠️ El archivo se guardó en tu dispositivo. Puedes adjuntarlo manualmente en WhatsApp.`;
+            
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            
+            if (window.Capacitor.Plugins.Browser) {
+                const { Browser } = window.Capacitor.Plugins;
+                await Browser.open({ url: whatsappUrl });
+            } else if (window.Capacitor.Plugins.App) {
+                const { App } = window.Capacitor.Plugins;
+                await App.openUrl({ url: whatsappUrl });
+            } else {
+                // Último recurso
+                window.open(whatsappUrl, '_system');
+            }
+            
+            this.showToast('📱 Abriendo WhatsApp...', 'info');
+            
+        } catch (fallbackError) {
+            console.error('Error en fallback WhatsApp:', fallbackError);
+            this.showToast('❌ No se pudo abrir WhatsApp', 'error');
+        }
+    }
+
+    // ================================
+    // FUNCIONES DE DEBUGGING Y SOPORTE
+    // ================================
+
+    showDebugMenu() {
+        const modal = document.createElement('div');
+        modal.className = 'modal active';
+        modal.style.zIndex = '9999';
+        
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width: 350px;">
+                <div class="modal-header">🔧 Diagnóstico de Sistema</div>
+                <div style="margin: 15px 0;">
+                    <button class="btn btn-info" onclick="app.showSystemInfo()" style="margin-bottom: 10px;">
+                        📱 Info del Sistema
+                    </button>
+                    <button class="btn btn-warning" onclick="app.testFileSystem()" style="margin-bottom: 10px;">
+                        📁 Probar Archivos
+                    </button>
+                    <button class="btn btn-success" onclick="app.checkPermissions()" style="margin-bottom: 10px;">
+                        🔐 Verificar Permisos
+                    </button>
+                    <button class="btn btn-primary" onclick="app.manualDirectorySetup()" style="margin-bottom: 10px;">
+                        📂 Configurar Carpetas
+                    </button>
+                    <button class="btn btn-danger" onclick="app.closeDebugMenu()">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        this.debugModal = modal;
+    }
+
+    closeDebugMenu() {
+        if (this.debugModal) {
+            this.debugModal.remove();
+            this.debugModal = null;
+        }
+    }
+
+    async checkPermissions() {
+        if (!this.isMobile()) {
+            this.showToast('⚠️ Solo para dispositivos móviles', 'warning');
+            return;
+        }
+
+        try {
+            this.showToast('🔍 Verificando permisos...', 'info');
+            
+            const hasPermissions = await this.requestPermissions();
+            
+            if (hasPermissions) {
+                this.showToast('✅ Permisos OK', 'success');
+            } else {
+                this.showToast('❌ Faltan permisos de almacenamiento', 'error');
+            }
+            
+        } catch (error) {
+            this.showToast('❌ Error verificando permisos', 'error');
+            console.error('Error:', error);
+        }
+    }
+
+    async manualDirectorySetup() {
+        if (!this.isMobile()) {
+            this.showToast('⚠️ Solo para dispositivos móviles', 'warning');
+            return;
+        }
+
+        this.showToast('🔄 Configurando carpetas...', 'info');
+        
+        try {
+            await this.createAppDirectories();
+            this.showToast('✅ Carpetas configuradas', 'success');
+        } catch (error) {
+            this.showToast('❌ Error configurando carpetas', 'error');
+            console.error('Error:', error);
+        }
+    }
+
+    async testFileSystem() {
+        console.log('🧪 Iniciando test del sistema de archivos...');
+        
+        if (!window.Capacitor || !window.Capacitor.Plugins || !window.Capacitor.Plugins.Filesystem) {
+            this.showToast('⚠️ Sistema de archivos no disponible', 'warning');
+            return false;
+        }
+
+        try {
+            this.showToast('🔄 Probando sistema de archivos...', 'info');
+            
+            const testContent = `Archivo de prueba TRES PECES
+Fecha: ${new Date().toLocaleString()}
+Directorio: ${this.workingDirectory}
+Capacitor: ${!!window.Capacitor}
+Plataforma: ${window.Capacitor.getPlatform?.() || 'desconocida'}`;
+            
+            const testFileName = 'test_sistema.txt';
+            
+            console.log('📝 Contenido de prueba preparado');
+            console.log('📁 Directorio actual:', this.workingDirectory);
+            
+            const result = await this.saveFileToApp(testContent, testFileName, 'text/plain', 'Test');
+            
+            if (result) {
+                console.log('✅ Test exitoso. URI:', result);
+                this.showToast('✅ Sistema de archivos funcionando correctamente', 'success');
+                
+                // Intentar leer el archivo para confirmar
+                try {
+                    const { Filesystem } = window.Capacitor.Plugins;
+                    const readResult = await Filesystem.readFile({
+                        path: `TresPeces/Test/${new Date().toISOString().split('T')[0]}_${testFileName}`,
+                        directory: this.workingDirectory,
+                        encoding: 'utf8'
+                    });
+                    console.log('📖 Archivo leído correctamente');
+                    this.showToast('✅ Lectura de archivos también funciona', 'success');
+                } catch (readError) {
+                    console.log('⚠️ No se pudo leer el archivo:', readError.message);
+                }
+                
+                return true;
+            } else {
+                console.log('❌ Test falló - no se obtuvo URI');
+                this.showToast('❌ Sistema de archivos no funciona', 'error');
+                return false;
+            }
+            
+        } catch (error) {
+            console.error('❌ Error en test completo:', error);
+            this.logDetailedError('testFileSystem', error);
+            this.showToast(`❌ Error en test: ${error.message}`, 'error');
+            return false;
+        }
+    }
+
+    async showSystemInfo() {
+        console.log('📊 Recopilando información del sistema...');
+        
+        try {
+            let message = '';
+            let consoleInfo = {};
+            
+            // Información básica
+            message += `🔧 Capacitor: ${window.Capacitor ? 'Sí' : 'No'}\n`;
+            consoleInfo.capacitor = !!window.Capacitor;
+            
+            if (window.Capacitor) {
+                const platform = window.Capacitor.getPlatform?.() || 'desconocida';
+                message += `🌐 Plataforma: ${platform}\n`;
+                consoleInfo.platform = platform;
+                
+                const isNative = window.Capacitor.isNativePlatform?.() || false;
+                message += `📱 Nativo: ${isNative ? 'Sí' : 'No'}\n`;
+                consoleInfo.isNative = isNative;
+                
+                const plugins = Object.keys(window.Capacitor.Plugins || {});
+                message += `🔌 Plugins: ${plugins.length}\n`;
+                consoleInfo.plugins = plugins;
+            }
+            
+            message += `📁 Directorio: ${this.workingDirectory || 'No configurado'}\n`;
+            consoleInfo.workingDirectory = this.workingDirectory;
+            
+            // Información del dispositivo si está disponible
+            if (window.Capacitor?.Plugins?.Device) {
+                try {
+                    const { Device } = window.Capacitor.Plugins;
+                    const info = await Device.getInfo();
+                    message += `📱 ${info.platform} ${info.osVersion}\n`;
+                    message += `🆔 ${info.model || 'Modelo desconocido'}`;
+                    consoleInfo.device = info;
+                } catch (deviceError) {
+                    console.log('No se pudo obtener info del dispositivo:', deviceError);
+                }
+            }
+            
+            console.log('📊 Información completa del sistema:', consoleInfo);
+            this.showToast(message, 'info');
+            
+        } catch (error) {
+            console.error('Error obteniendo info del sistema:', error);
+            this.logDetailedError('showSystemInfo', error);
+            this.showToast('❌ Error obteniendo información', 'error');
+        }
+    }
+
+    // Añadir acceso fácil al debug desde la UI
+    initDebugAccess() {
+        // Triple tap en el header para abrir debug (solo en móvil)
+        if (this.isMobile()) {
+            const header = document.querySelector('.header h1');
+            let tapCount = 0;
+            let tapTimer = null;
+            
+            header.addEventListener('click', () => {
+                tapCount++;
+                
+                if (tapCount === 1) {
+                    tapTimer = setTimeout(() => {
+                        tapCount = 0;
+                    }, 2000);
+                } else if (tapCount === 3) {
+                    clearTimeout(tapTimer);
+                    tapCount = 0;
+                    this.showDebugMenu();
+                }
+            });
+        }
+    }
+
+    async quickWhatsAppReport(type) {
+        this.showToast('⏳ Generando reporte rápido...', 'info');
+        
+        const today = new Date();
+        let startDate, endDate;
+        let reportName = '';
+        
+        switch(type) {
+            case 'today':
+                startDate = endDate = today.toISOString().split('T')[0];
+                reportName = 'Diario';
+                break;
+            case 'week':
+                endDate = today.toISOString().split('T')[0];
+                const weekAgo = new Date(today);
+                weekAgo.setDate(weekAgo.getDate() - 7);
+                startDate = weekAgo.toISOString().split('T')[0];
+                reportName = 'Semanal';
+                break;
+            case 'month':
+                startDate = new Date(today.getFullYear(), today.getMonth(), 1).toISOString().split('T')[0];
+                endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0).toISOString().split('T')[0];
+                reportName = 'Mensual';
+                break;
+            case 'inventory':
+                const csvContent = this.generateQuickInventoryCSV();
+                const fileName = `Inventario_${today.toISOString().split('T')[0]}`;
+                const fileUri = await this.saveFileToApp(csvContent, `${fileName}.csv`, 'text/csv', 'Inventario');
+                if (fileUri) {
+                    await this.shareViaWhatsApp(fileUri, fileName, 'csv');
+                }
+                return;
+        }
+        
+        // Generar datos del reporte
+        const reportData = this.compileReportData(startDate, endDate);
+        const csvContent = this.generateQuickCSV(reportData, reportName);
+        const fileName = `Reporte_${reportName}_${today.toISOString().split('T')[0]}`;
+        
+        // Guardar y compartir
+        const fileUri = await this.saveFileToApp(csvContent, `${fileName}.csv`, 'text/csv', 'Ventas');
+        if (fileUri) {
+            await this.shareViaWhatsApp(fileUri, fileName, 'csv');
+        }
+    }
+
+    generateQuickCSV(data, reportName) {
+        let csv = `${reportName.toUpperCase()} - TRES PECES\n`;
+        csv += `Fecha: ${new Date().toLocaleDateString('es-PE')}\n\n`;
+        
+        csv += 'RESUMEN\n';
+        csv += `Total Ventas,S/ ${data.summary.totalSales.toFixed(2)}\n`;
+        csv += `Ganancia,S/ ${data.summary.totalProfit.toFixed(2)}\n`;
+        csv += `Gastos,S/ ${data.summary.totalExpenses.toFixed(2)}\n`;
+        csv += `Neto,S/ ${(data.summary.totalProfit - data.summary.totalExpenses).toFixed(2)}\n\n`;
+        
+        csv += 'VENTAS DETALLADAS\n';
+        csv += 'Fecha,Producto,Cantidad,Total,Cliente\n';
+        
+        data.sales.forEach(s => {
+            csv += `${this.formatDate(s.timestamp)},${s.productName},${s.qty},${s.total},${s.customer || 'General'}\n`;
+        });
+        
+        return csv;
+    }
+
+    generateQuickInventoryCSV() {
+        let csv = 'INVENTARIO ACTUAL - TRES PECES\n';
+        csv += `Fecha: ${new Date().toLocaleDateString('es-PE')}\n\n`;
+        
+        csv += 'Código,Producto,Unidad,Stock,Precio,Estado\n';
+        
+        Object.values(this.products).forEach(p => {
+            Object.entries(p.units).forEach(([unit, data]) => {
+                const status = data.stock < data.min ? 'BAJO' : 'OK';
+                csv += `${p.code},${p.name},${unit},${data.stock},${data.price},${status}\n`;
+            });
+        });
+        
+        return csv;
+    }
+
+    async quickShareReport(method) {
+        const today = new Date().toISOString().split('T')[0];
+        const reportData = this.compileReportData(today, today);
         
         const summary = `📊 *REPORTE TRES PECES*\n` +
             `📅 Fecha: ${this.formatDate(today)}\n\n` +
-            `💰 *Ventas:* S/ ${totalSales.toFixed(2)}\n` +
-            `📈 *Ganancia:* S/ ${totalProfit.toFixed(2)}\n` +
-            `📉 *Gastos:* S/ ${totalExpenses.toFixed(2)}\n` +
-            `✅ *Neto:* S/ ${(totalProfit - totalExpenses).toFixed(2)}\n\n` +
+            `💰 *Ventas:* S/ ${reportData.summary.totalSales.toFixed(2)}\n` +
+            `📈 *Ganancia:* S/ ${reportData.summary.totalProfit.toFixed(2)}\n` +
+            `📉 *Gastos:* S/ ${reportData.summary.totalExpenses.toFixed(2)}\n` +
+            `✅ *Neto:* S/ ${(reportData.summary.totalProfit - reportData.summary.totalExpenses).toFixed(2)}\n\n` +
+            `📦 Transacciones: ${reportData.summary.transactionCount}\n` +
+            `👥 Clientes atendidos: ${reportData.summary.uniqueCustomers}\n\n` +
             `_Enviado desde TRES PECES App_`;
         
         if (method === 'whatsapp') {
-            window.open(`https://wa.me/?text=${encodeURIComponent(summary)}`, '_blank');
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(summary)}`;
+            if (window.Capacitor && window.Capacitor.Plugins.App) {
+                const { App } = window.Capacitor.Plugins;
+                await App.openUrl({ url: whatsappUrl });
+            } else {
+                window.open(whatsappUrl, '_blank');
+            }
+        } else if (method === 'email') {
+            const emailUrl = `mailto:?subject=Reporte TRES PECES&body=${encodeURIComponent(summary)}`;
+            window.open(emailUrl);
         }
     }
-
-    quickWhatsAppReport(type) {
-        if(type === 'inventory') {
-            const inventoryData = Object.values(this.products);
-            let summary = `📦 *INVENTARIO ACTUAL*\n_TRES PECES - ${this.formatDate(new Date())}_\n\n`;
-            inventoryData.forEach(p => {
-                const unitInfo = Object.entries(p.units).map(([unit, data]) => `${this.getUnitLabel(unit)}: ${data.stock}`).join(' | ');
-                const isLow = Object.values(p.units).some(u => u.stock < (u.min || 0));
-                summary += `${isLow ? '⚠️ ' : '✅ '}*${p.name}*\n   Stock: ${unitInfo}\n`;
-            });
-            window.open(`https://wa.me/?text=${encodeURIComponent(summary)}`, '_blank');
-        }
+async generateInventoryMovementsReport(format, period = 'month') {
+    const today = new Date();
+    let startDate, endDate;
+    
+    switch(period) {
+        case 'today':
+            startDate = endDate = today.toISOString().split('T')[0];
+            break;
+        case 'week':
+            endDate = today.toISOString().split('T')[0];
+            startDate = new Date(today.setDate(today.getDate() - 7)).toISOString().split('T')[0];
+            break;
+        case 'month':
+            startDate = new Date(today.getFullYear(), today.getMonth(), 1).toISOString().split('T')[0];
+            endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0).toISOString().split('T')[0];
+            break;
     }
     
-    downloadFile(content, fileName, mimeType) {
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(new Blob([content], { type: mimeType }));
-        link.download = fileName;
-        link.click();
-        URL.revokeObjectURL(link.href);
+    const movements = this.inventoryMovements.filter(m => {
+        const movDate = m.timestamp.split('T')[0];
+        return movDate >= startDate && movDate <= endDate;
+    });
+    
+    const reportData = {
+        period: { start: startDate, end: endDate },
+        movements: movements,
+        summary: {
+            totalMovements: movements.length,
+            totalEntries: movements.filter(m => m.type === 'entrada').length,
+            totalExits: movements.filter(m => m.type === 'salida').length,
+            productsAffected: new Set(movements.map(m => m.productId)).size
+        }
+    };
+    
+    const fileName = `movimientos_inventario_${period}_${startDate}`;
+    
+    if (format === 'csv') {
+        const csvContent = this.generateMovementsCSV(reportData);
+        await this.saveFileToApp(csvContent, `${fileName}.csv`, 'text/csv', 'Inventario');
+    } else if (format === 'json') {
+        const jsonContent = JSON.stringify(reportData, null, 2);
+        await this.saveFileToApp(jsonContent, `${fileName}.json`, 'application/json', 'Inventario');
+    }
+    
+    this.showToast('Reporte de movimientos generado', 'success');
+}
+
+generateMovementsCSV(data) {
+    let csv = 'REPORTE DE MOVIMIENTOS DE INVENTARIO - TRES PECES\n';
+    csv += `Periodo: ${this.formatDate(data.period.start)} - ${this.formatDate(data.period.end)}\n`;
+    csv += `Generado: ${new Date().toLocaleString('es-PE')}\n\n`;
+    
+    csv += 'RESUMEN\n';
+    csv += `Total de Movimientos,${data.summary.totalMovements}\n`;
+    csv += `Entradas,${data.summary.totalEntries}\n`;
+    csv += `Salidas,${data.summary.totalExits}\n`;
+    csv += `Productos Afectados,${data.summary.productsAffected}\n\n`;
+    
+    csv += 'DETALLE DE MOVIMIENTOS\n';
+    csv += 'Fecha,Hora,Tipo,Código,Producto,Cantidad,Unidad,Stock Anterior,Stock Nuevo,Motivo,Notas,Usuario\n';
+    
+    data.movements.forEach(m => {
+        csv += `${this.formatDate(m.timestamp)},${this.formatTime(m.timestamp)},`;
+        csv += `${m.type},${m.productCode},"${m.productName}",${m.quantity},`;
+        csv += `${m.unit},${m.previousStock},${m.newStock},"${m.reason}",`;
+        csv += `"${m.notes || ''}","${m.user || 'Sistema'}"\n`;
+    });
+    
+    return csv;
+}
+
+async quickMovementReport(period) {
+    this.showToast('⏳ Generando reporte de movimientos...', 'info');
+    
+    try {
+        await this.generateInventoryMovementsReport('csv', period);
+        
+        // Generar mensaje para WhatsApp
+        const message = `📊 *REPORTE MOVIMIENTOS INVENTARIO*\n` +
+                       `📅 Periodo: ${period === 'today' ? 'Hoy' : 'Este Mes'}\n` +
+                       `🏪 TRES PECES\n\n` +
+                       this.generateMovementSummary(period) +
+                       `\n_Archivo CSV generado automáticamente_`;
+        
+        // Abrir WhatsApp con el mensaje
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        
+        if (this.isMobile() && window.Capacitor.Plugins.App) {
+            const { App } = window.Capacitor.Plugins;
+            await App.openUrl({ url: whatsappUrl });
+        } else {
+            window.open(whatsappUrl, '_blank');
+        }
+        
+    } catch (error) {
+        console.error('Error generando reporte rápido:', error);
+        this.showToast('❌ Error generando reporte', 'error');
+    }
+}
+
+generateMovementSummary(period) {
+    const today = new Date().toISOString().split('T')[0];
+    let movements = [];
+    
+    if (period === 'today') {
+        movements = this.inventoryMovements.filter(m => m.timestamp.startsWith(today));
+    } else {
+        const currentMonth = new Date().toISOString().slice(0, 7);
+        movements = this.inventoryMovements.filter(m => m.timestamp.startsWith(currentMonth));
+    }
+    
+    const entries = movements.filter(m => m.type === 'entrada').length;
+    const exits = movements.filter(m => m.type === 'salida').length;
+    const products = new Set(movements.map(m => m.productId)).size;
+    
+    return `📥 Entradas: ${entries}\n` +
+           `📤 Salidas: ${exits}\n` +
+           `📦 Productos: ${products}\n` +
+           `🔄 Total: ${movements.length} movimientos`;
+}
+    // ================================
+    // GENERACIÓN DE PDF
+    // ================================
+
+    async generatePDFReport(data, startDate, endDate, fileName) {
+        if (!window.jspdf) {
+            this.showToast('PDF no disponible. Generando CSV...', 'warning');
+            const csvContent = this.generateEnhancedCSV(data);
+            return await this.saveFileToApp(csvContent, `${fileName}.csv`, 'text/csv');
+        }
+        
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        // Generar contenido del PDF
+        this.addPDFHeader(doc, startDate, endDate);
+        this.addPDFSummary(doc, data);
+        this.addPDFTopProducts(doc, data);
+        this.addPDFSalesDetails(doc, data);
+        
+        // Convertir a base64 y guardar
+        const pdfContent = doc.output('base64');
+        return await this.saveFileToApp(pdfContent, `${fileName}.pdf`, 'application/pdf');
+    }
+
+    addPDFHeader(doc, startDate, endDate) {
+        doc.setFontSize(20);
+        doc.text('TRES PECES - REPORTE DE GESTIÓN', 105, 20, { align: 'center' });
+        
+        doc.setFontSize(12);
+        doc.text(`Periodo: ${this.formatDate(startDate)} - ${this.formatDate(endDate)}`, 105, 30, { align: 'center' });
+        doc.text(`Generado: ${new Date().toLocaleString('es-PE')}`, 105, 37, { align: 'center' });
+        
+        doc.setLineWidth(0.5);
+        doc.line(20, 42, 190, 42);
+    }
+
+    addPDFSummary(doc, data) {
+        let y = 50;
+        doc.setFontSize(14);
+        doc.setFont(undefined, 'bold');
+        doc.text('RESUMEN EJECUTIVO', 20, y);
+        
+        doc.setFont(undefined, 'normal');
+        y += 10;
+        doc.setFontSize(11);
+        
+        const summaryData = [
+            ['Total Ventas:', this.formatCurrency(data.summary.totalSales)],
+            ['Total Ganancia:', this.formatCurrency(data.summary.totalProfit)],
+            ['Total Gastos:', this.formatCurrency(data.summary.totalExpenses)],
+            ['Ganancia Neta:', this.formatCurrency(data.summary.totalProfit - data.summary.totalExpenses)],
+            ['Número de Transacciones:', data.summary.transactionCount.toString()],
+            ['Productos Únicos Vendidos:', data.summary.uniqueProducts.toString()],
+            ['Clientes Atendidos:', data.summary.uniqueCustomers.toString()]
+        ];
+        
+        summaryData.forEach(([label, value]) => {
+            doc.text(label, 25, y);
+            doc.text(value, 100, y);
+            y += 7;
+        });
+    }
+
+    addPDFTopProducts(doc, data) {
+        // Implementar top productos en PDF
+        // Similar a la implementación anterior pero más concisa
+    }
+
+    addPDFSalesDetails(doc, data) {
+        // Implementar detalles de ventas en PDF
+        // Similar a la implementación anterior pero más concisa
+    }
+
+    // ================================
+    // EXPORTACIONES SIMPLES
+    // ================================
+
+    exportSales() {
+        const today = new Date().toISOString().split('T')[0];
+        const todaySales = this.sales.filter(s => s.timestamp.startsWith(today));
+        
+        let csv = 'Fecha,Hora,Producto,Cantidad,Unidad,Precio,Total,Cliente,Ganancia\n';
+        todaySales.forEach(sale => {
+            const date = new Date(sale.timestamp);
+            csv += `${date.toLocaleDateString()},${date.toLocaleTimeString()},`;
+            csv += `"${sale.productName}",${sale.qty},${sale.unit},`;
+            csv += `${sale.price},${sale.total},"${sale.customer || ''}",${sale.profit || 0}\n`;
+        });
+        
+        this.saveFileToApp(csv, `ventas_${today}.csv`, 'text/csv', 'Ventas');
     }
 
     // ================================
     // UTILIDADES
     // ================================
 
-    formatDate(dateStr) { return new Date(dateStr).toLocaleDateString('es-PE'); }
-    formatTime(dateStr) { return new Date(dateStr).toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' }); }
-    getUnitLabel(unit) { return { 'kg': 'Kg', 'saco': 'Saco', 'unidad': 'Unidad', 'balde': 'Balde' }[unit] || unit; }
+    formatDate(date) {
+        return new Date(date).toLocaleDateString('es-PE', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    }
+
+    formatTime(date) {
+        return new Date(date).toLocaleTimeString('es-PE', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    }
+
+    formatCurrency(amount) {
+        return `S/ ${amount.toFixed(2)}`;
+    }
+
+    getUnitLabel(unit) {
+        const labels = {
+            'kg': 'Kilogramo',
+            'saco': 'Saco',
+            'unidad': 'Unidad',
+            'paquete': 'Paquete',
+            'balde': 'Balde',
+            'litro': 'Litro',
+            'balde 4kg': 'Balde 4kg',
+            'balde 1kg': 'Balde 1kg'
+        };
+        return labels[unit] || unit;
+    }
+showOpenSackModal(product, unit, qty) {
+    // Guardamos temporalmente los datos de la venta que está en pausa.
+    this.pausedSale = { product, unit, qty };
+
+    const bulkInfo = product.units[unit].opensUnit;
+    const bulkProduct = this.products[bulkInfo.productId];
+
+    // Crear el HTML del modal dinámicamente
+    const modal = document.createElement('div');
+    modal.id = 'openSackModal';
+    modal.className = 'modal active';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header" style="color: var(--warning);">⚠️ Stock Insuficiente</div>
+            <div style="padding: 15px 0; font-size: 1rem; line-height: 1.5;">
+                <p>No tienes suficientes <strong>${this.getUnitLabel(unit)}</strong> para esta venta (${qty} ${unit}).</p>
+                <p style="margin-top: 10px;">
+                    ¿Deseas abrir <strong>1 ${this.getUnitLabel(bulkInfo.unitName)}</strong> de 
+                    <strong>${bulkProduct.name}</strong> para añadir 
+                    <strong>${bulkInfo.quantity} ${this.getUnitLabel(unit)}</strong> al stock?
+                </p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-danger" onclick="app.cancelOpenSack()">No, Cancelar Venta</button>
+                <button type="button" class="btn btn-success" onclick="app.confirmOpenSack()">Sí, Abrir y Vender</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+/**
+ * Se ejecuta si el usuario confirma que quiere abrir el saco.
+ */
+confirmOpenSack() {
+    const { product, unit, qty } = this.pausedSale;
+
+    const bulkInfo = product.units[unit].opensUnit;
+    const bulkProduct = this.products[bulkInfo.productId];
+
+    // 1. Abrimos el saco: Restamos 1 del stock del saco y sumamos la conversión al stock suelto.
+    bulkProduct.units[bulkInfo.unitName].stock -= 1;
+    product.units[unit].stock += bulkInfo.quantity;
+    this.showToast(`Se abrió 1 ${bulkInfo.unitName}. Nuevo stock: ${product.units[unit].stock} ${unit}`, 'success');
+
+    // 2. Ahora que hay stock, descontamos la cantidad de la venta actual.
+    product.units[unit].stock -= qty;
+
+    // 3. Reanudamos la venta: Buscamos los datos del formulario y registramos la venta.
+    const price = parseFloat(document.getElementById('salePrice').value);
+    const total = qty * price;
+    const customer = document.getElementById('saleCustomer').value || 'Cliente General';
     
+    this.registerSale(product.id, product, qty, unit, price, total, customer);
+    
+    // 4. Limpiamos y cerramos.
+    this.pausedSale = null;
+    document.getElementById('openSackModal')?.remove();
+}
+
+/**
+ * Se ejecuta si el usuario cancela la operación.
+ */
+cancelOpenSack() {
+    this.pausedSale = null; // Limpiamos la venta pausada.
+    document.getElementById('openSackModal')?.remove(); // Eliminamos el modal.
+    this.showToast('Venta cancelada por falta de stock', 'info');
+}
     closeModal() {
         document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
-        document.querySelectorAll('.modal form').forEach(f => f.reset());
-        // Quitar modales dinámicos
-        document.getElementById('editSaleModal')?.remove();
-        document.getElementById('openSackModal')?.remove();
+        document.getElementById('productForm').reset();
+        document.getElementById('stockForm').reset();
     }
 
     showToast(message, type = 'success') {
         const toast = document.getElementById('toast');
         toast.textContent = message;
-        toast.style.background = { 'success': 'var(--secondary)', 'error': 'var(--danger)', 'info': 'var(--info)' }[type] || 'var(--dark)';
+        
+        const colors = {
+            'success': 'var(--secondary)',
+            'error': 'var(--danger)',
+            'warning': 'var(--warning)',
+            'info': 'var(--info)'
+        };
+        
+        toast.style.background = colors[type] || colors.success;
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 3000);
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
     }
 
     updateHeader() {
         const today = new Date().toISOString().split('T')[0];
-        const total = this.sales.filter(s => s.timestamp.startsWith(today)).reduce((sum, s) => sum + s.total, 0);
-        const lowStock = Object.values(this.products).filter(p => p.units && Object.values(p.units).some(u => u.stock < (u.min || 0))).length;
+        const todaySales = this.sales.filter(s => s.timestamp.startsWith(today));
+        const total = todaySales.reduce((sum, s) => sum + s.total, 0);
+        const lowStock = Object.values(this.products).filter(p => 
+            p.units && Object.values(p.units).some(unit => unit.stock < unit.min)
+        ).length;
         
         document.getElementById('todayTotal').textContent = total.toFixed(0);
         document.getElementById('stockAlerts').textContent = lowStock;
     }
 }
 
+// ================================
+// INICIALIZACIÓN DE LA APP
+// ================================
+
 const app = new TresPecesApp();
-window.app = app; // For debugging from console
-</script>
+
+// Event listeners globales
+document.addEventListener('DOMContentLoaded', () => {
+    app.switchView('salesView', document.querySelector('.nav-item.active'));
+    console.log('DOM Loaded - TRES PECES App');
+});
+
+// Capacitor/Cordova ready events
+document.addEventListener('deviceready', () => {
+    console.log('Device Ready - Cordova/PhoneGap');
+    app.initializeStorage();
+});
+
+// Capacitor-specific initialization
+if (window.Capacitor) {
+    window.Capacitor.Plugins.App.addListener('appStateChange', ({ isActive }) => {
+        if (isActive) {
+            console.log('App resumed');
+            app.updateHeader();
+        }
+    });
+}
+
+// ================================
+// FUNCIONES GLOBALES PARA HTML Y DEBUGGING
+// ================================
+
+window.app = app;
+
+// Funciones de debugging para desarrollo
+window.debugTresPeces = {
+    showInfo: () => app.showSystemInfo(),
+    testFiles: () => app.testFileSystem(),
+    checkCapacitor: () => {
+        console.log('Capacitor available:', !!window.Capacitor);
+        console.log('Platform:', window.Capacitor?.getPlatform?.() || 'web');
+        console.log('Plugins available:', Object.keys(window.Capacitor?.Plugins || {}));
+    },
+    clearStorage: () => {
+        localStorage.clear();
+        app.showToast('🗑️ Datos borrados, recarga la app', 'warning');
+    }
+};
+
+// Para debugging y solución de problemas
+console.log('🚀 TRES PECES App iniciada');
+console.log('📱 Entorno:', window.Capacitor ? 'Móvil (Capacitor)' : 'Navegador Web');
+
+if (window.Capacitor) {
+    console.log('🔧 Plataforma:', window.Capacitor.getPlatform?.() || 'desconocida');
+    console.log('📱 Es nativo:', window.Capacitor.isNativePlatform?.() || false);
+    console.log('🔌 Plugins disponibles:', Object.keys(window.Capacitor.Plugins || {}));
+    
+    // Verificar plugins críticos
+    const criticalPlugins = ['Filesystem', 'Share', 'Device'];
+    const availablePlugins = Object.keys(window.Capacitor.Plugins || {});
+    const missingPlugins = criticalPlugins.filter(plugin => !availablePlugins.includes(plugin));
+    
+    if (missingPlugins.length > 0) {
+        console.warn('⚠️ Plugins faltantes:', missingPlugins);
+        console.log('💡 Esto puede causar problemas con archivos');
+    } else {
+        console.log('✅ Todos los plugins críticos disponibles');
+    }
+    
+    // Auto-diagnóstico después de cargar
+    setTimeout(() => {
+        console.log('🔍 === AUTO-DIAGNÓSTICO ===');
+        console.log('User Agent:', navigator.userAgent);
+        console.log('Capacitor Plugins:', window.Capacitor.Plugins ? 'Disponibles' : 'No disponibles');
+        
+        if (window.Capacitor.Plugins.Filesystem) {
+            console.log('✅ Filesystem plugin encontrado');
+        } else {
+            console.error('❌ Filesystem plugin NO encontrado - esto causará errores');
+        }
+        
+        console.log('🆘 Si hay problemas: haz triple-click en el logo "3P APP DE VENTAS"');
+        console.log('🔧 Debug functions: window.debugTresPeces');
+    }, 3000);
+} else {
+    console.log('🌐 Ejecutándose en navegador web - funcionalidad de archivos limitada');
+}
+
+// Auto-diagnóstico si hay errores
+window.addEventListener('error', (e) => {
+    if (e.message.includes('Filesystem') || e.message.includes('Capacitor')) {
+        console.error('🚨 Error relacionado con archivos detectado:', e.message);
+        console.log('💡 Solución: Abre el menú de diagnóstico (triple-click en el logo)');
+    }
+});
+
+// Detectar cuando el usuario intenta generar reportes sin éxito
+let reportAttempts = 0;
+const originalShowToast = window.addEventListener('DOMContentLoaded', () => {
+    const originalMethod = app.showToast;
+    app.showToast = function(message, type) {
+        if (message.includes('❌') && message.includes('archivo')) {
+            reportAttempts++;
+            if (reportAttempts >= 2) {
+                console.log('🚨 Múltiples errores de archivos detectados');
+                setTimeout(() => {
+                    if (confirm('¿Problemas guardando archivos? ¿Abrir diagnóstico?')) {
+                        app.showDebugMenu();
+                    }
+                }, 1000);
+                reportAttempts = 0;
+            }
+        }
+        return originalMethod.call(this, message, type);
+    };
+});
+
+    </script>
+    <!-- Agregar justo antes de </body> -->
+<script src="capacitor.js"></script>
 </body>
 </html>
