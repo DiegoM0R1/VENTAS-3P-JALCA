@@ -1410,267 +1410,268 @@
         this.products = {
            
   p1_saco: {
-        id: 'p1_saco', name: 'Pollo Crecimiento Harina 3P (SACO 40KG)', code: 'AVE-004-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
-        units: { saco: { price: 95.00, stock: 1, min: 1 } }
-    },
-    p1_kg: {
-        id: 'p1_kg', name: 'Pollo Crecimiento Harina 3P (POR KILO)', code: 'AVE-004-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
-        units: { kg: { price: 3.00, stock: 20.79, min: 15, opensUnit: { productId: 'p1_saco', unitName: 'saco', quantity: 40 } } }
-    },
+    id: 'p1_saco', name: 'Pollo Crecimiento Harina 3P (SACO 40KG)', code: 'AVE-004-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
+    units: { saco: { price: 95.00, stock: 0, min: 1 } }
+},
+p1_kg: {
+    id: 'p1_kg', name: 'Pollo Crecimiento Harina 3P (POR KILO)', code: 'AVE-004-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
+    units: { kg: { price: 3.00, stock: 36.12, min: 15, opensUnit: { productId: 'p1_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Pollo Crecimiento Peletizado 3P 40KG ---
-    p2_saco: {
-        id: 'p2_saco', name: 'Pollo Crecimiento Peletizado 3P (SACO 40KG)', code: 'AVE-006-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 66.50,
-        units: { saco: { price: 95.00, stock: 3, min: 1 } }
-    },
-    p2_kg: {
-        id: 'p2_kg', name: 'Pollo Crecimiento Peletizado 3P (POR KILO)', code: 'AVE-006-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
-        units: { kg: { price: 3.00, stock: 36.17, min: 15, opensUnit: { productId: 'p2_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- Pollo Crecimiento Peletizado 3P 40KG ---
+p2_saco: {
+    id: 'p2_saco', name: 'Pollo Crecimiento Peletizado 3P (SACO 40KG)', code: 'AVE-006-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 66.50,
+    units: { saco: { price: 95.00, stock: 4, min: 1 } }
+},
+p2_kg: {
+    id: 'p2_kg', name: 'Pollo Crecimiento Peletizado 3P (POR KILO)', code: 'AVE-006-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
+    units: { kg: { price: 3.00, stock: 33.67, min: 15, opensUnit: { productId: 'p2_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Pollo Inicio Peletizado 3P 40KG ---
-    p3_saco: {
-        id: 'p3_saco', name: 'Pollo Inicio Peletizado 3P (SACO 40KG)', code: 'AVE-002-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 77.00,
-        units: { saco: { price: 110.00, stock: 0, min: 1 } }
-    },
-    p3_kg: {
-        id: 'p3_kg', name: 'Pollo Inicio Peletizado 3P (POR KILO)', code: 'AVE-002-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
-        units: { kg: { price: 3.50, stock: 25.07, min: 15, opensUnit: { productId: 'p3_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- Pollo Inicio Peletizado 3P 40KG ---
+p3_saco: {
+    id: 'p3_saco', name: 'Pollo Inicio Peletizado 3P (SACO 40KG)', code: 'AVE-002-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 77.00,
+    units: { saco: { price: 110.00, stock: 3, min: 1 } }
+},
+p3_kg: {
+    id: 'p3_kg', name: 'Pollo Inicio Peletizado 3P (POR KILO)', code: 'AVE-002-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
+    units: { kg: { price: 3.50, stock: 23.07, min: 15, opensUnit: { productId: 'p3_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Pollo Postura Harina 3P 40KG ---
-    p4_saco: {
-        id: 'p4_saco', name: 'Pollo Postura Harina 3P (SACO 40KG)', code: 'AVE-003-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
-        units: { saco: { price: 95.00, stock: 2, min: 1 } }
-    },
-    p4_kg: {
-        id: 'p4_kg', name: 'Pollo Postura Harina 3P (POR KILO)', code: 'AVE-003-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
-        units: { kg: { price: 3.00, stock: 27.37, min: 15, opensUnit: { productId: 'p4_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- Pollo Postura Harina 3P 40KG ---
+p4_saco: {
+    id: 'p4_saco', name: 'Pollo Postura Harina 3P (SACO 40KG)', code: 'AVE-003-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
+    units: { saco: { price: 95.00, stock: 2, min: 1 } }
+},
+p4_kg: {
+    id: 'p4_kg', name: 'Pollo Postura Harina 3P (POR KILO)', code: 'AVE-003-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
+    units: { kg: { price: 3.00, stock: 25.37, min: 15, opensUnit: { productId: 'p4_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Pollo Postura Peletizado 3P 40KG ---
-    p5_saco: {
-        id: 'p5_saco', name: 'Pollo Postura Peletizado 3P (SACO 40KG)', code: 'AVE-005-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 84.00,
-        units: { saco: { price: 120.00, stock: 1, min: 1 } }
-    },
-    p5_kg: {
-        id: 'p5_kg', name: 'Pollo Postura Peletizado 3P (POR KILO)', code: 'AVE-005-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
-        units: { kg: { price: 3.50, stock: 12.18, min: 15, opensUnit: { productId: 'p5_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- Pollo Postura Peletizado 3P 40KG ---
+p5_saco: {
+    id: 'p5_saco', name: 'Pollo Postura Peletizado 3P (SACO 40KG)', code: 'AVE-005-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 84.00,
+    units: { saco: { price: 120.00, stock: 1, min: 1 } }
+},
+p5_kg: {
+    id: 'p5_kg', name: 'Pollo Postura Peletizado 3P (POR KILO)', code: 'AVE-005-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
+    units: { kg: { price: 3.50, stock: 10.18, min: 15, opensUnit: { productId: 'p5_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Pollo Engorde Peletizado 3P 40KG --- (PRODUCTO NUEVO)
-    p5b_saco: {
-        id: 'p5b_saco', name: 'Pollo Engorde Paletizado 3P (SACO 40KG)', code: 'AVE-007-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 66.50,
-        units: { saco: { price: 95.00, stock: 0, min: 1 } }
-    },
-    p5b_kg: {
-        id: 'p5b_kg', name: 'Pollo Engorde Paletizado 3P (POR KILO)', code: 'AVE-007-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
-        units: { kg: { price: 3.00, stock: 26.01, min: 15, opensUnit: { productId: 'p5b_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- Pollo Engorde Peletizado 3P 40KG --- (PRODUCTO NUEVO)
+p5b_saco: {
+    id: 'p5b_saco', name: 'Pollo Engorde Paletizado 3P (SACO 40KG)', code: 'AVE-007-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 66.50,
+    units: { saco: { price: 95.00, stock: 3, min: 1 } }
+},
+p5b_kg: {
+    id: 'p5b_kg', name: 'Pollo Engorde Paletizado 3P (POR KILO)', code: 'AVE-007-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
+    units: { kg: { price: 3.00, stock: 24.01, min: 15, opensUnit: { productId: 'p5b_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- PRODUCTOS SIMPLES ---
-    p6: { id: 'p6', name: 'Bebederos Chicos', code: 'BEB-U-001', category: 'MATERIALES Y EQUIPOS', cost: 6.40, units: { unidad: { price: 8.00, stock: 1, min: 2 } } },
-    p7: { id: 'p7', name: 'Bebederos Grandes', code: 'BEB-U-003', category: 'MATERIALES Y EQUIPOS', cost: 12.00, units: { unidad: { price: 15.00, stock: 5, min: 2 } } },
-    p8: { id: 'p8', name: 'Asesor Antiparasitario 10 GR', code: 'ASE-VAR-G-034', category: 'MEDICINAS', cost: 2.40, units: { unidad: { price: 3.00, stock: 1, min: 5 } } },
-    p9: { id: 'p9', name: 'Biomizona Dorada L.A 20 ML', code: 'BIO-VAR-M-007', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 3, min: 5 } } },
-    p11: { id: 'p11', name: 'Pastisal Sal Mineral Desarrollo VERDE 4KG', code: 'PAS-002', category: 'INSUMOS', cost: 12.00, units: { 'balde 4kg': { price: 15.00, stock: 3, min: 2 } } },
-    
-    // --- Cerdo Crecimiento Harina 3P 40KG ---
-    p12_saco: {
-        id: 'p12_saco', name: 'Cerdo Crecimiento Harina 3P (SACO 40KG)', code: 'CER-002-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
-        units: { saco: { price: 95.00, stock: 1, min: 1 } }
-    },
-    p12_kg: {
-        id: 'p12_kg', name: 'Cerdo Crecimiento Harina 3P (POR KILO)', code: 'CER-002-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
-        units: { kg: { price: 3.00, stock: 14.18, min: 15, opensUnit: { productId: 'p12_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- PRODUCTOS SIMPLES ---
+p6: { id: 'p6', name: 'Bebederos Chicos', code: 'BEB-U-001', category: 'MATERIALES Y EQUIPOS', cost: 6.40, units: { unidad: { price: 8.00, stock: 1, min: 2 } } },
+p7: { id: 'p7', name: 'Bebederos Grandes', code: 'BEB-U-003', category: 'MATERIALES Y EQUIPOS', cost: 12.00, units: { unidad: { price: 15.00, stock: 5, min: 2 } } },
+p8: { id: 'p8', name: 'Asesor Antiparasitario 10 GR', code: 'ASE-VAR-G-034', category: 'MEDICINAS', cost: 2.40, units: { unidad: { price: 3.00, stock: 6, min: 5 } } },
+p9: { id: 'p9', name: 'Biomizona Dorada L.A 20 ML', code: 'BIO-VAR-M-007', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 3, min: 5 } } },
+p11: { id: 'p11', name: 'Pastisal Sal Mineral Desarrollo VERDE 4KG', code: 'PAS-002', category: 'INSUMOS', cost: 12.00, units: { 'balde 4kg': { price: 15.00, stock: 2, min: 2 } } },
 
-    // --- Cerdo Inicio Harina 3P ---
-    p13_saco: {
-        id: 'p13_saco', name: 'Cerdo Inicio Harina 3P (SACO 40KG)', code: 'CER-005-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
-        units: { saco: { price: 100.00, stock: 0, min: 1 } }
-    },
-    p13_kg: {
-        id: 'p13_kg', name: 'Cerdo Inicio Harina 3P (POR KILO)', code: 'CER-005-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
-        units: { kg: { price: 4.00, stock: 32.19, min: 15, opensUnit: { productId: 'p13_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- Cerdo Crecimiento Harina 3P 40KG ---
+p12_saco: {
+    id: 'p12_saco', name: 'Cerdo Crecimiento Harina 3P (SACO 40KG)', code: 'CER-002-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
+    units: { saco: { price: 95.00, stock: 1, min: 1 } }
+},
+p12_kg: {
+    id: 'p12_kg', name: 'Cerdo Crecimiento Harina 3P (POR KILO)', code: 'CER-002-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
+    units: { kg: { price: 3.00, stock: 8.18, min: 15, opensUnit: { productId: 'p12_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Cuyina En Harina 3P 40KG ---
-    p14_saco: {
-        id: 'p14_saco', name: 'Cuyina En Harina 3P (SACO 40KG)', code: 'CUY-001-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
-        units: { saco: { price: 100.00, stock: 0, min: 1 } }
-    },
-    p14_kg: {
-        id: 'p14_kg', name: 'Cuyina En Harina 3P (POR KILO)', code: 'CUY-001-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
-        units: { kg: { price: 3.00, stock: 12.89, min: 15, opensUnit: { productId: 'p14_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- Cerdo Inicio Harina 3P ---
+p13_saco: {
+    id: 'p13_saco', name: 'Cerdo Inicio Harina 3P (SACO 40KG)', code: 'CER-005-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
+    units: { saco: { price: 100.00, stock: 0, min: 1 } }
+},
+p13_kg: {
+    id: 'p13_kg', name: 'Cerdo Inicio Harina 3P (POR KILO)', code: 'CER-005-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
+    units: { kg: { price: 4.00, stock: 31.19, min: 15, opensUnit: { productId: 'p13_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Cuyina Granulado 3P 40KG (PELETIZADO) ---
-    p15_saco: {
-        id: 'p15_saco', name: 'Cuyina Granulado 3P Peletizado (SACO 40KG)', code: 'CUY-002-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 66.50,
-        units: { saco: { price: 95.00, stock: 1, min: 1 } }
-    },
-    p15_kg: {
-        id: 'p15_kg', name: 'Cuyina Granulado 3P Peletizado (POR KILO)', code: 'CUY-002-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
-        units: { kg: { price: 2.50, stock: 9.19, min: 15, opensUnit: { productId: 'p15_saco', unitName: 'saco', quantity: 40 } } }
-    },
+// --- Cuyina En Harina 3P 40KG ---
+p14_saco: {
+    id: 'p14_saco', name: 'Cuyina En Harina 3P (SACO 40KG)', code: 'CUY-001-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 70.00,
+    units: { saco: { price: 100.00, stock: 3, min: 1 } }
+},
+p14_kg: {
+    id: 'p14_kg', name: 'Cuyina En Harina 3P (POR KILO)', code: 'CUY-001-C-KG', category: 'ALIMENTO BALANCEADO HARINA',
+    units: { kg: { price: 3.00, stock: 9.89, min: 15, opensUnit: { productId: 'p14_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Maiz Chancado Mediano 45KG ---
-    p16_saco: {
-        id: 'p16_saco', name: 'Maiz Chancado Mediano (SACO 45KG)', code: 'INS-007-C-SACO', category: 'INSUMOS', cost: 66.50,
-        units: { saco: { price: 90.00, stock: 1, min: 1 } }
-    },
-    p16_kg: {
-        id: 'p16_kg', name: 'Maiz Chancado Mediano (POR KILO)', code: 'INS-007-C-KG', category: 'INSUMOS',
-        units: { kg: { price: 2.50, stock: 20.36, min: 10, opensUnit: { productId: 'p16_saco', unitName: 'saco', quantity: 45 } } }
-    },
+// --- Cuyina Granulado 3P 40KG (PELETIZADO) ---
+p15_saco: {
+    id: 'p15_saco', name: 'Cuyina Granulado 3P Peletizado (SACO 40KG)', code: 'CUY-002-C-SACO', category: 'ALIMENTO BALANCEADO PELETIZADO', cost: 66.50,
+    units: { saco: { price: 95.00, stock: 1, min: 1 } }
+},
+p15_kg: {
+    id: 'p15_kg', name: 'Cuyina Granulado 3P Peletizado (POR KILO)', code: 'CUY-002-C-KG', category: 'ALIMENTO BALANCEADO PELETIZADO',
+    units: { kg: { price: 2.50, stock: 11.19, min: 15, opensUnit: { productId: 'p15_saco', unitName: 'saco', quantity: 40 } } }
+},
 
-    // --- Maiz Entero 45KG ---
-    p17_saco: {
-        id: 'p17_saco', name: 'Maiz Entero (SACO 45KG)', code: 'INS-003-C-SACO', category: 'INSUMOS', cost: 56.00,
-        units: { saco: { price: 75.00, stock: 4, min: 1 } }
-    },
-    p17_kg: {
-        id: 'p17_kg', name: 'Maiz Entero (POR KILO)', code: 'INS-003-C-KG', category: 'INSUMOS',
-        units: { kg: { price: 2.00, stock: 43.55, min: 10, opensUnit: { productId: 'p17_saco', unitName: 'saco', quantity: 45 } } }
-    },
+// --- Maiz Chancado Mediano 45KG ---
+p16_saco: {
+    id: 'p16_saco', name: 'Maiz Chancado Mediano (SACO 45KG)', code: 'INS-007-C-SACO', category: 'INSUMOS', cost: 66.50,
+    units: { saco: { price: 90.00, stock: 1, min: 1 } }
+},
+p16_kg: {
+    id: 'p16_kg', name: 'Maiz Chancado Mediano (POR KILO)', code: 'INS-007-C-KG', category: 'INSUMOS',
+    units: { kg: { price: 2.50, stock: 0.36, min: 10, opensUnit: { productId: 'p16_saco', unitName: 'saco', quantity: 45 } } }
+},
 
-    // --- Polvillo 28KG ---
-    p18_saco: {
-        id: 'p18_saco', name: 'Polvillo (SACO 28KG)', code: 'INS-002-C-SACO', category: 'INSUMOS', cost: 21.00,
-        units: { saco: { price: 30.00, stock: 0, min: 1 } }
-    },
-    p18_kg: {
-        id: 'p18_kg', name: 'Polvillo (POR KILO)', code: 'INS-002-C-KG', category: 'INSUMOS',
-        units: { kg: { price: 1.50, stock: 10.34, min: 10, opensUnit: { productId: 'p18_saco', unitName: 'saco', quantity: 28 } } }
-    },
+// --- Maiz Entero 45KG ---
+p17_saco: {
+    id: 'p17_saco', name: 'Maiz Entero (SACO 45KG)', code: 'INS-003-C-SACO', category: 'INSUMOS', cost: 56.00,
+    units: { saco: { price: 75.00, stock: 6, min: 1 } }
+},
+p17_kg: {
+    id: 'p17_kg', name: 'Maiz Entero (POR KILO)', code: 'INS-003-C-KG', category: 'INSUMOS',
+    units: { kg: { price: 2.00, stock: 25.55, min: 10, opensUnit: { productId: 'p17_saco', unitName: 'saco', quantity: 45 } } }
+},
 
-    // --- Ricocan Multisabores 22KG ---
-    p20_saco: {
-        id: 'p20_saco', name: 'Ricocan Multisabores (SACO 22KG)', code: 'MAS-002-C-SACO', category: 'MASCOTAS', cost: 124.00,
-        units: { saco: { price: 155.00, stock: 0, min: 1 } }
-    },
-    p20_kg: {
-        id: 'p20_kg', name: 'Ricocan Multisabores (POR KILO)', code: 'MAS-002-C-KG', category: 'MASCOTAS',
-        units: { kg: { price: 8.00, stock: 12.25, min: 5, opensUnit: { productId: 'p20_saco', unitName: 'saco', quantity: 22 } } }
-    },
-    
-    p19: { id: 'p19', name: 'Atrapa Moscas Rodillo', code: 'ATR-VAR-U-006', category: 'MEDICINAS', cost: 0.80, units: { unidad: { price: 1.00, stock: 107, min: 5 } } },
-    
-    // --- Michicat Adulto 18KG ---
-    p21_saco: { id: 'p21_saco', name: 'Michicat Adulto (SACO 18KG)', code: 'MAS-006-C-SACO', category: 'MASCOTAS', cost: 94.40, units: { saco: { price: 118.00, stock: 0, min: 1 } } },
-    p21_kg: { id: 'p21_kg', name: 'Michicat Adulto (POR KILO)', code: 'MAS-006-C-KG', category: 'MASCOTAS', units: { kg: { price: 7.00, stock: 6.5, min: 5, opensUnit: { productId: 'p21_saco', unitName: 'saco', quantity: 18 } } } },
-    
-    // --- Nutrican Adulto 25KG ---
-    p22_saco: { id: 'p22_saco', name: 'Nutrican Adulto (SACO 25KG)', code: 'MAS-005-C-SACO', category: 'MASCOTAS', cost: 120.00, units: { saco: { price: 150.00, stock: 0, min: 1 } } },
-    p22_kg: { id: 'p22_kg', name: 'Nutrican Adulto (POR KILO)', code: 'MAS-005-C-KG', category: 'MASCOTAS', units: { kg: { price: 6.00, stock: 10.5, min: 5, opensUnit: { productId: 'p22_saco', unitName: 'saco', quantity: 25 } } } },
-    
-    // --- Zeus Adulto 25KG ---
-    p23_saco: { id: 'p23_saco', name: 'Zeus Adulto (SACO 25KG)', code: 'MAS-003-C-SACO', category: 'MASCOTAS', cost: 80.00, units: { saco: { price: 100.00, stock: 0, min: 1 } } },
-    p23_kg: { id: 'p23_kg', name: 'Zeus Adulto (POR KILO)', code: 'MAS-003-C-KG', category: 'MASCOTAS', units: { kg: { price: 5.00, stock: 12, min: 5, opensUnit: { productId: 'p23_saco', unitName: 'saco', quantity: 25 } } } },
-    
-    // --- Zeus Cachorro 25KG ---
-    p24_saco: { id: 'p24_saco', name: 'Zeus Cachorro (SACO 25KG)', code: 'MAS-004-C-SACO', category: 'MASCOTAS', cost: 88.00, units: { saco: { price: 110.00, stock: 0, min: 1 } } },
-    p24_kg: { id: 'p24_kg', name: 'Zeus Cachorro (POR KILO)', code: 'MAS-004-C-KG', category: 'MASCOTAS', units: { kg: { price: 5.00, stock: 10.5, min: 5, opensUnit: { productId: 'p24_saco', unitName: 'saco', quantity: 25 } } } },
-    
-    p25: { id: 'p25', name: 'Bebederos Medianos', code: 'BEB-U-002', category: 'MATERIALES Y EQUIPOS', cost: 9.60, units: { unidad: { price: 12.00, stock: 3, min: 2 } } },
-    p26: { id: 'p26', name: 'Comederos Medianos', code: 'COM-U-002', category: 'MATERIALES Y EQUIPOS', cost: 12.80, units: { unidad: { price: 16.00, stock: 6, min: 2 } } },
-    p27: { id: 'p27', name: 'Broncox D Sobres', code: 'BRO-VAR-U-002', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 11, min: 5 } } },
-    p28: { id: 'p28', name: 'Churre Cura Heridas 30ml', code: 'CHU-VAR-U-001', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 12, min: 5 } } },
-    
-    // --- Arroz Chancado 50KG ---
-    p29_saco: { id: 'p29_saco', name: 'Arroz Chancado (SACO 50 KG)', code: 'INS-001-C-SACO', category: 'INSUMOS', cost: 80.00, units: { saco: { price: 100.00, stock: 0, min: 1 } } },
-    p29_kg: { id: 'p29_kg', name: 'Arroz Chancado (POR KILO)', code: 'INS-001-C-KG', category: 'INSUMOS', units: { kg: { price: 2.00, stock: 11.71, min: 10, opensUnit: { productId: 'p29_saco', unitName: 'saco', quantity: 50 } } } },
-    
-    // --- Maiz Chancado Grueso 45KG ---
-    p30_saco: { id: 'p30_saco', name: 'Maiz Chancado Grueso (SACO 45KG)', code: 'INS-006-C-SACO', category: 'INSUMOS', cost: 63.00, units: { saco: { price: 90.00, stock: 1, min: 1 } } },
-    p30_kg: { id: 'p30_kg', name: 'Maiz Chancado Grueso (POR KILO)', code: 'INS-006-C-KG', category: 'INSUMOS', units: { kg: { price: 2.50, stock: 17.32, min: 10, opensUnit: { productId: 'p30_saco', unitName: 'saco', quantity: 45 } } } },
-    
-    // --- Maiz Molido FINO 45KG ---
-    p31_saco: { id: 'p31_saco', name: 'Maiz Molido FINO (SACO 45KG)', code: 'INS-004-C-SACO', category: 'INSUMOS', cost: 63.00, units: { saco: { price: 80.00, stock: 1, min: 1 } } },
-    p31_kg: { id: 'p31_kg', name: 'Maiz Molido FINO (POR KILO)', code: 'INS-004-C-KG', category: 'INSUMOS', units: { kg: { price: 2.50, stock: 0, min: 10, opensUnit: { productId: 'p31_saco', unitName: 'saco', quantity: 45 } } } },
-    
-    // --- Maiz Chancado Refinado 45KG --- (PRODUCTO NUEVO)
-    p32_saco: { id: 'p32_saco', name: 'Maiz Chancado Refinado (SACO 45KG)', code: 'INS-005-C-SACO', category: 'INSUMOS', cost: 63.00, units: { saco: { price: 90.00, stock: 0, min: 1 } } },
-    p32_kg: { id: 'p32_kg', name: 'Maiz Chancado Refinado (POR KILO)', code: 'INS-005-C-KG', category: 'INSUMOS', units: { kg: { price: 2.50, stock: 2, min: 10, opensUnit: { productId: 'p32_saco', unitName: 'saco', quantity: 45 } } } },
-    
-    // --- Torta de Soya 50KG ---
-    p34_saco: { id: 'p34_saco', name: 'Torta de Soya (SACO 50 KG)', code: 'INS-008-C-SACO', category: 'INSUMOS', cost: 140.00, units: { saco: { price: 175.00, stock: 0, min: 1 } } },
-    p34_kg: { id: 'p34_kg', name: 'Torta de Soya (POR KILO)', code: 'INS-008-C-KG', category: 'INSUMOS', units: { kg: { price: 3.50, stock: 0, min: 10, opensUnit: { productId: 'p34_saco', unitName: 'saco', quantity: 50 } } } },
-    
-    // --- Cerdo Engorde Harina 3P 40KG ---
-    p35_saco: { id: 'p35_saco', name: 'Cerdo Engorde Harina 3P (SACO 40KG)', code: 'CER-001-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 60.00, units: { saco: { price: 90.00, stock: 0, min: 1 } } },
-    p35_kg: { id: 'p35_kg', name: 'Cerdo Engorde Harina 3P (POR KILO)', code: 'CER-001-C-KG', category: 'ALIMENTO BALANCEADO HARINA', units: { kg: { price: 2.50, stock: 23.41, min: 15, opensUnit: { productId: 'p35_saco', unitName: 'saco', quantity: 40 } } } },
-    
-    p39: { id: 'p39', name: 'Ganado Engorde 3P 40KG', code: 'GAN-002-C', category: 'ALIMENTO BALANCEADO HARINA', cost: 65.00, units: { saco: { price: 85.00, stock: 2, min: 1 } } },
-    p40: { id: 'p40', name: 'Ganado Lechero 3P 40K', code: 'GAN-001-C', category: 'ALIMENTO BALANCEADO HARINA', cost: 65.00, units: { saco: { price: 95.00, stock: 0, min: 1 } } },
-    p41: { id: 'p41', name: 'Ganado Ternero I 3P 40KG', code: 'GAN-003-C', category: 'ALIMENTO BALANCEADO HARINA', cost: 75.00, units: { saco: { price: 105.00, stock: 1, min: 1 } } },
-    
-    // --- Ricocan Clasicos Multisabores 15KG ---
-    p42_saco: { id: 'p42_saco', name: 'Ricocan Clasicos Multisabores (SACO 15KG)', code: 'MAS-001-C-SACO', category: 'MASCOTAS', cost: 60.00, units: { saco: { price: 75.00, stock: 1, min: 1 } } },
-    p42_kg: { id: 'p42_kg', name: 'Ricocan Clasicos Multisabores (POR KILO)', code: 'MAS-001-C-KG', category: 'MASCOTAS', units: { kg: { price: 5.00, stock: 0, min: 5, opensUnit: { productId: 'p42_saco', unitName: 'saco', quantity: 15 } } } },
-    
-    p43: { id: 'p43', name: 'Comedero Bandeja Grande', code: 'COM-U-004', category: 'MATERIALES Y EQUIPOS', cost: 16.00, units: { unidad: { price: 20.00, stock: 2, min: 2 } } },
-    p44: { id: 'p44', name: 'Comedero Cuy BASE METAL', code: 'COM-U-005', category: 'MATERIALES Y EQUIPOS', cost: 5.60, units: { unidad: { price: 7.00, stock: 3, min: 2 } } },
-    p45: { id: 'p45', name: 'Comederos Chicos', code: 'COM-U-001', category: 'MATERIALES Y EQUIPOS', cost: 7.20, units: { unidad: { price: 9.00, stock: 1, min: 2 } } },
-    p46: { id: 'p46', name: 'Comederos Grandes', code: 'COM-U-003', category: 'MATERIALES Y EQUIPOS', cost: 16.00, units: { unidad: { price: 20.00, stock: 4, min: 2 } } },
-    p47: { id: 'p47', name: 'Plato Pega Mosca', code: 'PPEGMOSC-001', category: 'MEDICINAS', cost: 2.00, units: { unidad: { price: 2.50, stock: 75, min: 5 } } },
-    p51: { id: 'p51', name: 'Pega Rata Grande', code: 'RAT-001-U', category: 'MEDICINAS', cost: 6.40, units: { unidad: { price: 8.00, stock: 9, min: 5 } } },
-    p52: { id: 'p52', name: 'Pega Rata Mediana', code: 'RAT-002-U', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 0, min: 5 } } },
-    p53: { id: 'p53', name: 'Pega Rata Pequeña EL ZORRO', code: 'RAT-003-U', category: 'MEDICINAS', cost: 3.20, units: { unidad: { price: 0.00, stock: 11, min: 5 } } },
-    p54: { id: 'p54', name: 'Pollon Oro 10 ML FRASCO', code: 'ORO-VAR-M-011', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 8, min: 5 } } },
-    p55: { id: 'p55', name: 'Pollon Oro 30 ML FRASCO', code: 'ORO-VAR-M-010', category: 'MEDICINAS', cost: 7.20, units: { unidad: { price: 9.00, stock: 9, min: 5 } } },
-    p58: { id: 'p58', name: 'Trueno Plus 10 ML INYECTABLE', code: 'TRU-VAR-M-012', category: 'MEDICINAS', cost: 6.40, units: { unidad: { price: 8.00, stock: 2, min: 5 } } },
-    p59: { id: 'p59', name: 'Ubredol Max Spray 50 ML FRASCO', code: 'UBR-VAR-M-016', category: 'MEDICINAS', cost: 10.40, units: { unidad: { price: 13.00, stock: 2, min: 5 } } },
-    p60: { id: 'p60', name: 'Ungüento Ubrelina 200 GR', code: 'UNG-VAR-G-015', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 2, min: 5 } } },
-    p61: { id: 'p61', name: 'Tilox Antibiotico 15 GR POLVO', code: 'TIL-VAR-G-035', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 20, min: 5 } } },
-    p62: { id: 'p62', name: 'Sulfa-Sol +K 12 GR', code: 'SUL-VAR-G-033', category: 'MEDICINAS', cost: 4.00, units: { unidad: { price: 5.00, stock: 20, min: 5 } } },
-    p63: { id: 'p63', name: 'Pollon Premium Polvo Soluble', code: 'POL-VAR-U-009', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 18, min: 5 } } },
-    p64: { id: 'p64', name: 'Baytron (Cipermetrina 20%) 25 ml', code: 'BAY-VAR-M-030', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 5, min: 5 } } },
-    p65: { id: 'p65', name: 'Calmagine Inyectable 20 ML', code: 'CAL-VAR-M-026', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 1, min: 5 } } },
-    p66: { id: 'p66', name: 'Termometro Digital', code: 'TERM-001', category: 'MATERIALES Y EQUIPOS', cost: 16.00, units: { unidad: { price: 20.00, stock: 1, min: 2 } } },
-    p67: { id: 'p67', name: 'Destructor Parasitos 15 ML FRASCO', code: 'DES-VAR-M-025', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 6, min: 5 } } },
-    p68: { id: 'p68', name: 'Doxiovet Antibiotico 20 ML', code: 'DOX-VAR-M-023', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 2, min: 5 } } },
-    p69: { id: 'p69', name: 'Enro 10 120 ML FRASCO', code: 'ENR-VAR-M-017', category: 'MEDICINAS', cost: 32.00, units: { unidad: { price: 40.00, stock: 1, min: 5 } } },
-    p70: { id: 'p70', name: 'Enro 10 20 ML FRASCO', code: 'ENR-VAR-M-018', category: 'MEDICINAS', cost: 10.40, units: { unidad: { price: 13.00, stock: 0, min: 5 } } },
-    p71: { id: 'p71', name: 'Espectro Drog N (NEBULIZABLE)', code: 'ESP-VAR-U-029', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 9, min: 5 } } },
-    p72: { id: 'p72', name: 'Mata Todo 15 ML', code: 'MAT-VAR-M-024', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 2, min: 5 } } },
-    p73: { id: 'p73', name: 'Mata Todo 30 ML', code: 'MAT-VAR-M-023', category: 'MEDICINAS', cost: 7.20, units: { unidad: { price: 9.00, stock: 1, min: 5 } } },
-    p74: { id: 'p74', name: 'Rey Peluchin 30 ML SPRAY', code: 'REYP-VAR-M-031', category: 'MEDICINAS', cost: 8.00, units: { unidad: { price: 10.00, stock: 12, min: 5 } } },
-    p78: { id: 'p78', name: 'Trilox NF 15 ML', code: 'TRI-VAR-M-020', category: 'MEDICINAS', cost: 8.80, units: { unidad: { price: 11.00, stock: 5, min: 5 } } },
-    p79: { id: 'p79', name: 'Trilox NF 30 ML', code: 'TRI-VAR-M-019', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 6, min: 5 } } },
-    p82: { id: 'p82', name: 'VITAMICINA X 20 unidades', code: 'VIT-001-U', category: 'OTROS', cost: 1.60, units: { unidad: { price: 2.00, stock: 0, min: 5 } } },
-    p83: { id: 'p83', name: 'Pastisal Sal Mineral Desarrollo VERDE 1KG', code: 'PAS-003', category: 'INSUMOS', cost: 4.00, units: { 'balde 1kg': { price: 5.00, stock: 10, min: 2 } } },
-    p84: { id: 'p84', name: 'Pastisal Sal Mineral Leche ROJO 4KG', code: 'PAS-001', category: 'INSUMOS', cost: 12.00, units: { 'balde 4kg': { price: 15.00, stock: 2, min: 2 } } },
-    p85: { id: 'p85', name: 'Campana 1 Hornilla', code: 'CAM-U-001', category: 'MATERIALES Y EQUIPOS', cost: 200.00, units: { unidad: { price: 250.00, stock: 1, min: 2 } } },
-    p86: { id: 'p86', name: 'Campana 4 Hornilla', code: 'CAM-U-002', category: 'MATERIALES Y EQUIPOS', cost: 400.00, units: { unidad: { price: 500.00, stock: 1, min: 2 } } },
-    p87: { id: 'p87', name: 'CHICA VERANO 13 GRA', code: 'CHV-VAR-G-032', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 10, min: 5 } } },
-    p88: { id: 'p88', name: 'CB Forte (Complejo) 1 KG', code: 'CBF-VAR-K-005', category: 'MEDICINAS', cost: 56.00, units: { unidad: { price: 70.00, stock: 2, min: 5 } } },
-    p89: { id: 'p89', name: 'Chemi Stress POR SOBRE DE 100GR', code: 'CHE-VAR-U-027', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 3, min: 5 } } },
-    p90: { id: 'p90', name: 'Chemi Stress POR SOBRE DE  KG', code: 'CHE-VAR-U-028', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 2, min: 5 } } },
-    p91: { id: 'p91', name: 'Ganado Ternero II 3P 40KG', code: 'GAN-014-C', category: 'ALIMENTO BALANCEADO HARINA', cost: 75.00, units: { saco: { price: 100.00, stock: 0, min: 1 } } },
-    p93: { id: 'p93', name: 'Comedero Cuy ARSILLA CERÁMICA REDONDO', code: 'COM-U-016', category: 'MATERIALES Y EQUIPOS', cost: 5.60, units: { unidad: { price: 7.00, stock: 2, min: 2 } } },
-    p94: { id: 'p94', name: 'Comedero Cuy ARSILLA CERÁMICA RECTANGULAR', code: 'COM-U-017', category: 'MATERIALES Y EQUIPOS', cost: 5.60, units: { unidad: { price: 7.00, stock: 3, min: 2 } } },
-    p95: { id: 'p95', name: 'Complejo B Forte (Sobres)12 GR', code: 'COM-VAR-U-014', category: 'MEDICINAS', cost: 2.80, units: { unidad: { price: 3.50, stock: 23, min: 5 } } },
-    p96: { id: 'p96', name: 'Peluchin PLUS PULGUISIDA 20 GRA SOBRES', code: 'REYP-VAR-M-031', category: 'MEDICINAS', cost: 8.00, units: { unidad: { price: 10.00, stock: 50, min: 5 } } },
-    p100: { id: 'p100', name: 'Rey Peluchin 50 ML SHAMPOO', code: 'REYP-VAR-M-031', category: 'MEDICINAS', cost: 8.00, units: { unidad: { price: 10.00, stock: 0, min: 5 } } },
-    p101: { id: 'p101', name: 'SAL MINERAL Lecherita Blanco', code: 'LEC-001', category: 'INSUMOS', cost: 63.00, units: { 'balde 4kg': { price: 0.00, stock: 4, min: 2 } } },
-    p102: { id: 'p102', name: 'Mata Ratas (BIN LADINO) 10 ML', code: 'RAT-001-L', category: 'MEDICINAS', cost: 3.20, units: { unidad: { price: 4.00, stock: 19, min: 5 } } },
-    p103: { id: 'p103', name: 'CEBO Rata EL ZORRO 20 GRA SOBRES', code: 'RAT-003-U', category: 'MEDICINAS', cost: 3.20, units: { unidad: { price: 0.00, stock: 50, min: 5 } } },
-    p104: { id: 'p104', name: 'PELET Rata 15 GRA SOBRES', code: 'RAT-003-U', category: 'MEDICINAS', cost: 3.20, units: { unidad: { price: 0.00, stock: 9, min: 5 } } },
-    p105: { id: 'p105', name: 'Complejo B Forte (Sobres)100 GR', code: 'COM-VAR-U-003', category: 'MEDICINAS', cost: 2.80, units: { unidad: { price: 3.50, stock: 0, min: 5 } } },
-    
-    // --- Sal 50KG ---
-    p106_saco: { id: 'p106_saco', name: 'Sal (SACO)', code: 'INS-009-U-SACO', category: 'INSUMOS', cost: 50.00, units: { saco: { price: 60.00, stock: 0, min: 1 } } },
-    p106_kg: { id: 'p106_kg', name: 'Sal (POR KILO)', code: 'INS-009-U-KG', category: 'INSUMOS', units: { kg: { price: 2.00, stock: 13, min: 10, opensUnit: { productId: 'p106_saco', unitName: 'saco', quantity: 50 } } } },
-    
-    p107: { id: 'p107', name: 'Trueno Forte 10 ML INYECTABLE', code: 'TRU-VAR-M-013', category: 'MEDICINAS', cost: 7.20, units: { unidad: { price: 9.00, stock: 0, min: 5 } } },
-    p108: { id: 'p108', name: 'Trueno Forte 100 ML INYECTABLE', code: 'TRU-VAR-M-014', category: 'MEDICINAS', cost: 24.00, units: { unidad: { price: 30.00, stock: 0, min: 5 } } },
-    p109: { id: 'p109', name: 'SULFATRIM 20 ML FRASCO', code: 'SUL-VAR-M-008', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 1, min: 5 } } },
-    p110: { id: 'p110', name: 'Vanodine X 1LT', code: 'VAN-VAR-L-001', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 0, min: 5 } } },
-    p111: { id: 'p111', name: 'Vital Complejo B 30 ML', code: 'VIT-VAR-M-004', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 0, min: 5 } } }
-};
-        this.saveData();
+// --- Polvillo 28KG ---
+p18_saco: {
+    id: 'p18_saco', name: 'Polvillo (SACO 28KG)', code: 'INS-002-C-SACO', category: 'INSUMOS', cost: 21.00,
+    units: { saco: { price: 30.00, stock: 3, min: 1 } }
+},
+p18_kg: {
+    id: 'p18_kg', name: 'Polvillo (POR KILO)', code: 'INS-002-C-KG', category: 'INSUMOS',
+    units: { kg: { price: 1.50, stock: 7.34, min: 10, opensUnit: { productId: 'p18_saco', unitName: 'saco', quantity: 28 } } }
+},
+
+// --- Ricocan Multisabores 22KG ---
+p20_saco: {
+    id: 'p20_saco', name: 'Ricocan Multisabores (SACO 22KG)', code: 'MAS-002-C-SACO', category: 'MASCOTAS', cost: 124.00,
+    units: { saco: { price: 155.00, stock: 0, min: 1 } }
+},
+p20_kg: {
+    id: 'p20_kg', name: 'Ricocan Multisabores (POR KILO)', code: 'MAS-002-C-KG', category: 'MASCOTAS',
+    units: { kg: { price: 8.00, stock: 12.25, min: 5, opensUnit: { productId: 'p20_saco', unitName: 'saco', quantity: 22 } } }
+},
+
+p19: { id: 'p19', name: 'Atrapa Moscas Rodillo', code: 'ATR-VAR-U-006', category: 'MEDICINAS', cost: 0.80, units: { unidad: { price: 1.00, stock: 107, min: 5 } } },
+
+// --- Michicat Adulto 18KG ---
+p21_saco: { id: 'p21_saco', name: 'Michicat Adulto (SACO 18KG)', code: 'MAS-006-C-SACO', category: 'MASCOTAS', cost: 94.40, units: { saco: { price: 118.00, stock: 0, min: 1 } } },
+p21_kg: { id: 'p21_kg', name: 'Michicat Adulto (POR KILO)', code: 'MAS-006-C-KG', category: 'MASCOTAS', units: { kg: { price: 7.00, stock: 6.5, min: 5, opensUnit: { productId: 'p21_saco', unitName: 'saco', quantity: 18 } } } },
+
+// --- Nutrican Adulto 25KG ---
+p22_saco: { id: 'p22_saco', name: 'Nutrican Adulto (SACO 25KG)', code: 'MAS-005-C-SACO', category: 'MASCOTAS', cost: 120.00, units: { saco: { price: 150.00, stock: 0, min: 1 } } },
+p22_kg: { id: 'p22_kg', name: 'Nutrican Adulto (POR KILO)', code: 'MAS-005-C-KG', category: 'MASCOTAS', units: { kg: { price: 6.00, stock: 10.5, min: 5, opensUnit: { productId: 'p22_saco', unitName: 'saco', quantity: 25 } } } },
+
+// --- Zeus Adulto 25KG ---
+p23_saco: { id: 'p23_saco', name: 'Zeus Adulto (SACO 25KG)', code: 'MAS-003-C-SACO', category: 'MASCOTAS', cost: 80.00, units: { saco: { price: 100.00, stock: 0, min: 1 } } },
+p23_kg: { id: 'p23_kg', name: 'Zeus Adulto (POR KILO)', code: 'MAS-003-C-KG', category: 'MASCOTAS', units: { kg: { price: 5.00, stock: 12, min: 5, opensUnit: { productId: 'p23_saco', unitName: 'saco', quantity: 25 } } } },
+
+// --- Zeus Cachorro 25KG ---
+p24_saco: { id: 'p24_saco', name: 'Zeus Cachorro (SACO 25KG)', code: 'MAS-004-C-SACO', category: 'MASCOTAS', cost: 88.00, units: { saco: { price: 110.00, stock: 0, min: 1 } } },
+p24_kg: { id: 'p24_kg', name: 'Zeus Cachorro (POR KILO)', code: 'MAS-004-C-KG', category: 'MASCOTAS', units: { kg: { price: 5.00, stock: 10.5, min: 5, opensUnit: { productId: 'p24_saco', unitName: 'saco', quantity: 25 } } } },
+
+p25: { id: 'p25', name: 'Bebederos Medianos', code: 'BEB-U-002', category: 'MATERIALES Y EQUIPOS', cost: 9.60, units: { unidad: { price: 12.00, stock: 3, min: 2 } } },
+p26: { id: 'p26', name: 'Comederos Medianos', code: 'COM-U-002', category: 'MATERIALES Y EQUIPOS', cost: 12.80, units: { unidad: { price: 16.00, stock: 6, min: 2 } } },
+p27: { id: 'p27', name: 'Broncox D Sobres', code: 'BRO-VAR-U-002', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 11, min: 5 } } },
+p28: { id: 'p28', name: 'Churre Cura Heridas 30ml', code: 'CHU-VAR-U-001', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 12, min: 5 } } },
+
+// --- Arroz Chancado 50KG ---
+p29_saco: { id: 'p29_saco', name: 'Arroz Chancado (SACO 50 KG)', code: 'INS-001-C-SACO', category: 'INSUMOS', cost: 80.00, units: { saco: { price: 100.00, stock: 0, min: 1 } } },
+p29_kg: { id: 'p29_kg', name: 'Arroz Chancado (POR KILO)', code: 'INS-001-C-KG', category: 'INSUMOS', units: { kg: { price: 2.00, stock: 8.71, min: 10, opensUnit: { productId: 'p29_saco', unitName: 'saco', quantity: 50 } } } },
+
+// --- Maiz Chancado Grueso 45KG ---
+p30_saco: { id: 'p30_saco', name: 'Maiz Chancado Grueso (SACO 45KG)', code: 'INS-006-C-SACO', category: 'INSUMOS', cost: 63.00, units: { saco: { price: 90.00, stock: 5, min: 1 } } },
+p30_kg: { id: 'p30_kg', name: 'Maiz Chancado Grueso (POR KILO)', code: 'INS-006-C-KG', category: 'INSUMOS', units: { kg: { price: 2.50, stock: 35.82, min: 10, opensUnit: { productId: 'p30_saco', unitName: 'saco', quantity: 45 } } } },
+
+// --- Maiz Molido FINO 45KG ---
+p31_saco: { id: 'p31_saco', name: 'Maiz Molido FINO (SACO 45KG)', code: 'INS-004-C-SACO', category: 'INSUMOS', cost: 63.00, units: { saco: { price: 80.00, stock: 1, min: 1 } } },
+p31_kg: { id: 'p31_kg', name: 'Maiz Molido FINO (POR KILO)', code: 'INS-004-C-KG', category: 'INSUMOS', units: { kg: { price: 2.50, stock: 0, min: 10, opensUnit: { productId: 'p31_saco', unitName: 'saco', quantity: 45 } } } },
+
+// --- Maiz Chancado Refinado 45KG --- (PRODUCTO NUEVO)
+p32_saco: { id: 'p32_saco', name: 'Maiz Chancado Refinado (SACO 45KG)', code: 'INS-005-C-SACO', category: 'INSUMOS', cost: 63.00, units: { saco: { price: 90.00, stock: 0, min: 1 } } },
+p32_kg: { id: 'p32_kg', name: 'Maiz Chancado Refinado (POR KILO)', code: 'INS-005-C-KG', category: 'INSUMOS', units: { kg: { price: 2.50, stock: 44.5, min: 10, opensUnit: { productId: 'p32_saco', unitName: 'saco', quantity: 45 } } } },
+
+// --- Torta de Soya 50KG ---
+p34_saco: { id: 'p34_saco', name: 'Torta de Soya (SACO 50 KG)', code: 'INS-008-C-SACO', category: 'INSUMOS', cost: 140.00, units: { saco: { price: 175.00, stock: 0, min: 1 } } },
+p34_kg: { id: 'p34_kg', name: 'Torta de Soya (POR KILO)', code: 'INS-008-C-KG', category: 'INSUMOS', units: { kg: { price: 3.50, stock: 0, min: 10, opensUnit: { productId: 'p34_saco', unitName: 'saco', quantity: 50 } } } },
+
+// --- Cerdo Engorde Harina 3P 40KG ---
+p35_saco: { id: 'p35_saco', name: 'Cerdo Engorde Harina 3P (SACO 40KG)', code: 'CER-001-C-SACO', category: 'ALIMENTO BALANCEADO HARINA', cost: 60.00, units: { saco: { price: 90.00, stock: 0, min: 1 } } },
+p35_kg: { id: 'p35_kg', name: 'Cerdo Engorde Harina 3P (POR KILO)', code: 'CER-001-C-KG', category: 'ALIMENTO BALANCEADO HARINA', units: { kg: { price: 2.50, stock: 23.41, min: 15, opensUnit: { productId: 'p35_saco', unitName: 'saco', quantity: 40 } } } },
+
+p39: { id: 'p39', name: 'Ganado Engorde 3P 40KG', code: 'GAN-002-C', category: 'ALIMENTO BALANCEADO HARINA', cost: 65.00, units: { saco: { price: 85.00, stock: 2, min: 1 } } },
+p40: { id: 'p40', name: 'Ganado Lechero 3P 40K', code: 'GAN-001-C', category: 'ALIMENTO BALANCEADO HARINA', cost: 65.00, units: { saco: { price: 95.00, stock: 0, min: 1 } } },
+p41: { id: 'p41', name: 'Ganado Ternero I 3P 40KG', code: 'GAN-003-C', category: 'ALIMENTO BALANCEADO HARINA', cost: 75.00, units: { saco: { price: 105.00, stock: 1, min: 1 } } },
+
+// --- Ricocan Clasicos Multisabores 15KG ---
+p42_saco: { id: 'p42_saco', name: 'Ricocan Clasicos Multisabores (SACO 15KG)', code: 'MAS-001-C-SACO', category: 'MASCOTAS', cost: 60.00, units: { saco: { price: 75.00, stock: 1, min: 1 } } },
+p42_kg: { id: 'p42_kg', name: 'Ricocan Clasicos Multisabores (POR KILO)', code: 'MAS-001-C-KG', category: 'MASCOTAS', units: { kg: { price: 5.00, stock: 0, min: 5, opensUnit: { productId: 'p42_saco', unitName: 'saco', quantity: 15 } } } },
+
+p43: { id: 'p43', name: 'Comedero Bandeja Grande', code: 'COM-U-004', category: 'MATERIALES Y EQUIPOS', cost: 16.00, units: { unidad: { price: 20.00, stock: 2, min: 2 } } },
+p44: { id: 'p44', name: 'Comedero Cuy BASE METAL', code: 'COM-U-005', category: 'MATERIALES Y EQUIPOS', cost: 5.60, units: { unidad: { price: 7.00, stock: 3, min: 2 } } },
+p45: { id: 'p45', name: 'Comederos Chicos', code: 'COM-U-001', category: 'MATERIALES Y EQUIPOS', cost: 7.20, units: { unidad: { price: 9.00, stock: 1, min: 2 } } },
+p46: { id: 'p46', name: 'Comederos Grandes', code: 'COM-U-003', category: 'MATERIALES Y EQUIPOS', cost: 16.00, units: { unidad: { price: 20.00, stock: 4, min: 2 } } },
+p47: { id: 'p47', name: 'Plato Pega Mosca', code: 'PPEGMOSC-001', category: 'MEDICINAS', cost: 2.00, units: { unidad: { price: 2.50, stock: 75, min: 5 } } },
+p51: { id: 'p51', name: 'Pega Rata Grande', code: 'RAT-001-U', category: 'MEDICINAS', cost: 6.40, units: { unidad: { price: 8.00, stock: 9, min: 5 } } },
+p52: { id: 'p52', name: 'Pega Rata Mediana', code: 'RAT-002-U', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 0, min: 5 } } },
+p53: { id: 'p53', name: 'Pega Rata Pequeña EL ZORRO', code: 'RAT-003-U', category: 'MEDICINAS', cost: 3.20, units: { unidad: { price: 0.00, stock: 11, min: 5 } } },
+p54: { id: 'p54', name: 'Pollon Oro 10 ML FRASCO', code: 'ORO-VAR-M-011', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 8, min: 5 } } },
+p55: { id: 'p55', name: 'Pollon Oro 30 ML FRASCO', code: 'ORO-VAR-M-010', category: 'MEDICINAS', cost: 7.20, units: { unidad: { price: 9.00, stock: 9, min: 5 } } },
+p58: { id: 'p58', name: 'Trueno Plus 10 ML INYECTABLE', code: 'TRU-VAR-M-012', category: 'MEDICINAS', cost: 6.40, units: { unidad: { price: 8.00, stock: 2, min: 5 } } },
+p59: { id: 'p59', name: 'Ubredol Max Spray 50 ML FRASCO', code: 'UBR-VAR-M-016', category: 'MEDICINAS', cost: 10.40, units: { unidad: { price: 13.00, stock: 2, min: 5 } } },
+p60: { id: 'p60', name: 'Ungüento Ubrelina 200 GR', code: 'UNG-VAR-G-015', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 2, min: 5 } } },
+p61: { id: 'p61', name: 'Tilox Antibiotico 15 GR POLVO', code: 'TIL-VAR-G-035', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 19, min: 5 } } },
+p62: { id: 'p62', name: 'Sulfa-Sol +K 12 GR', code: 'SUL-VAR-G-033', category: 'MEDICINAS', cost: 4.00, units: { unidad: { price: 5.00, stock: 20, min: 5 } } },
+p63: { id: 'p63', name: 'Pollon Premium Polvo Soluble', code: 'POL-VAR-U-009', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 17, min: 5 } } },
+p64: { id: 'p64', name: 'Baytron (Cipermetrina 20%) 25 ml', code: 'BAY-VAR-M-030', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 5, min: 5 } } },
+p65: { id: 'p65', name: 'Calmagine Inyectable 20 ML', code: 'CAL-VAR-M-026', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 1, min: 5 } } },
+p66: { id: 'p66', name: 'Termometro Digital', code: 'TERM-001', category: 'MATERIALES Y EQUIPOS', cost: 16.00, units: { unidad: { price: 20.00, stock: 1, min: 2 } } },
+p67: { id: 'p67', name: 'Destructor Parasitos 15 ML FRASCO', code: 'DES-VAR-M-025', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 6, min: 5 } } },
+p68: { id: 'p68', name: 'Doxiovet Antibiotico 20 ML', code: 'DOX-VAR-M-023', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 2, min: 5 } } },
+p69: { id: 'p69', name: 'Enro 10 120 ML FRASCO', code: 'ENR-VAR-M-017', category: 'MEDICINAS', cost: 32.00, units: { unidad: { price: 40.00, stock: 1, min: 5 } } },
+p70: { id: 'p70', name: 'Enro 10 20 ML FRASCO', code: 'ENR-VAR-M-018', category: 'MEDICINAS', cost: 10.40, units: { unidad: { price: 13.00, stock: 4, min: 5 } } },
+p71: { id: 'p71', name: 'Espectro Drog N (NEBULIZABLE)', code: 'ESP-VAR-U-029', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 9, min: 5 } } },
+p72: { id: 'p72', name: 'Mata Todo 15 ML', code: 'MAT-VAR-M-024', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 2, min: 5 } } },
+p73: { id: 'p73', name: 'Mata Todo 30 ML', code: 'MAT-VAR-M-023', category: 'MEDICINAS', cost: 7.20, units: { unidad: { price: 9.00, stock: 1, min: 5 } } },
+p74: { id: 'p74', name: 'Rey Peluchin 30 ML SPRAY', code: 'REYP-VAR-M-031', category: 'MEDICINAS', cost: 8.00, units: { unidad: { price: 10.00, stock: 12, min: 5 } } },
+p78: { id: 'p78', name: 'Trilox NF 15 ML', code: 'TRI-VAR-M-020', category: 'MEDICINAS', cost: 8.80, units: { unidad: { price: 11.00, stock: 5, min: 5 } } },
+p79: { id: 'p79', name: 'Trilox NF 30 ML', code: 'TRI-VAR-M-019', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 6, min: 5 } } },
+p82: { id: 'p82', name: 'VITAMICINA X 20 unidades', code: 'VIT-001-U', category: 'OTROS', cost: 1.60, units: { unidad: { price: 2.00, stock: 5, min: 5 } } },
+p83: { id: 'p83', name: 'Pastisal Sal Mineral Desarrollo VERDE 1KG', code: 'PAS-003', category: 'INSUMOS', cost: 4.00, units: { 'balde 1kg': { price: 5.00, stock: 10, min: 2 } } },
+p84: { id: 'p84', name: 'Pastisal Sal Mineral Leche ROJO 4KG', code: 'PAS-001', category: 'INSUMOS', cost: 12.00, units: { 'balde 4kg': { price: 15.00, stock: 2, min: 2 } } },
+p85: { id: 'p85', name: 'Campana 1 Hornilla', code: 'CAM-U-001', category: 'MATERIALES Y EQUIPOS', cost: 200.00, units: { unidad: { price: 250.00, stock: 1, min: 2 } } },
+p86: { id: 'p86', name: 'Campana 4 Hornilla', code: 'CAM-U-002', category: 'MATERIALES Y EQUIPOS', cost: 400.00, units: { unidad: { price: 500.00, stock: 1, min: 2 } } },
+p87: { id: 'p87', name: 'CHICA VERANO 13 GRA', code: 'CHV-VAR-G-032', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 10, min: 5 } } },
+p88: { id: 'p88', name: 'CB Forte (Complejo) 1 KG', code: 'CBF-VAR-K-005', category: 'MEDICINAS', cost: 56.00, units: { unidad: { price: 70.00, stock: 2, min: 5 } } },
+p89: { id: 'p89', name: 'Chemi Stress POR SOBRE DE 100GR', code: 'CHE-VAR-U-027', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 3, min: 5 } } },
+p90: { id: 'p90', name: 'Chemi Stress POR SOBRE DE  KG', code: 'CHE-VAR-U-028', category: 'MEDICINAS', cost: 12.00, units: { unidad: { price: 15.00, stock: 2, min: 5 } } },
+p91: { id: 'p91', name: 'Ganado Ternero II 3P 40KG', code: 'GAN-014-C', category: 'ALIMENTO BALANCEADO HARINA', cost: 75.00, units: { saco: { price: 100.00, stock: 0, min: 1 } } },
+p93: { id: 'p93', name: 'Comedero Cuy ARSILLA CERÁMICA REDONDO', code: 'COM-U-016', category: 'MATERIALES Y EQUIPOS', cost: 5.60, units: { unidad: { price: 7.00, stock: 1, min: 2 } } },
+p94: { id: 'p94', name: 'Comedero Cuy ARSILLA CERÁMICA RECTANGULAR', code: 'COM-U-017', category: 'MATERIALES Y EQUIPOS', cost: 5.60, units: { unidad: { price: 7.00, stock: 2, min: 2 } } },
+p95: { id: 'p95', name: 'Complejo B Forte (Sobres)12 GR', code: 'COM-VAR-U-014', category: 'MEDICINAS', cost: 2.80, units: { unidad: { price: 3.50, stock: 23, min: 5 } } },
+p96: { id: 'p96', name: 'Peluchin PLUS PULGUISIDA 20 GRA SOBRES', code: 'REYP-VAR-M-031', category: 'MEDICINAS', cost: 8.00, units: { unidad: { price: 10.00, stock: 50, min: 5 } } },
+p100: { id: 'p100', name: 'Rey Peluchin 50 ML SHAMPOO', code: 'REYP-VAR-M-031', category: 'MEDICINAS', cost: 8.00, units: { unidad: { price: 10.00, stock: 0, min: 5 } } },
+p101: { id: 'p101', name: 'SAL MINERAL Lecherita Blanco', code: 'LEC-001', category: 'INSUMOS', cost: 63.00, units: { 'balde 4kg': { price: 0.00, stock: 4, min: 2 } } },
+p102: { id: 'p102', name: 'Mata Ratas (BIN LADINO) 10 ML', code: 'RAT-001-L', category: 'MEDICINAS', cost: 3.20, units: { unidad: { price: 4.00, stock: 19, min: 5 } } },
+p103: { id: 'p103', name: 'CEBO Rata EL ZORRO 20 GRA SOBRES', code: 'RAT-003-U', category: 'MEDICINAS', cost: 3.20, units: { unidad: { price: 0.00, stock: 50, min: 5 } } },
+p104: { id: 'p104', name: 'PELET Rata 15 GRA SOBRES', code: 'RAT-003-U', category: 'MEDICINAS', cost: 3.20, units: { unidad: { price: 0.00, stock: 9, min: 5 } } },
+p105: { id: 'p105', name: 'Complejo B Forte (Sobres)100 GR', code: 'COM-VAR-U-003', category: 'MEDICINAS', cost: 2.80, units: { unidad: { price: 3.50, stock: 0, min: 5 } } },
+
+// --- Sal 50KG ---
+p106_saco: { id: 'p106_saco', name: 'Sal (SACO)', code: 'INS-009-U-SACO', category: 'INSUMOS', cost: 50.00, units: { saco: { price: 60.00, stock: 0, min: 1 } } },
+p106_kg: { id: 'p106_kg', name: 'Sal (POR KILO)', code: 'INS-009-U-KG', category: 'INSUMOS', units: { kg: { price: 2.00, stock: 13, min: 10, opensUnit: { productId: 'p106_saco', unitName: 'saco', quantity: 50 } } } },
+
+p107: { id: 'p107', name: 'Trueno Forte 10 ML INYECTABLE', code: 'TRU-VAR-M-013', category: 'MEDICINAS', cost: 7.20, units: { unidad: { price: 9.00, stock: 0, min: 5 } } },
+p108: { id: 'p108', name: 'Trueno Forte 100 ML INYECTABLE', code: 'TRU-VAR-M-014', category: 'MEDICINAS', cost: 24.00, units: { unidad: { price: 30.00, stock: 0, min: 5 } } },
+p109: { id: 'p109', name: 'SULFATRIM 20 ML FRASCO', code: 'SUL-VAR-M-008', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 1, min: 5 } } },
+p110: { id: 'p110', name: 'Vanodine X 1LT', code: 'VAN-VAR-L-001', category: 'MEDICINAS', cost: 16.00, units: { unidad: { price: 20.00, stock: 0, min: 5 } } },
+p111: { id: 'p111', name: 'Vital Complejo B 30 ML', code: 'VIT-VAR-M-004', category: 'MEDICINAS', cost: 4.80, units: { unidad: { price: 6.00, stock: 0, min: 5 } } }
+        };
+
+this.saveData();
     }
 
     initUI() {
